@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %}{{ block.super }} - プログラミングのメモや備忘録、チュートリアル{% endblock %}
+
+{% block content %}
+    <form action="" method="POST" id="comment-form">
+        {% for field in form %}
+            <div class="field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="helptext">{{ field.help_text }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% csrf_token %}
+        <div class="field">
+            <button type="submit">送信</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_css %}
+    <!-- コードシンタックス、css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/dracula.min.css">
+{% endblock %}
+
+{% block extra_js %}
+    <!-- コードシンタックス、js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>
+        for (const textarea of document.getElementsByTagName('textarea')) {
+            textarea.addEventListener('blur', e => {
+                for (const block of document.querySelectorAll('pre code')) {
+                    hljs.highlightBlock(block);
+                }
+            });
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <meta name="keywords" content="{% block keywords %}プログラミング,ブログ,Python,Django{% endblock %}">
+    <meta name="description" content="{% block description %}プログラミングについてのブログやチュートリアル、その他いろいろなサイトです。Python/Djangoが多めです。{% endblock %}">
+    <title>{% block title %}Narito{% endblock %}</title>
+
+    <!-- アドセンス自動広告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-5235456993770661",
+              enable_page_level_ads: true
+         });
+    </script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portal/style.css' %}">
+    {% block extra_css %}{% endblock %}
+
+</head>
+<body>
+<header><a class="orange-link" href="{% url 'portal:top' %}">Narito</a></header>
+
+<nav id="site-nav">
+    <ul>
+        <li><a class="orange-link" href="{% url 'portal:top' %}">TOP</a></li>
+        <li><a class="orange-link" href="/blog/">BLOG</a></li>
+    </ul>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+    © Narito Takizawa
+</footer>
+
+{% block extra_js %}{% endblock %}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72333380-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-72333380-3');
+</script>
+
+</body>
+</html>

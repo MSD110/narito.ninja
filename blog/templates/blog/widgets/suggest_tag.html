@@ -1,0 +1,20 @@
+<input type="text" id="{{ widget.name }}-input" class="tag-suggest" data-url="{% url 'blog:ajax_get_tags' %}"
+       data-target="{{ widget.name }}" autocomplete="off">
+
+<ul id="{{ widget.name }}-list" class="dropdown"></ul>
+
+<div id="{{ widget.name }}-display">
+    {% for group, options, index in widget.optgroups %}
+        {% for option in options %}
+            {% if option.selected %}
+                <span class="tag" data-target="{{ widget.name }}" data-pk="{{ option.value }}">{{ option.label }}<span class="tag-close close"></span></span>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<div id="{{ widget.name }}-values">
+    {% for value in widget.value %}
+        <input type="hidden" name="{{ widget.name }}" value="{{ value }}">
+    {% endfor %}
+</div>

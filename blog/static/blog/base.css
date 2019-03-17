@@ -1,0 +1,411 @@
+@charset "UTF-8";
+
+/* 基本設定 */
+* {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+code {
+    color: #ff0000;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+pre, code {
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+ul ul {
+    padding-left: 10px;
+}
+
+/* ブログページ全体の基本設定とグリッド設定 */
+body {
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
+    font-family: "Noto Sans JP";
+
+    /* グリッド設定 */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+
+/* ヘッダー */
+body > header {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 40px;
+    text-align: center;
+}
+
+body > header > a {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    color: #000000;
+}
+
+body > header > ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    grid-column-gap: 20px;
+    column-gap: 20px;
+}
+
+/* メインコンテンツ */
+main {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 40px;
+}
+
+/* お知らせ欄 */
+div#notify {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    height: 40px;
+    text-align: center;
+}
+
+/* ナビゲーション */
+.page-btn-close {
+    display: none;
+}
+
+.page-btn, .page-btn-close {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
+    padding: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+body.open .page-btn {
+    display: none;
+}
+
+body.open .page-btn-close {
+    display: block;
+}
+
+/* フッター */
+body > footer {
+    grid-column: 1;
+    grid-row: 3;
+
+    display: grid;
+    grid-auto-flow: row;
+    font-size: 10px;
+    padding: 40px;
+}
+
+body > footer > ul {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 40px;
+    column-gap: 40px;
+
+    justify-self: center;
+    align-self: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+body > footer > ul a {
+    font-size: 20px;
+}
+
+body > footer > ul a:hover {
+    opacity: 0.3;
+}
+
+body > footer > p {
+    font-family: 'Lobster', cursive;
+    justify-self: center;
+    font-size: 16px;
+}
+
+.fa-hatena:before {
+    content: "B!";
+    font-weight: bold;
+    font-family: Verdana;
+    font-style: initial;
+}
+
+a.facebook {
+    color:#3B5998;
+}
+
+a.twitter {
+    color:#55acee;
+}
+
+a.hatena {
+    color: #008fde;
+}
+
+a.rss {
+    color: #ff8c00;
+}
+
+
+/* 記事一覧 */
+article.post-list > h2,
+article.post-list > h3 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+
+article.post-list > time {
+    font-size: 12px;
+}
+
+article.post-list > span {
+    margin: 0 5px 0 0;
+    font-size: 12px;
+}
+
+/* 記事やコメント欄、プレビューエリアの汎用的な設定 */
+.markdown-body > h2 {
+    font-size: 30px;
+    font-weight: normal;
+    margin-top: 100px;
+  color: #6594e0;/*文字色*/
+  /*線の種類（点線）2px 線色*/
+  border-bottom: dashed 2px #6594e0;
+}
+
+.markdown-body > h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 50px;
+  color: #6594e0;/*文字色*/
+  /*線の種類（点線）2px 線色*/
+  border-bottom: dashed 2px #6594e0;
+}
+
+.markdown-body > p {
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+/* h2やh3の次の要素は、上の余白を少なく */
+.markdown-body > h2 + *,
+.markdown-body > h3 + * {
+    margin-top: 5px;
+}
+
+/* 引用部分 */
+.markdown-body blockquote {
+    quotes: '“' '”';
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+
+}
+
+.markdown-body blockquote::before {
+    content: open-quote;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.markdown-body blockquote > p {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.markdown-body blockquote::after {
+    content: close-quote;
+    grid-row: 3;
+    grid-column: 3;
+}
+
+.markdown-body blockquote::before,
+.markdown-body blockquote::after {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ボックス Bulmaのboxと同じ */
+.box {
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+    padding: 1.25rem;
+}
+
+/* フォームの基本設定 */
+div.field {
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+div.field span.helptext::before {
+    content: "※";
+}
+
+div.field input[type="text"],
+div.field input[type="email"],
+div.field input[type="number"],
+div.field select,
+div.field textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-style: groove;
+    font-size: 12px;
+}
+
+div.field button[type="submit"],
+div.field button[type="button"] {
+    -webkit-appearance: none;
+    padding: 5px 40px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: groove;
+    font-size: 12px;
+}
+
+div.field button[type="submit"]:hover,
+div.field button[type="button"]:hover {
+    opacity: 0.5;
+}
+
+div.field ul.dropdown {
+    display: none;
+    list-style-type: none;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+div.field ul.dropdown li {
+    margin: 3px;
+    cursor: pointer;
+}
+
+div.field ul.dropdown li:hover {
+    background-color: #dddddd;
+}
+
+/* タグ */
+.tag {
+    padding: 2px 4px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 10px;
+}
+
+/* タグの×閉じ部分 */
+.close {
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    vertical-align: bottom;
+    width: 20px;
+
+}
+
+.close::before, .close::after {
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    background-color: #000000;
+}
+
+.close::before {
+    height: 2px;
+    width: 50%;
+
+}
+
+.close::after {
+    height: 50%;
+    width: 2px;
+}
+
+
+/* ========== 画面の横幅1260px以上 ========= */
+@media (min-width: 1200px) {
+    body {
+        grid-template-columns: 200px 1fr;
+    }
+
+    /* ヘッダー */
+    body > header {
+        padding: 40px 10px;
+    }
+
+    /* メインコンテンツ */
+    body > main {
+        grid-column: 2;
+        grid-row: 1 / -1;
+    }
+
+    /* ナビゲーション */
+    .page-btn {
+        display: none;
+    }
+
+    body > footer {
+        padding: 40px 10px;
+    }
+
+    body > footer > ul {
+        grid-column-gap: 20px;
+        column-gap: 20px;
+    }
+}
+
+/* 767px以下、スマートフォンサイズ */
+@media (max-width: 767px) {
+    main {
+        padding: 10px;
+    }
+
+    body > footer {
+        padding: 10px;
+    }
+}
+
+/* 1000px以上 */
+@media (min-width: 1000px) {
+    main {
+        width: 1000px;
+    }
+}

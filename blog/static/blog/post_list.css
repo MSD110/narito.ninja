@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/* メインコンテンツの設定 */
+main {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr) auto;
+}
+
+
+/* ページネーション */
+nav.page {
+    grid-row: 11;
+}
+
+nav.page > ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+nav.page li {
+    float: left;
+    margin-top: 5px;
+    margin-right: 40px;
+}
+
+nav.page > ul > li > span {
+    display: block;
+    font-size: 20px;
+}
+
+nav.page > ul > li > a {
+    display: block;
+    font-size: 20px;
+}
+
+/* 検索フォーム */
+aside#search {
+    display: none;
+    padding: 10px;
+    grid-column: 1;
+    grid-row: 2;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9)
+}
+
+body.open > aside#search {
+    display: block;
+}
+
+
+/* 767px以下、スマートフォンサイズ */
+@media (max-width: 767px) {
+    main {
+        display: block;
+    }
+
+    main > article {
+        margin-bottom: 40px;
+    }
+
+    main > article > h2 {
+        font-size: 16px;
+    }
+
+    main > article > time {
+        font-size: 10px;
+    }
+
+    main > article > span {
+        font-size: 10px;
+    }
+
+    nav.page > ul > li > span {
+        font-size: 16px;
+    }
+
+    nav.page > ul > li > a {
+        font-size: 16px;
+    }
+}
+
+/* ========== 画面の横幅1260px以上 ========= */
+@media (min-width: 1200px) {
+    /* 検索フォーム */
+    aside#search {
+        display: block;
+    }
+}

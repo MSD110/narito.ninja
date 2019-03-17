@@ -1,0 +1,106 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% load blog %}
+
+{% block title %}{{ block.super }} - プログラミングについての色々なサイト{% endblock %}
+
+{% block content %}
+    <figure id="hero">
+        <img src="{% static 'portal/hero.jpeg' %}" alt="このサイトはPython/Djangoで作成されました">
+    </figure>
+
+    <h1>このサイトは<br>Python/Django<br>で作成されました</h1>
+
+    <p id="subtitle">
+        <a class="orange-button" href="https://github.com/naritotakizawa/narito.ninja/" rel="nofollow" target="_blank">ソースコードを見る</a>
+    </p>
+
+    <section id="about-me">
+        <h2>About Me</h2>
+        <p>プロフィールや作ったもの等について</p>
+        <section>
+            <h3>Profile</h3>
+            <table>
+                <tr>
+                    <th>氏名</th>
+                    <td>Narito Takizawa</td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td><a href="mailto:toritoritorina@gmail.com" rel="nofollow">toritoritorina@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <th>地域</th>
+                    <td>北海道札幌市</td>
+                </tr>
+                <tr>
+                    <th>生年月日</th>
+                    <td>1990年2月27日</td>
+                </tr>
+                <tr>
+                    <th>好きな技術</th>
+                    <td>
+                        Python, Django, HTML・CSS・JavaScript
+                    </td>
+                </tr>
+                <tr>
+                    <th>SNS</th>
+                    <td>
+                        <a class="twitter" href="https://twitter.com/toritoritorina" target="_blank" title="Twitter"><i
+                                class="fab fa-twitter-square fa-2x"></i></a>
+                        <a class="facebook" href="https://www.facebook.com/toritoritorina" target="_blank"
+                           title="Facebookページ"><i class="fab fa-facebook-square fa-2x"></i></a>
+                        <a class="github" href="https://github.com/naritotakizawa" target="_blank" title="Githubページ"><i
+                                class="fab fa-github fa-2x"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>自己紹介</th>
+                    <td>フリーランスのエンジニアをしています。<br>最近はUdemyやShareWiz等を利用して動画でのプログラミング学習講座を出したり、本を書いたり、プログラミングの個別レッスン等をしています。
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Public Service</h3>
+            <table>
+                <tr>
+                    <th>書籍関連</th>
+                    <td>
+                        <a href="http://www.cutt.co.jp/book/978-4-87783-837-9.html" rel="nofollow">Python［基礎編］ワークブック</a><br>
+                        <a href="http://www.cutt.co.jp/book/978-4-87783-806-5.html" rel="nofollow">留学生のためのPython［基礎編］ワークブック
+                            ルビ付き</a><br>
+                    </td>
+                </tr>
+                <tr>
+                    <th>動画</th>
+                    <td>
+                        <a href="https://www.udemy.com/pythondjango-a/learn/v4/overview" rel="nofollow">Python/Django入門講座(Udemy版)</a><br>
+                        <a href="https://share-wis.com/courses/django-python-web" rel="nofollow">Python/Django入門講座(ShareWis版)</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ウェブサイト</th>
+                    <td><a href="https://narito.ninja/blog/">Narito Blog - プログラミングのメモや備忘録、チュートリアル</a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>Other</h3>
+            <table>
+                <tr>
+                    <th>各種リンク</th>
+                    <td>
+                        <a href="http://www.amazon.co.jp/registry/wishlist/2ZCE9KHVM7FRA/ref=cm_sw_r_tw_ws_f.aTzbDCX47K6" rel="nofollow" target="_blank">Amazon欲しいものリスト</a><br>
+                        <a href="https://www.amazon.co.jp/gp/profile/amzn1.account.AGTGNAWPJUIZH5QTUTN4USFNSO5Q/ref=cm_cr_dp_d_gw_tr?ie=UTF8" rel="nofollow" target="_blank">Amazon書籍レビュー</a><br>
+                         <a href="https://torina.top/" rel="nofollow" target="_blank">旧サイト</a>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+    </section>
+
+{% endblock %}

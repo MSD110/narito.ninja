@@ -1,0 +1,169 @@
+{% extends 'blog/base.html' %}
+{% load blog %}
+{% load static %}
+{% block title %}{{ post.title }} | {{ block.super }}{% endblock %}
+{% block description %}{{ post.description }}{% endblock %}
+{% block keywords %}{{ post.keywords }}{% endblock %}
+
+{% block side %}
+<nav id="toc"></nav>
+{% endblock %}
+
+{% block content %}
+    <article id="detail">
+        {% if user.is_authenticated %}
+            <h1><a href="{% url 'blog:post_update' post.pk %}">{{ post.title }}</a></h1>
+        {% else %}
+            <h1>{{ post.title }}</h1>
+        {% endif %}
+
+        <time datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.updated_at | date:'Y-m-d' }}</time> - {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
+        <ul class="sns">
+            <li>
+                <a class="twitter" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}&text={{ post.title }} - NARITO BLOG"
+                   target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+                <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank"><i
+                        class="fab fa-facebook"></i></a>
+            </li>
+
+            <li>
+                <a class="hatena" href="http://b.hatena.ne.jp/entry/{{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank"
+                   rel="nofollow"><i
+                        class="fa-hatena"></i></a>
+            </li>
+        </ul>
+
+        <div class="markdown-body">
+            {{ post.text | markdown_to_html | safe }}
+        </div>
+    </article>
+
+    <aside>
+        <h2>広告</h2>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5235456993770661"
+             data-ad-slot="2942976583"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </aside>
+
+    <aside id="relation-posts">
+        <h2>関連記事一覧</h2>
+        {% for post in post.relation_posts.all %}
+            <article class="post-list">
+                <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>
+                <time datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.updated_at | date:'Y-m-d' }}</time> - {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
+            </article>
+        {% endfor %}
+    </aside>
+
+    <aside id="comment">
+        <!-- コメント一覧 -->
+        <h2>コメント一覧</h2>
+        <p><a href="{% url 'blog:comment_create' post.pk %}" target="_blank" rel="nofollow">記事にコメントする</a>
+            {% for comment in post.comment_set.all %}
+                <div class="box markdown-body">
+                    {{ comment.name }}
+                    <time datetime="{{ comment.created_at | date:'Y-m-d' }}"><i class="far fa-clock" aria-hidden="true"></i> {% by_the_time comment.created_at %}</time>
+
+                    {{ comment.text | markdown_to_html | safe }}
+
+                <p>
+                    <a href="{% url 'blog:reply_create' comment.pk %}" target="_blank"
+                       rel="nofollow">コメントに返信する</a>
+                </p>
+
+                <!-- リプライ一覧 -->
+                {% for reply in comment.reply_set.all %}
+                    <div class="box markdown-body">
+                        {{ reply.name }}
+                        <time datetime="{{ reply.created_at | date:'Y-m-d' }}"><i class="far fa-clock" aria-hidden="true"></i> {% by_the_time reply.created_at %}</time>
+                        <div class="markdown-body">
+                            {{ reply.text | markdown_to_html | safe }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- リプライ一覧終わり -->
+
+                </div>
+
+            {% endfor %}
+        <!-- コメント一覧終わり -->
+    </aside>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/post_detail.css' %}">
+    <!-- コードシンタックス、css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/dracula.min.css">
+{% endblock %}
+
+{% block extra_js %}
+    <!-- コードシンタックス、js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        // 記事内目次のコンテナ
+        const divToc = document.querySelector('article#detail > div.markdown-body > div.toc');
+
+        // 記事内目次
+        const tocUl = divToc.querySelector(':scope > ul');
+
+        // 記事内目次をコピー
+        const copyTocUl = tocUl.cloneNode(true);
+
+        // 目次が存在していれば
+        if (copyTocUl) {
+            document.getElementById('toc').appendChild(copyTocUl);
+
+            window.addEventListener('scroll', e => {
+                // [[summary, 100]. [about-python, 200]]のような、id名, yの絶対座標な配列
+                const headings = [];
+                for (const element of document.querySelectorAll('article#detail  > div.markdown-body > h2, article#detail > div.markdown-body > h3')) {
+                    const rect = element.getBoundingClientRect();
+                    headings.push([element.id, window.pageYOffset + rect.top]);
+                }
+                // 配列を逆にしておく。
+                headings.reverse();
+
+                // [[#summary, a要素], [#about-python, a要素]]のような配列。
+                const anchors = [];
+                for (const a of document.querySelectorAll('nav#toc a')) {
+                    const id = new URL(a.href).hash;
+                    anchors.push([id, a]);
+                }
+
+                // 現在のスクロール位置的に、どのh2 or h3の部分か調べる。
+                let currentHeadingsId = null;
+                for (const [id, top] of headings) {
+                    if (window.pageYOffset >= top) {
+                        currentHeadingsId = id;
+                        break;
+                    }
+                }
+
+                // 今のh2, h3に対応する目次のリンクの色を変える。
+                if (currentHeadingsId) {
+                    for (const [id, a] of anchors) {
+                        if (id === `#${currentHeadingsId}`) {
+                            a.style.color = '#FF6019';
+                        } else {
+                            a.style.color = '#000000';
+                        }
+                    }
+                }
+            });
+
+            // コピーしたら、記事内の目次は削除
+            document.querySelector('article#detail > div.markdown-body').removeChild(divToc);
+        }
+    </script>
+{% endblock %}
