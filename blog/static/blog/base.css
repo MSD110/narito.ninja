@@ -49,15 +49,56 @@ body {
 body > header {
     grid-column: 1;
     grid-row: 1;
-    padding: 40px;
     text-align: center;
 }
 
 body > header > a {
-    font-family: 'Lobster', cursive;
-    font-size: 30px;
+    font-size: 40px;
     color: #000000;
+    font-weight: bold;
 }
+
+body > header > ul {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 40px;
+    column-gap: 40px;
+    list-style-type: none;
+    justify-content: start;
+    padding: 0;
+}
+
+body > header > ul a {
+    font-size: 20px;
+}
+
+body > header > ul a:hover {
+    opacity: 0.3;
+}
+
+.fa-hatena:before {
+    content: "B!";
+    font-weight: bold;
+    font-family: Verdana;
+    font-style: initial;
+}
+
+a.facebook {
+    color:#3B5998;
+}
+
+a.twitter {
+    color:#55acee;
+}
+
+a.hatena {
+    color: #008fde;
+}
+
+a.rss {
+    color: #ff8c00;
+}
+
 
 body > header > ul {
     list-style-type: none;
@@ -74,6 +115,8 @@ main {
     grid-column: 1;
     grid-row: 2;
     padding: 40px;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
 }
 
 /* お知らせ欄 */
@@ -134,62 +177,28 @@ body.open .page-btn-close {
 body > footer {
     grid-column: 1;
     grid-row: 3;
-
-    display: grid;
-    grid-auto-flow: row;
-    font-size: 10px;
     padding: 40px;
+    font-size: 12px;
 }
 
 body > footer > ul {
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-
-    justify-self: center;
-    align-self: center;
+    grid-column-gap: 20px;
+    column-gap: 20px;
     list-style-type: none;
+    justify-content: center;
     padding: 0;
 }
 
 body > footer > ul a {
-    font-size: 20px;
-}
-
-body > footer > ul a:hover {
-    opacity: 0.3;
+    color: #000;
+    text-decoration: underline;
 }
 
 body > footer > p {
-    font-family: 'Lobster', cursive;
-    justify-self: center;
-    font-size: 16px;
+    text-align: center;
 }
-
-.fa-hatena:before {
-    content: "B!";
-    font-weight: bold;
-    font-family: Verdana;
-    font-style: initial;
-}
-
-a.facebook {
-    color:#3B5998;
-}
-
-a.twitter {
-    color:#55acee;
-}
-
-a.hatena {
-    color: #008fde;
-}
-
-a.rss {
-    color: #ff8c00;
-}
-
 
 /* 記事一覧 */
 article.post-list > h2,
@@ -381,10 +390,10 @@ div.field ul.dropdown li:hover {
 }
 
 
-/* ========== 画面の横幅1260px以上 ========= */
-@media (min-width: 1200px) {
+/* ========== 画面の横幅1366px以上 ========= */
+@media (min-width: 1366px) {
     body {
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 366px 1fr;
     }
 
     /* ヘッダー */
@@ -396,6 +405,9 @@ div.field ul.dropdown li:hover {
     body > main {
         grid-column: 2;
         grid-row: 1 / -1;
+        border-left: solid 1px #ddd;
+        border-top: none;
+        border-bottom: none;
     }
 
     /* ナビゲーション */
@@ -407,10 +419,6 @@ div.field ul.dropdown li:hover {
         padding: 40px 10px;
     }
 
-    body > footer > ul {
-        grid-column-gap: 20px;
-        column-gap: 20px;
-    }
 }
 
 /* 767px以下、スマートフォンサイズ */
@@ -418,11 +426,14 @@ div.field ul.dropdown li:hover {
     body > header {
         padding: 20px;
     }
+    body > header > a {
+        font-size: 30px;
+    }
     .page-btn {
         padding: 20px;
     }
     main {
-        padding: 10px;
+        padding: 40px 10px;
     }
 
     body > footer {

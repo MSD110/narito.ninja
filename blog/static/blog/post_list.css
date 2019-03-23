@@ -81,7 +81,7 @@ body.open > aside#search {
 }
 
 /* ========== 画面の横幅1260px以上 ========= */
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     /* 検索フォーム */
     aside#search {
         display: block;

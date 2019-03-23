@@ -10,7 +10,6 @@
     <title>{% block title %}Narito Blog{% endblock %}</title>
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="{% static 'blog/base.css' %}">
     {% block extra_css %}{% endblock %}
@@ -26,31 +25,6 @@
 
 <header>
     <a href="{% url 'blog:top' %}">Narito Blog</a>
-
-    {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url 'blog:private_post_list' %}">非公開記事</a></li>
-            <li><a href="{% url 'blog:post_add' %}">記事追加</a></li>
-        </ul>
-    {% endif %}
-</header>
-
-<main>
-    {% block content %}{% endblock %}
-</main>
-
-{% block side %}{% endblock %}
-
-<button type="button" class="page-btn">
-    <span class="fas fa-bars" title="メニューを開く"></span>
-</button>
-
-<button type="button" class="page-btn-close">
-    <span class="fas fa-times" title="メニューを閉じる"></span>
-</button>
-
-<footer>
-    <p>© Narito Takizawa</p>
     <ul>
         <li>
             <a class="twitter" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}&text=Narito Blog - プログラミングのメモや備忘録、チュートリアル"
@@ -72,6 +46,52 @@
             <a class="rss" href="{% url 'blog:atom' %}" target="_blank" rel="nofollow"><i class="fa fa-rss"></i></a>
         </li>
     </ul>
+
+    <!--
+    {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'blog:private_post_list' %}">非公開記事</a></li>
+            <li><a href="{% url 'blog:post_add' %}">記事追加</a></li>
+        </ul>
+    {% endif %}
+    -->
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+{% block side %}{% endblock %}
+
+<button type="button" class="page-btn">
+    <span class="fas fa-bars" title="メニューを開く"></span>
+</button>
+
+<button type="button" class="page-btn-close">
+    <span class="fas fa-times" title="メニューを閉じる"></span>
+</button>
+
+<footer>
+
+    <ul>
+        <li>
+            <a href="/">Profile</a>
+        </li>
+        <li>
+            <a href="https://torina.top" target="_blank">Old Blog</a>
+        </li>
+        <li>
+            <a href="https://twitter.com/toritoritorina/" target="_blank" rel="nofollow">Twitter</a>
+        </li>
+        <li>
+            <a href="https://github.com/naritotakizawa/" target="_blank">Github</a>
+        </li>
+        <li>
+            <a href="mailto:toritoritorina@gmail.com">Email</a>
+        </li>
+    </ul>
+    <br>
+    <p>© Narito Takizawa.</p>
 </footer>
 
 <script>

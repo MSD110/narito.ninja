@@ -24,8 +24,8 @@ body.open > nav#toc {
 }
 
 .page-btn, .page-btn-close {
-    position: fixed;
-    top: 5px;
+    position: sticky;
+    top: 0;
     z-index: 3;
 }
 
@@ -92,7 +92,7 @@ aside#comment .box {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1366px) {
     nav#toc {
         display: block;
         grid-row: 2;
