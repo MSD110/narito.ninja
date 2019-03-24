@@ -32,17 +32,20 @@ body.open > nav#toc {
 
 /* 記事の詳細部分 */
 article#detail > h1 {
-    font-size: 30px;
+    color: #000000;
+    font-size: 16px;
     font-weight: normal;
 }
 
 article#detail > time {
     font-size: 12px;
+    color: #888;
 }
 
 article#detail > span {
     margin: 0 5px 0 0;
     font-size: 12px;
+    color: #888;
 }
 
 article#detail > ul {
