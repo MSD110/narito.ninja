@@ -222,21 +222,23 @@ article.post-list > span {
 
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
 .markdown-body > h2 {
-    font-size: 30px;
+    font-size: 16px;
+    padding: 10px;
     font-weight: normal;
     margin-top: 100px;
-  color: #6594e0;/*文字色*/
-  /*線の種類（点線）2px 線色*/
-  border-bottom: dashed 2px #6594e0;
+    background: #000;
+    color: #fff;
 }
 
+
 .markdown-body > h3 {
-    font-size: 20px;
+    font-size: 16px;
+    padding: 10px;
     font-weight: normal;
     margin-top: 50px;
-  color: #6594e0;/*文字色*/
-  /*線の種類（点線）2px 線色*/
-  border-bottom: dashed 2px #6594e0;
+    background: #000;
+    color: #fff;
+    width: 50%;
 }
 
 .markdown-body > p {
