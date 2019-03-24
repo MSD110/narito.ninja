@@ -26,22 +26,31 @@ nav.page li {
 
 nav.page > ul > li > span {
     display: block;
-    font-size: 20px;
+    font-size: 12px;
+    color: #000;
+    background-color: #dddddd;
+    padding: 3px 6px;
 }
 
 nav.page > ul > li > a {
     display: block;
-    font-size: 20px;
+    font-size: 12px;
+    color: #000;
+    padding: 3px 6px;
 }
 
 /* 検索フォーム */
 aside#search {
     display: none;
-    padding: 10px;
     grid-column: 1;
     grid-row: 2;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.9)
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+aside#search > form{
+    width: 300px;
+    margin: 0 auto
 }
 
 body.open > aside#search {
@@ -80,7 +89,8 @@ body.open > aside#search {
     }
 }
 
-/* ========== 画面の横幅1260px以上 ========= */
+
+/* ========== 画面の横幅1366px以上 ========= */
 @media (min-width: 1366px) {
     /* 検索フォーム */
     aside#search {

@@ -27,10 +27,6 @@ pre, code {
     white-space: pre-wrap;
 }
 
-ul ul {
-    padding-left: 10px;
-}
-
 /* ブログページ全体の基本設定とグリッド設定 */
 body {
     -moz-text-size-adjust: 100%;
@@ -115,8 +111,6 @@ main {
     grid-column: 1;
     grid-row: 2;
     padding: 40px;
-    border-top: solid 1px #ddd;
-    border-bottom: solid 1px #ddd;
 }
 
 /* お知らせ欄 */
@@ -203,19 +197,28 @@ body > footer > p {
 /* 記事一覧 */
 article.post-list > h2,
 article.post-list > h3 {
-    font-size: 20px;
-    font-weight: normal;
     line-height: 1;
 }
 
 
+article.post-list > h2 > a,
+article.post-list > h3 > a {
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+}
+
 article.post-list > time {
     font-size: 12px;
+    color: #888;
+
 }
 
 article.post-list > span {
     margin: 0 5px 0 0;
     font-size: 12px;
+    color: #888;
+
 }
 
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
@@ -405,9 +408,6 @@ div.field ul.dropdown li:hover {
     body > main {
         grid-column: 2;
         grid-row: 1 / -1;
-        border-left: solid 1px #ddd;
-        border-top: none;
-        border-bottom: none;
     }
 
     /* ナビゲーション */
