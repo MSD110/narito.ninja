@@ -349,10 +349,12 @@ div.field ul.dropdown li:hover {
 
 /* タグ */
 .tag {
-    padding: 2px 4px;
+    padding: 2px 2px;
     border: solid 1px #ddd;
     background-color: transparent;
     font-size: 10px;
+    margin: 1px 5px 5px 0;
+    display: inline-block;
 }
 
 /* タグの×閉じ部分 */
@@ -361,7 +363,7 @@ div.field ul.dropdown li:hover {
     display: inline-block;
     height: 20px;
     position: relative;
-    vertical-align: bottom;
+    vertical-align: middle;
     width: 20px;
 
 }
