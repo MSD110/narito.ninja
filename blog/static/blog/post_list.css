@@ -7,6 +7,12 @@ main {
 }
 
 
+div.tag-list {
+    font-size: 12px;
+    width: 300px;
+    margin: 0 auto;
+}
+
 /* ページネーション */
 nav.page {
     grid-row: 11;

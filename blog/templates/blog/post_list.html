@@ -20,6 +20,13 @@
             <button type="submit">送信</button>
         </div>
     </form>
+
+    <div class="tag-list">
+        {% for tag in tag_list %}
+            <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+
 <!--
     <ul>
         <li><a href="{% url 'blog:top' %}" rel="nofollow">最新記事</a></li>
