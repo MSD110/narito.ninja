@@ -12,13 +12,6 @@ TITLE_OR_TEXT_CONTAIN = '3'
 
 class PostSearchForm(forms.Form):
     """記事検索フォーム。"""
-    search_tags = forms.ModelMultipleChoiceField(
-        label='検索タグ',
-        required=False,
-        queryset=Tag.objects,
-        widget=SuggestTagWidget,
-    )
-
     search_kind = forms.ChoiceField(
         label='検索タイプ',
         required=False,
@@ -33,13 +26,12 @@ class PostSearchForm(forms.Form):
         ),
         help_text='スペース区切りでAND検索'
     )
-    paginate_by = forms.IntegerField(
-        label='1ページの表示件数',
+
+    search_tags = forms.ModelMultipleChoiceField(
+        label='検索タグ',
         required=False,
-        widget=forms.NumberInput(
-            attrs={'class': 'input'}
-        ),
-        help_text='10や20といった数値'
+        queryset=Tag.objects,
+        widget=SuggestTagWidget,
     )
 
     def __init__(self, *args, **kwargs):
