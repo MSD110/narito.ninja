@@ -222,24 +222,23 @@ article.post-list > span {
 
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
 .markdown-body > h2 {
-    font-size: 16px;
-    padding: 10px;
+    font-size: 30px;
     font-weight: normal;
-    margin-top: 100px;
-    background: #000;
-    color: #fff;
+    margin: 100px 0 0 -20px;
+    padding-left: 20px;
+    border-left: solid 3px #000;
+
 }
 
 
 .markdown-body > h3 {
-    font-size: 16px;
-    padding: 10px;
+    font-size: 20px;
     font-weight: normal;
-    margin-top: 50px;
-    background: #000;
-    color: #fff;
-    width: 50%;
+    margin: 50px 0 0 0;
+    padding-left: 20px;
+    border-left: solid 3px #000;
 }
+
 
 .markdown-body > p {
     font-size: 16px;
@@ -433,9 +432,6 @@ div.field ul.dropdown li:hover {
     }
     .page-btn {
         padding: 20px;
-    }
-    main {
-        padding: 40px 10px;
     }
 
     body > footer {
