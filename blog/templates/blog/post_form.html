@@ -3,16 +3,14 @@
 
 {% block side %}
     <div id="side">
-        <button type="button" id="change-display">プレビュー画面⇔編集画面</button>
+        <button class="button" type="button" id="change-display">プレビュー画面⇔編集画面</button>
         {% if post %}
-            <button type="button" class="orange-button" id="delete">削除</button>
+            <button type="button" class="button" id="delete">削除</button>
             <form action="{% url 'blog:post_delete' post.pk %}" method="POST" style="display: none"
                   id="delete-form">
                 {% csrf_token %}
-                <button type="button" class="button is-primary hidden-modal" data-target="delete-modal">キャンセル
-                </button>
-                <button type="submit" class="button is-danger">本当に削除</button>
             </form>
+            <a class="button" href="{% url 'blog:post_detail' post.pk %}">記事詳細画面へ</a>
         {% endif %}
     </div>
 {% endblock %}
