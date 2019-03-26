@@ -1,37 +1,44 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block content %}
-        <form action="" method="POST" id="comment-form">
-            {% for field in form %}
-                <div class="field">
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {% if field.help_text %}
-                        <span class="helptext">{{ field.help_text }}</span>
-                    {% endif %}
-                </div>
-            {% endfor %}
-            {% csrf_token %}
-            <div class="field">
-                <button type="submit">送信</button>
-            </div>
-        </form>
-
+{% block side %}
+    <div id="side">
+        <button type="button" id="change-display">プレビュー画面⇔編集画面</button>
         {% if post %}
             <button type="button" class="orange-button" id="delete">削除</button>
-            <form action="{% url 'blog:post_delete' post.pk %}" method="POST" style="display: none" id="delete-form">
+            <form action="{% url 'blog:post_delete' post.pk %}" method="POST" style="display: none"
+                  id="delete-form">
                 {% csrf_token %}
-                <button type="button" class="button is-primary hidden-modal" data-target="delete-modal">キャンセル</button>
+                <button type="button" class="button is-primary hidden-modal" data-target="delete-modal">キャンセル
+                </button>
                 <button type="submit" class="button is-danger">本当に削除</button>
             </form>
         {% endif %}
+    </div>
+{% endblock %}
 
+{% block content %}
+    <form action="" method="POST" id="markdown-form">
+        {% for field in form %}
+            <div class="field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="helptext">{{ field.help_text }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% csrf_token %}
+        <div class="field">
+            <button type="submit">送信</button>
+        </div>
+    </form>
 
-
+    <div class="markdownx-preview markdown-body"></div>
 {% endblock %}
 
 {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/form.css' %}">
     <!-- コードシンタックス、css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/dracula.min.css">
 {% endblock %}
@@ -42,8 +49,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        for (const textarea of document.getElementsByTagName('textarea')) {
-            textarea.addEventListener('blur', e => {
+        const elements = document.getElementsByClassName('markdownx');
+        for (element of elements) {
+            element.addEventListener('markdownx.update', event => {
                 for (const block of document.querySelectorAll('pre code')) {
                     hljs.highlightBlock(block);
                 }
@@ -60,6 +68,11 @@
                 .then(isConfirm => {
                     if (isConfirm) document.getElementById('delete-form').submit();
                 });
+        });
+
+        // プレビューと編集画面の切り替え
+        document.getElementById('change-display').addEventListener('click', e => {
+            document.body.classList.toggle('preview');
         });
     </script>
 {% endblock %}

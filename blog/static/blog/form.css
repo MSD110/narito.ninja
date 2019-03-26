@@ -1,1 +1,62 @@
 @charset "UTF-8";
+
+
+main {
+
+}
+
+#side {
+    display: none;
+    grid-column: 1;
+    grid-row: 2;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.open #side {
+    display: block;
+}
+
+#side button[type="submit"],
+#side button[type="button"],
+form#markdown-form button[type="submit"],
+form#markdown-form button[type="button"] {
+    -webkit-appearance: none;
+    padding: 5px 40px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: groove;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#change-display {
+    position: sticky;
+    top: 100px;
+}
+
+.markdownx-preview {
+    display: none;
+}
+
+body.preview form{
+    display: none;
+}
+
+body.preview .markdownx-preview {
+    display: block;
+}
+
+/* 1000px以上 */
+@media (min-width: 1000px) {
+
+}
+
+@media (min-width: 1366px) {
+    #side {
+        width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+}
