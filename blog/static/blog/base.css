@@ -254,34 +254,22 @@ article.post-list > span {
 
 /* 引用部分 */
 .markdown-body blockquote {
-    quotes: '“' '”';
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr auto;
-
+    position: relative;
+    margin: 2em 0;
+    padding: 1em 1em 1em 2.6em;
+    font-size: .9em;
+    border-left: 5px solid #CCC;
+    border-radius: 2px;
 }
 
-.markdown-body blockquote::before {
-    content: open-quote;
-    grid-row: 1;
-    grid-column: 1;
-}
-
-.markdown-body blockquote > p {
-    grid-row: 2;
-    grid-column: 2;
-}
-
-.markdown-body blockquote::after {
-    content: close-quote;
-    grid-row: 3;
-    grid-column: 3;
-}
-
-.markdown-body blockquote::before,
-.markdown-body blockquote::after {
-    font-size: 30px;
-    font-weight: bold;
+.markdown-body blockquote:after{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '”';
+    font-family: sans-serif;
+    font-size: 6em;
+    opacity: .1;
 }
 
 /* ボックス Bulmaのboxと同じ */
