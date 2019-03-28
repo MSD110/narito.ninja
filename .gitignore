@@ -1,14 +1,21 @@
 media/
 .idea/
-fabfile.py
-debug_manage.py
+
 pro_manage.py
-rsa
+
+debug_manage.py
+config/debug_settings.py
+config/debug_urls.py
+
 config/pro_urls.py
 config/pro_wsgi.py
 config/pro_settings.py
-config/debug_settings.py
-config/debug_urls.py
+
+fabfile.py
+id_rsa
+
+.hgignore
+.hg/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
