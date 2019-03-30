@@ -9,7 +9,6 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <title>{% block title %}Narito Blog{% endblock %}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="{% static 'blog/base.css' %}">
     {% block extra_css %}{% endblock %}
@@ -24,7 +23,7 @@
 {% endif %}
 
 <header>
-    <a href="{% url 'blog:top' %}">Narito Blog</a>
+    <a href="{% url 'blog:top' %}"><img src="{% static 'blog/logo.png' %}"></a>
 </header>
 
 <main>
