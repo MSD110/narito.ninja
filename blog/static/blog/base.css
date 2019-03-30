@@ -46,21 +46,12 @@ body > header {
     grid-column: 1;
     grid-row: 1;
     text-align: center;
+    padding: 20px;
 }
 
 body > header > a {
     font-size: 40px;
     color: #000000;
-}
-
-body > header > ul {
-    list-style-type: none;
-    padding: 0;
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
-    grid-column-gap: 20px;
-    column-gap: 20px;
 }
 
 body > header > ul a {

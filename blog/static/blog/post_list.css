@@ -6,7 +6,6 @@ main {
     grid-template-rows: repeat(9, 1fr) auto;
 }
 
-
 div.tag-list {
     font-size: 12px;
     width: 300px;

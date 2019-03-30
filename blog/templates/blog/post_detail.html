@@ -18,23 +18,6 @@
         {% endif %}
 
         <time datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.updated_at | date:'Y-m-d' }}</time> - {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
-        <ul class="sns">
-            <li>
-                <a class="twitter" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}&text={{ post.title }} - NARITO BLOG"
-                   target="_blank"><i class="fab fa-twitter"></i></a>
-            </li>
-
-            <li>
-                <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank"><i
-                        class="fab fa-facebook"></i></a>
-            </li>
-
-            <li>
-                <a class="hatena" href="http://b.hatena.ne.jp/entry/{{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank"
-                   rel="nofollow"><i
-                        class="fa-hatena"></i></a>
-            </li>
-        </ul>
 
         <div class="markdown-body">
             {{ post.text | markdown_to_html | safe }}

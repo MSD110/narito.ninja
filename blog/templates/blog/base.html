@@ -25,36 +25,6 @@
 
 <header>
     <a href="{% url 'blog:top' %}">Narito Blog</a>
-    <ul>
-        <li>
-            <a class="twitter" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}&text=Narito Blog - プログラミングのメモや備忘録、チュートリアル"
-               target="_blank"><i class="fab fa-twitter"></i></a>
-        </li>
-
-        <li>
-            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}" target="_blank"><i class="fab fa-facebook"></i></a>
-        </li>
-
-        <li>
-            <a class="hatena" href="http://b.hatena.ne.jp/entry/{{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}"
-               target="_blank" rel="nofollow"><i class="fa-hatena"></i></a>
-        </li>
-        <li>
-            <a class="rss" href="{% url 'blog:rss' %}" target="_blank" rel="nofollow"><i class="fa fa-rss"></i></a>
-        </li>
-        <li>
-            <a class="rss" href="{% url 'blog:atom' %}" target="_blank" rel="nofollow"><i class="fa fa-rss"></i></a>
-        </li>
-    </ul>
-
-    <!--
-    {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url 'blog:private_post_list' %}">非公開記事</a></li>
-            <li><a href="{% url 'blog:post_add' %}">記事追加</a></li>
-        </ul>
-    {% endif %}
-    -->
 </header>
 
 <main>
@@ -84,7 +54,7 @@
             <a href="https://twitter.com/toritoritorina/" target="_blank" rel="nofollow">Twitter</a>
         </li>
         <li>
-            <a href="https://github.com/naritotakizawa/" target="_blank">Github</a>
+            <a href="https://github.com/naritotakizawa/" target="_blank" rel="nofollow">Github</a>
         </li>
         <li>
             <a href="mailto:toritoritorina@gmail.com">Email</a>
