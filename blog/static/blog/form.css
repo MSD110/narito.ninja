@@ -23,7 +23,7 @@ body.open #side {
     border: solid 1px #ffffff;
     padding: 10px 40px;
     border-radius: 10px;
-    background-color: rgba(85, 93, 107, 0.5);
+    background-color: #A10000;
     width: 300px;
     box-sizing: border-box;
 
@@ -37,8 +37,9 @@ body.open #side {
 }
 
 .button:hover {
-    background-color: #ef9504;
+    background-color: #00B233;
     text-decoration: none;
+    color: #fff;
 }
 
 #change-display {
