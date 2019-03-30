@@ -32,24 +32,24 @@ body.open > nav#toc {
 
 /* 記事の詳細部分 */
 article#detail > h1 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
 }
 
 article#detail > h1 > a{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     color: #000000;
 }
 
 article#detail > time {
-    font-size: 12px;
+    font-size: 10px;
     color: #888;
 }
 
 article#detail > span {
     margin: 0 5px 0 0;
-    font-size: 12px;
+    font-size: 10px;
     color: #888;
 }
 
@@ -76,7 +76,7 @@ article#detail > ul a:hover {
 aside > h2 {
     margin-top: 100px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
 }
 

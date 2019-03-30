@@ -54,13 +54,13 @@ body > header > a {
 }
 
 body > header > ul {
+    list-style-type: none;
+    padding: 0;
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-    list-style-type: none;
-    justify-content: start;
-    padding: 0;
+    justify-content: center;
+    grid-column-gap: 20px;
+    column-gap: 20px;
 }
 
 body > header > ul a {
@@ -92,17 +92,6 @@ a.hatena {
 
 a.rss {
     color: #ff8c00;
-}
-
-
-body > header > ul {
-    list-style-type: none;
-    padding: 0;
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
-    grid-column-gap: 20px;
-    column-gap: 20px;
 }
 
 /* メインコンテンツ */
@@ -203,19 +192,19 @@ article.post-list > h3 {
 article.post-list > h2 > a,
 article.post-list > h3 > a {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
 }
 
 article.post-list > time {
-    font-size: 12px;
+    font-size: 10px;
     color: #888;
 
 }
 
 article.post-list > span {
     margin: 0 5px 0 0;
-    font-size: 12px;
+    font-size: 10px;
     color: #888;
 
 }

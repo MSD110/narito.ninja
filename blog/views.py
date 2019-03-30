@@ -14,7 +14,7 @@ from .models import Post, Tag, Comment, Reply
 
 class PublicPostIndexView(generic.ListView):
     """公開記事の一覧を表示する。"""
-    paginate_by = 10
+    paginate_by = 8
     model = Post
 
     def get_queryset(self):
@@ -25,7 +25,6 @@ class PublicPostIndexView(generic.ListView):
         tags = form.cleaned_data.get('search_tags')
         search_kind = form.cleaned_data.get('search_kind')
         key_word = form.cleaned_data.get('key_word')
-        paginate_by = form.cleaned_data.get('paginate_by')
 
         # タグを選択していれば、それで絞り込む
         if tags:
@@ -49,10 +48,6 @@ class PublicPostIndexView(generic.ListView):
             elif search_kind == TITLE_OR_TEXT_CONTAIN:
                 for word in key_word.split():
                     queryset = queryset.filter(Q(title__icontains=word) | Q(text__icontains=word))
-
-        # 表示件数の指定があれば
-        if paginate_by and paginate_by > 0:
-            self.paginate_by = paginate_by
 
         queryset = queryset.filter(
             is_public=True

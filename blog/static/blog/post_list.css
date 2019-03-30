@@ -3,7 +3,7 @@
 /* メインコンテンツの設定 */
 main {
     display: grid;
-    grid-template-rows: repeat(10, 1fr) auto;
+    grid-template-rows: repeat(9, 1fr) auto;
 }
 
 
@@ -15,7 +15,8 @@ div.tag-list {
 
 /* ページネーション */
 nav.page {
-    grid-row: 11;
+    grid-row: 9;
+    align-self: end;
 }
 
 nav.page > ul {
