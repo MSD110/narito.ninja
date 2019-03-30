@@ -252,6 +252,21 @@ article.post-list > span {
     margin-top: 5px;
 }
 
+.markdown-body > ul > li,
+.markdown-body > ol > li {
+    margin-top: 10px;
+}
+
+.markdown-body > ul > li > p,
+.markdown-body > ol > li > p {
+    font-size: 14px;
+}
+
+.markdown-body > ul > li > p:first-child,
+.markdown-body > ol > li > p:first-child {
+    color: #ff0000;
+}
+
 /* 引用部分 */
 .markdown-body blockquote {
     position: relative;
