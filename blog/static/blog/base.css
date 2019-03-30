@@ -16,10 +16,11 @@ code {
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #00B233;
 }
 
 pre, code {
@@ -31,7 +32,6 @@ pre, code {
 body {
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
-    font-family: "Noto Sans JP";
 
     /* グリッド設定 */
     display: grid;
@@ -49,41 +49,6 @@ body > header {
     padding: 20px;
 }
 
-body > header > a {
-    font-size: 40px;
-    color: #000000;
-}
-
-body > header > ul a {
-    font-size: 20px;
-}
-
-body > header > ul a:hover {
-    opacity: 0.3;
-}
-
-.fa-hatena:before {
-    content: "B!";
-    font-weight: bold;
-    font-family: Verdana;
-    font-style: initial;
-}
-
-a.facebook {
-    color:#3B5998;
-}
-
-a.twitter {
-    color:#55acee;
-}
-
-a.hatena {
-    color: #008fde;
-}
-
-a.rss {
-    color: #ff8c00;
-}
 
 /* メインコンテンツ */
 main {
@@ -165,12 +130,13 @@ body > footer > ul {
 }
 
 body > footer > ul a {
-    color: #000;
+    font-size: 12px;
     text-decoration: underline;
 }
 
 body > footer > p {
     text-align: center;
+    font-size: 16px;
 }
 
 /* 記事一覧 */
@@ -182,7 +148,6 @@ article.post-list > h3 {
 
 article.post-list > h2 > a,
 article.post-list > h3 > a {
-    color: #000000;
     font-size: 14px;
     font-weight: normal;
 }
@@ -206,8 +171,8 @@ article.post-list > span {
     font-weight: normal;
     margin: 100px 0 0 -30px;
     padding-left: 25px;
-    border-left: solid 3px #000;
-
+    border-left: solid 3px #A10000;
+    color: #A10000;
 }
 
 
@@ -216,7 +181,8 @@ article.post-list > span {
     font-weight: normal;
     margin: 50px 0 0 0;
     padding-left: 20px;
-    border-left: solid 3px #000;
+    border-left: solid 3px #A10000;
+    color: #A10000;
 }
 
 
@@ -267,6 +233,14 @@ article.post-list > span {
     opacity: .1;
 }
 
+.markdown-body  a {
+    color: #0000FF;
+}
+
+.markdown-body  a:hover {
+    color: #00B233;
+}
+
 /* ボックス Bulmaのboxと同じ */
 .box {
     border-radius: 6px;
@@ -295,6 +269,7 @@ div.field textarea {
     border-radius: 5px;
     border-style: groove;
     font-size: 12px;
+    background-color: #fff;
 }
 
 div.field button[type="submit"],
@@ -306,6 +281,7 @@ div.field button[type="button"] {
     border-radius: 10px;
     border-style: groove;
     font-size: 12px;
+    background-color: #fff;
 }
 
 div.field button[type="submit"]:hover,

@@ -33,7 +33,6 @@ nav.page li {
 nav.page > ul > li > span {
     display: block;
     font-size: 12px;
-    color: #000;
     background-color: #dddddd;
     padding: 3px 6px;
 }
@@ -41,7 +40,6 @@ nav.page > ul > li > span {
 nav.page > ul > li > a {
     display: block;
     font-size: 12px;
-    color: #000;
     padding: 3px 6px;
 }
 
@@ -72,26 +70,6 @@ body.open > aside#search {
 
     main > article {
         margin-bottom: 40px;
-    }
-
-    main > article > h2 {
-        font-size: 16px;
-    }
-
-    main > article > time {
-        font-size: 10px;
-    }
-
-    main > article > span {
-        font-size: 10px;
-    }
-
-    nav.page > ul > li > span {
-        font-size: 16px;
-    }
-
-    nav.page > ul > li > a {
-        font-size: 16px;
     }
 }
 

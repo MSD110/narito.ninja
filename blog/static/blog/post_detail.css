@@ -39,7 +39,6 @@ article#detail > h1 {
 article#detail > h1 > a{
     font-size: 14px;
     font-weight: normal;
-    color: #000000;
 }
 
 article#detail > time {
@@ -91,6 +90,14 @@ aside#comment > p {
 
 aside#comment .box {
     margin-top: 30px;
+}
+
+aside#comment a{
+    color: #0000FF;
+}
+
+aside#comment a:hover {
+    color: #00B233;
 }
 
 /* 1000px以上 */
