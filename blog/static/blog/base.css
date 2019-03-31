@@ -150,6 +150,8 @@ article.post > h1,
 article.post > h2,
 article.post > h3 {
     line-height: 1;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 
