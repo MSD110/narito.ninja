@@ -17,6 +17,7 @@ div.tag-list {
 nav.page {
     grid-row: 6;
     grid-column: 1 / -1;
+    font-family: 'Raleway', sans-serif;
 }
 
 nav.page > ul {

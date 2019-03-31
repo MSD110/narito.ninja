@@ -38,8 +38,9 @@ body.open > nav#toc {
 aside > h2 {
     margin-top: 100px;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
+    font-family: 'Raleway', sans-serif;
 }
 
 aside > article {
