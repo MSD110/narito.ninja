@@ -32,6 +32,7 @@ pre, code {
 body {
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
+    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
 
     /* グリッド設定 */
     display: grid;
@@ -48,7 +49,6 @@ body > header {
     text-align: center;
     padding: 20px;
 }
-
 
 /* メインコンテンツ */
 main {
