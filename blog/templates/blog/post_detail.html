@@ -31,7 +31,7 @@
     </article>
 
     <aside>
-        <h2>広告</h2>
+        <h2>Ads</h2>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <ins class="adsbygoogle"
              style="display:block"
@@ -45,7 +45,7 @@
     </aside>
 
     <aside id="relation-posts">
-        <h2>関連記事一覧</h2>
+        <h2>Relation Posts</h2>
         {% for post in post.relation_posts.all %}
         <article class="post">
             <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>
@@ -61,7 +61,7 @@
 
     <aside id="comment">
         <!-- コメント一覧 -->
-        <h2>コメント一覧</h2>
+        <h2>Comment List</h2>
         <p><a href="{% url 'blog:comment_create' post.pk %}" target="_blank" rel="nofollow">記事にコメントする</a>
             {% for comment in post.comment_set.all %}
                 <div class="box markdown-body">
