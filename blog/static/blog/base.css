@@ -123,7 +123,6 @@ body > footer {
     grid-row: 3;
     padding: 40px;
     font-size: 12px;
-    font-family: 'Raleway', sans-serif;
 }
 
 body > footer > ul {
@@ -142,7 +141,10 @@ body > footer > ul a {
 
 body > footer > p {
     text-align: center;
-    font-size: 12px;
+    font-size: 20px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
 }
 
 /* 記事一覧 */
@@ -166,12 +168,12 @@ article.post > time {
     display: block;
     font-size: 10px;
     color: #888;
-    margin-top: 10px;
-    font-family: 'Raleway', sans-serif;
+    margin-top: 1em;
+    line-height: 1;
 }
 
 article.post > ul.tags {
-    margin-top: 10px;
+    margin-top: 1em;
     font-size: 10px;
     list-style: none;
     padding: 0;
@@ -181,7 +183,7 @@ article.post > ul.tags {
     grid-column-gap: 10px;
     column-gap: 10px;
     color: #888;
-    font-family: 'Raleway', sans-serif;
+    line-height: 1;
 }
 
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */

@@ -33,16 +33,20 @@ nav.page li {
 }
 
 nav.page > ul > li > span {
-    display: block;
-    font-size: 12px;
     background-color: #dddddd;
+    display: block;
     padding: 3px 6px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
 }
 
 nav.page > ul > li > a {
     display: block;
-    font-size: 12px;
     padding: 3px 6px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
 }
 
 /* 検索フォーム */
