@@ -14,7 +14,7 @@ from .models import Post, Tag, Comment, Reply
 
 class PublicPostIndexView(generic.ListView):
     """公開記事の一覧を表示する。"""
-    paginate_by = 8
+    paginate_by = 10
     model = Post
 
     def get_queryset(self):
