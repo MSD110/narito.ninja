@@ -140,19 +140,21 @@ body > footer > p {
 }
 
 /* 記事一覧 */
-article.post-list > h2,
-article.post-list > h3 {
+article.post > h1,
+article.post > h2,
+article.post > h3 {
     line-height: 1;
 }
 
 
-article.post-list > h2 > a,
-article.post-list > h3 > a {
+article.post > h1 > a,
+article.post > h2 > a,
+article.post > h3 > a {
     font-size: 12px;
     font-weight: normal;
 }
 
-article.post-list > time {
+article.post > time {
     display: block;
     font-size: 10px;
     color: #888;
@@ -160,7 +162,7 @@ article.post-list > time {
 
 }
 
-article.post-list > ul {
+article.post > ul.tags {
     margin-top: 5px;
     font-size: 10px;
     list-style: none;

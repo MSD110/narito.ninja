@@ -31,45 +31,8 @@ body.open > nav#toc {
 }
 
 /* 記事の詳細部分 */
-article#detail > h1 {
-    font-size: 14px;
-    font-weight: normal;
-}
 
-article#detail > h1 > a{
-    font-size: 14px;
-    font-weight: normal;
-}
 
-article#detail > time {
-    font-size: 10px;
-    color: #888;
-}
-
-article#detail > span {
-    margin: 0 5px 0 0;
-    font-size: 10px;
-    color: #888;
-}
-
-article#detail > ul {
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-    justify-content: start;
-    list-style-type: none;
-    padding: 0;
-    line-height: 1;
-}
-
-article#detail > ul a {
-    font-size: 20px;
-}
-
-article#detail > ul a:hover {
-    opacity: 0.3;
-}
 
 /* 関連記事やコメント欄 */
 aside > h2 {
@@ -102,10 +65,7 @@ aside#comment a:hover {
 
 /* 1000px以上 */
 @media (min-width: 1000px) {
-    article#detail > ul {
-        grid-column-gap: 20px;
-        column-gap: 20px;
-    }
+
 }
 
 @media (min-width: 1366px) {
