@@ -136,7 +136,7 @@ body > footer > ul a {
 
 body > footer > p {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* 記事一覧 */
@@ -148,19 +148,28 @@ article.post-list > h3 {
 
 article.post-list > h2 > a,
 article.post-list > h3 > a {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
 }
 
 article.post-list > time {
+    display: block;
     font-size: 10px;
     color: #888;
+    margin-top: 5px;
 
 }
 
-article.post-list > span {
-    margin: 0 5px 0 0;
+article.post-list > ul {
+    margin-top: 5px;
     font-size: 10px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    grid-column-gap: 5px;
+    column-gap: 5px;
     color: #888;
 
 }
