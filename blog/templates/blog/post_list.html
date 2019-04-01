@@ -35,6 +35,7 @@
 {% endblock %}
 
 {% block content %}
+    <section class="post-list" id="main">
     {% for post in post_list %}
         <article class="post">
             <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>
@@ -58,5 +59,5 @@
             {% endfor %}
         </ul>
     </nav>
-
+    </section>
 {% endblock %}

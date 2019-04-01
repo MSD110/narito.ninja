@@ -37,7 +37,7 @@ body {
     /* グリッド設定 */
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 150px 1fr 150px;
     min-height: 100vh;
 }
 
@@ -54,13 +54,6 @@ body > header >a {
     font-size: 40px;
     font-weight: 200;
     font-family: 'Raleway', sans-serif;
-}
-
-/* メインコンテンツ */
-main {
-    grid-column: 1;
-    grid-row: 2;
-    padding: 40px;
 }
 
 /* お知らせ欄 */
@@ -117,6 +110,13 @@ body.open .page-btn-close {
     display: block;
 }
 
+/* メインコンテンツの設定 */
+#main {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 40px;
+}
+
 /* フッター */
 body > footer {
     grid-column: 1;
@@ -148,6 +148,48 @@ body > footer > p {
 }
 
 /* 記事一覧 */
+.post-list {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ページネーション */
+.post-list > .page {
+    grid-row: 6;
+    grid-column: 1 / -1;
+    font-family: 'Raleway', sans-serif;
+}
+
+.post-list > .page > ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+.post-list > .page > ul > li {
+    float: left;
+    margin-top: 5px;
+    margin-right: 40px;
+}
+
+.post-list > .page > ul > li > span {
+    background-color: #dddddd;
+    display: block;
+    padding: 3px 6px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.post-list > .page > ul > li > a {
+    display: block;
+    padding: 3px 6px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
 article.post > h1,
 article.post > h2,
 article.post > h3 {
@@ -386,7 +428,7 @@ div.field ul.dropdown li:hover {
     }
 
     /* メインコンテンツ */
-    body > main {
+    #main {
         grid-column: 2;
         grid-row: 1 / -1;
     }
@@ -417,11 +459,20 @@ div.field ul.dropdown li:hover {
     body > footer {
         padding: 10px;
     }
+
+    .post-list {
+        display: block;
+    }
+
+    .post-list > .post {
+        margin-bottom: 50px;
+    }
+
 }
 
 /* 1000px以上 */
 @media (min-width: 1000px) {
-    main {
+    #main {
         width: 1000px;
     }
 }

@@ -1,54 +1,5 @@
 @charset "UTF-8";
 
-/* メインコンテンツの設定 */
-main {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr) auto;
-    grid-template-columns: 1fr 1fr;
-}
-
-div.tag-list {
-    font-size: 12px;
-    width: 300px;
-    margin: 0 auto;
-}
-
-/* ページネーション */
-nav.page {
-    grid-row: 6;
-    grid-column: 1 / -1;
-    font-family: 'Raleway', sans-serif;
-}
-
-nav.page > ul {
-    list-style-type: none;
-    padding: 0;
-
-}
-
-nav.page li {
-    float: left;
-    margin-top: 5px;
-    margin-right: 40px;
-}
-
-nav.page > ul > li > span {
-    background-color: #dddddd;
-    display: block;
-    padding: 3px 6px;
-    font-weight: 200;
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-}
-
-nav.page > ul > li > a {
-    display: block;
-    padding: 3px 6px;
-    font-weight: 200;
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-}
-
 /* 検索フォーム */
 aside#search {
     display: none;
@@ -65,18 +16,6 @@ aside#search > form{
 
 body.open > aside#search {
     display: block;
-}
-
-
-/* 767px以下、スマートフォンサイズ */
-@media (max-width: 767px) {
-    main {
-        display: block;
-    }
-
-    main > article {
-        margin-bottom: 50px;
-    }
 }
 
 
