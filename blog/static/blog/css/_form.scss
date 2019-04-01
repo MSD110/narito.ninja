@@ -1,0 +1,55 @@
+div.field {
+  margin-bottom: 20px;
+  font-size: 12px;
+
+  span.helptext::before {
+    content: "※";
+  }
+
+  input[type="text"], input[type="email"], input[type="number"],
+  select, textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-style: groove;
+    font-size: 12px;
+    background-color: #fff;
+    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+  }
+
+  button[type="submit"], button[type="button"] {
+    -webkit-appearance: none;
+    padding: 5px 40px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: groove;
+    font-size: 12px;
+    background-color: #fff;
+    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+  }
+
+  button[type="submit"]:hover, button[type="button"]:hover {
+    opacity: 0.5;
+  }
+
+  ul.dropdown {
+    display: none;
+    list-style-type: none;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+
+    li {
+      margin: 3px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #dddddd;
+    }
+  }
+
+}

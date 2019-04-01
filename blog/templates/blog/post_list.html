@@ -4,7 +4,7 @@
 {% block description %}Python/Djangoを中心に、プログラミングのメモや備忘録、チュートリアルを書いています。{% endblock %}
 {% block title %}{{ block.super }} - プログラミングのメモや備忘録、チュートリアル{% endblock %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/post_list.css' %}">{% endblock %}
+    <link rel="stylesheet" href="{% static 'blog/css/post-list.css' %}">{% endblock %}
 
 {% block side %}
 <aside id="search">
@@ -20,22 +20,11 @@
             <button type="submit">送信</button>
         </div>
     </form>
-<!--
-    <ul>
-        <li><a href="{% url 'blog:top' %}" rel="nofollow">最新記事</a></li>
-        {% if user.is_authenticated %}
-            <li><a href="{% url 'blog:private_post_list' %}" rel="nofollow">非公開記事</a></li>
-            <li><a href="{% url 'blog:post_add' %}" rel="nofollow">記事追加</a></li>
-        {% endif %}
-        <li><a class="modal-btn search-link" href="#" rel="nofollow" data-target="search-modal">記事検索</a></li>
-        <li><a href="/">プロフィールページ</a></li>
-    </ul>
-    -->
 </aside>
 {% endblock %}
 
 {% block content %}
-    <section class="post-list" id="main">
+    <section class="post-list">
     {% for post in post_list %}
         <article class="post">
             <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>

@@ -1,0 +1,71 @@
+/* 記事やコメント欄、プレビューエリアの汎用的な設定 */
+.markdown-body {
+
+  h2 {
+    font-size: 30px;
+    font-weight: 200;
+    margin: 100px 0 0 -30px;
+    padding-left: 25px;
+    border-left: solid 1px #000;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 50px 0 0 0;
+    padding-left: 20px;
+    border-left: solid 1px #000;
+  }
+
+  h2 + *, h3 + * {
+    margin-top: 5px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 2;
+  }
+
+  ul, ol {
+    li {
+      margin-top: 10px;
+
+      p {
+        font-size: 14px;
+      }
+
+      p:first-child {
+        color: $code-color;
+      }
+    }
+  }
+
+  blockquote {
+    position: relative;
+    margin: 2em 0;
+    padding: 1em 1em 1em 2.6em;
+    font-size: .9em;
+    border-left: 5px solid #CCC;
+    border-radius: 2px;
+  }
+
+  blockquote::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '”';
+    font-family: sans-serif;
+    font-size: 6em;
+    opacity: .1;
+  }
+
+  a {
+    color: #0000FF;
+  }
+
+  a:hover {
+    color: #00B233;
+  }
+
+}

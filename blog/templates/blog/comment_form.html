@@ -10,6 +10,7 @@
 
 {% block content %}
     <form action="" method="POST" id="main">
+        {{ form.non_field_errors }}
         {% for field in form %}
             <div class="field">
                 {{ field.label_tag }}
@@ -17,6 +18,7 @@
                 {% if field.help_text %}
                     <span class="helptext">{{ field.help_text }}</span>
                 {% endif %}
+                {{ field.errors }}
             </div>
         {% endfor %}
         {% csrf_token %}
@@ -28,7 +30,7 @@
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/form.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/post-form.css' %}">
     <!-- コードシンタックス、css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/dracula.min.css">
 {% endblock %}

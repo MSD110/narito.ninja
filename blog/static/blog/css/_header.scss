@@ -1,0 +1,26 @@
+body > header {
+    text-align: center;
+    padding: 20px;
+}
+
+body > header > a {
+    font-size: 40px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+}
+
+@media (min-width: $pc) {
+    body > header {
+        padding: 40px 10px;
+    }
+}
+
+/* 767px以下、スマートフォンサイズ */
+@media (max-width: $sm) {
+    body > header {
+        padding: 20px;
+    }
+    body > header > a {
+        font-size: 30px;
+    }
+}

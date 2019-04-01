@@ -1,0 +1,31 @@
+.page-btn-close {
+    display: none;
+}
+
+.page-btn, .page-btn-close {
+    padding: 40px;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+body.open .page-btn {
+    display: none;
+}
+
+body.open .page-btn-close {
+    display: block;
+}
+
+@media (min-width: $pc) {
+    .page-btn {
+        display: none;
+    }
+}
+
+@media (max-width: $sm) {
+    .page-btn, .page-btn-close {
+        padding: 20px;
+    }
+}

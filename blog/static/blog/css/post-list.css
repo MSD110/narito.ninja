@@ -1,0 +1,397 @@
+@charset "UTF-8";
+/* 変数 */
+/* コンテンツの最大幅 */
+/* PC用ブレイクポイント */
+/* スマホ用ブレイクポイント */
+/* リンクの色 */
+/* リンクのホバー色 */
+/* コードの色 */
+/* 共通設定 */
+* {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+code {
+  color: #ff0000;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #00B233;
+}
+
+pre, code {
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* ブログページ全体の基本設定とグリッド設定 */
+body {
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* テキストの自動拡大を無効 */
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+
+/* お知らせ欄 */
+#notify {
+  opacity: 0;
+  background-color: #6594e0;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: #ffffff;
+  -webkit-animation: fadein 7s linear;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* ボックス Bulmaのboxと同じ */
+.box {
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  padding: 1.25rem;
+}
+
+/* タグ */
+.tag {
+  padding: 2px 2px;
+  border: solid 1px #ddd;
+  background-color: transparent;
+  font-size: 10px;
+  margin: 1px 5px 5px 0;
+  display: inline-block;
+}
+
+/* タグの×閉じ部分 */
+.close {
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  width: 20px;
+}
+
+.close::before, .close::after {
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  background-color: #000000;
+}
+
+.close::before {
+  height: 2px;
+  width: 50%;
+}
+
+.close::after {
+  height: 50%;
+  width: 2px;
+}
+
+body > header {
+  text-align: center;
+  padding: 20px;
+}
+
+body > header > a {
+  font-size: 40px;
+  font-weight: 200;
+  font-family: "Raleway", sans-serif;
+}
+
+@media (min-width: 1366px) {
+  body > header {
+    padding: 40px 10px;
+  }
+}
+/* 767px以下、スマートフォンサイズ */
+@media (max-width: 767px) {
+  body > header {
+    padding: 20px;
+  }
+
+  body > header > a {
+    font-size: 30px;
+  }
+}
+.page-btn-close {
+  display: none;
+}
+
+.page-btn, .page-btn-close {
+  padding: 40px;
+  border: none;
+  background-color: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+body.open .page-btn {
+  display: none;
+}
+
+body.open .page-btn-close {
+  display: block;
+}
+
+@media (min-width: 1366px) {
+  .page-btn {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .page-btn, .page-btn-close {
+    padding: 20px;
+  }
+}
+/* フッター */
+body > footer {
+  padding: 40px;
+  font-size: 12px;
+}
+
+body > footer > ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 20px;
+  column-gap: 20px;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0;
+}
+
+body > footer > ul a {
+  font-size: 12px;
+}
+
+body > footer > p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: "Raleway", sans-serif;
+  margin-top: 20px;
+}
+
+@media (min-width: 1366px) {
+  body > footer {
+    padding: 40px 10px;
+  }
+}
+/* 767px以下、スマートフォンサイズ */
+@media (max-width: 767px) {
+  body > footer {
+    padding: 10px;
+  }
+}
+.post-list {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr) auto;
+  grid-template-columns: 1fr 1fr;
+}
+.post-list nav.page {
+  grid-row: 6;
+  grid-column: 1/-1;
+  font-family: "Raleway", sans-serif;
+}
+.post-list nav.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+.post-list nav.page ul li {
+  float: left;
+  margin-top: 5px;
+  margin-right: 40px;
+}
+.post-list nav.page ul li span {
+  background-color: #dddddd;
+  display: block;
+  padding: 3px 6px;
+  font-weight: 200;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+.post-list nav.page ul li a {
+  display: block;
+  padding: 3px 6px;
+  font-weight: 200;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.post h1, .post h2, .post h3 {
+  line-height: 1;
+  font-size: 12px;
+  font-weight: normal;
+}
+.post h1 > a, .post h2 > a, .post h3 > a {
+  line-height: 1;
+  font-size: 12px;
+  font-weight: normal;
+}
+.post time {
+  display: block;
+  font-size: 10px;
+  color: #888;
+  margin-top: 1em;
+  line-height: 1;
+}
+.post ul.tags {
+  margin-top: 1em;
+  font-size: 10px;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  color: #888;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .post-list {
+    display: block;
+  }
+
+  .post {
+    margin-bottom: 50px;
+  }
+}
+div.field {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+div.field span.helptext::before {
+  content: "※";
+}
+div.field input[type=text], div.field input[type=email], div.field input[type=number],
+div.field select, div.field textarea {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-style: groove;
+  font-size: 12px;
+  background-color: #fff;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+div.field button[type=submit], div.field button[type=button] {
+  -webkit-appearance: none;
+  padding: 5px 40px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: groove;
+  font-size: 12px;
+  background-color: #fff;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+div.field button[type=submit]:hover, div.field button[type=button]:hover {
+  opacity: 0.5;
+}
+div.field ul.dropdown {
+  display: none;
+  list-style-type: none;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+}
+div.field ul.dropdown li {
+  margin: 3px;
+  cursor: pointer;
+}
+div.field ul.dropdown li:hover {
+  background-color: #dddddd;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px 1fr 150px;
+  min-height: 100vh;
+}
+body header {
+  grid-column: 1;
+  grid-row: 1;
+}
+body .page-btn, body .page-btn-close {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  align-self: start;
+}
+body aside#search {
+  display: none;
+  grid-column: 1;
+  grid-row: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+body aside#search form {
+  width: 300px;
+  margin: 0 auto;
+}
+body section.post-list {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 40px;
+}
+body footer {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+body.open > aside#search {
+  display: block;
+}
+
+@media (min-width: 1366px) {
+  body {
+    grid-template-columns: 366px 1fr;
+  }
+  body aside#search {
+    display: block;
+  }
+  body section.post-list {
+    grid-column: 2;
+    grid-row: 1/-1;
+  }
+}
+/* 1000px以上 */
+@media (min-width: 1000px) {
+  section.post-list {
+    width: 1000px;
+  }
+}
+
+/*# sourceMappingURL=post-list.css.map */
