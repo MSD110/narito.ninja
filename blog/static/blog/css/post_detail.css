@@ -287,54 +287,6 @@ body > footer > p {
     margin-bottom: 50px;
   }
 }
-div.field {
-  margin-bottom: 20px;
-  font-size: 12px;
-}
-div.field span.helptext::before {
-  content: "※";
-}
-div.field input[type=text], div.field input[type=email], div.field input[type=number],
-div.field select, div.field textarea {
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border-style: groove;
-  font-size: 12px;
-  background-color: #fff;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
-}
-div.field button[type=submit], div.field button[type=button] {
-  -webkit-appearance: none;
-  padding: 5px 40px;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 10px;
-  border-style: groove;
-  font-size: 12px;
-  background-color: #fff;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
-}
-div.field button[type=submit]:hover, div.field button[type=button]:hover {
-  opacity: 0.5;
-}
-div.field ul.dropdown {
-  display: none;
-  list-style-type: none;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  background-color: #ffffff;
-}
-div.field ul.dropdown li {
-  margin: 3px;
-  cursor: pointer;
-}
-div.field ul.dropdown li:hover {
-  background-color: #dddddd;
-}
-
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
 .markdown-body h2 {
   font-size: 30px;
@@ -391,78 +343,111 @@ div.field ul.dropdown li:hover {
   color: #00B233;
 }
 
+div.field {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+div.field span.helptext::before {
+  content: "※";
+}
+div.field input[type=text], div.field input[type=email], div.field input[type=number],
+div.field select, div.field textarea {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-style: groove;
+  font-size: 12px;
+  background-color: #fff;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+div.field button[type=submit], div.field button[type=button] {
+  -webkit-appearance: none;
+  padding: 5px 40px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: groove;
+  font-size: 12px;
+  background-color: #fff;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+}
+div.field button[type=submit]:hover, div.field button[type=button]:hover {
+  opacity: 0.5;
+}
+div.field ul.dropdown {
+  display: none;
+  list-style-type: none;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+}
+div.field ul.dropdown li {
+  margin: 3px;
+  cursor: pointer;
+}
+div.field ul.dropdown li:hover {
+  background-color: #dddddd;
+}
+
 body {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 150px 1fr 150px;
-  min-height: 100vh;
+  grid-template-rows: 150px 1fr auto auto auto 150px;
 }
 body header {
   grid-column: 1;
   grid-row: 1;
 }
 body .page-btn, body .page-btn-close {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
-  align-self: start;
+  position: fixed;
+  top: 0;
+  z-index: 3;
 }
-body form#main {
-  grid-column: 1;
-  grid-row: 2;
+body article#main {
   padding: 40px;
 }
-body .markdownx-preview {
-  grid-column: 1;
-  grid-row: 2;
-  padding: 40px;
+body nav#toc {
   display: none;
-}
-body #side {
-  display: none;
-  grid-column: 1;
-  grid-row: 2;
+  padding: 40px 100px;
   background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
-body #side button#change-display {
-  position: sticky;
-  top: 100px;
+body aside {
+  padding: 40px;
+}
+body aside h2 {
+  grid-column: 1/-1;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: normal;
+  font-family: "Raleway", sans-serif;
+}
+body aside#relation-posts article {
+  margin-bottom: 40px;
+}
+body aside#comment p {
+  margin-bottom: 20px;
+}
+body aside#comment .box {
+  margin-top: 30px;
+}
+body aside#comment a {
+  color: #0000FF;
+}
+body aside#comment a:hover {
+  color: #00B233;
 }
 body footer {
   grid-column: 1;
-  grid-row: 3;
-}
-body .button {
-  color: #ffffff;
-  border: solid 1px #ffffff;
-  padding: 10px 40px;
-  border-radius: 10px;
-  background-color: #A10000;
-  width: 300px;
-  box-sizing: border-box;
-  /* a要素用の設定 */
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  /* button要素用の設定 */
-  cursor: pointer;
-}
-body .button:hover {
-  background-color: #00B233;
-  text-decoration: none;
-  color: #fff;
+  grid-row: 6;
 }
 
-body.open #side {
-  display: block;
-}
-
-body.preview form {
-  display: none;
-}
-
-body.preview .markdownx-preview {
+body.open > nav#toc {
   display: block;
 }
 
@@ -470,24 +455,38 @@ body.preview .markdownx-preview {
   body {
     grid-template-columns: 366px 1fr;
   }
-  body #side {
-    width: 300px;
-    margin: 0 auto;
+  body nav#toc {
     display: block;
+    grid-row: 2;
+    grid-column: 1;
+    padding: 10px 40px;
+    position: static;
   }
-  body form#main {
-    grid-column: 2;
-    grid-row: 1/-1;
+  body nav#toc > ul {
+    position: sticky;
+    top: 50px;
+    padding: 0 15px;
+    font-size: 12px;
   }
-  body .markdownx-preview {
+  body article#main {
     grid-column: 2;
-    grid-row: 1/-1;
+    grid-row: 1/3;
+  }
+  body aside#relation-posts {
+    grid-column: 2;
+  }
+  body aside#ads {
+    grid-column: 2;
+  }
+  body aside#comment {
+    grid-column: 2;
   }
 }
+/* 1000px以上 */
 @media (min-width: 1000px) {
-  form#main {
+  article#main, aside#relation-posts, aside#ads, aside#comment {
     width: 1000px;
   }
 }
 
-/*# sourceMappingURL=post-form.css.map */
+/*# sourceMappingURL=post_detail.css.map */
