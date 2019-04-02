@@ -478,7 +478,7 @@ body.preview .markdownx-preview {
 
 @media (min-width: 1366px) {
   body {
-    grid-template-columns: 366px 1fr;
+    grid-template-columns: 366px 100px 900px;
   }
   body #side {
     width: 300px;
@@ -486,17 +486,14 @@ body.preview .markdownx-preview {
     display: block;
   }
   body form#main {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1/-1;
+    padding: 40px 0 0 0;
   }
   body .markdownx-preview {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1/-1;
-  }
-}
-@media (min-width: 1000px) {
-  form#main {
-    width: 1000px;
+    padding: 40px 0 0 0;
   }
 }
 
