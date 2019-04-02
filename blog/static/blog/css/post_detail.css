@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* 変数 */
-/* コンテンツの最大幅 */
 /* PC用ブレイクポイント */
 /* スマホ用ブレイクポイント */
 /* リンクの色 */
@@ -123,9 +122,9 @@ body > header {
 }
 
 body > header > a {
-  font-size: 40px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
+  font-size: 60px;
+  color: #dc143c;
+  font-family: "Abril Fatface", cursive;
 }
 
 @media (min-width: 1366px) {
@@ -195,10 +194,8 @@ body > footer > ul a {
 
 body > footer > p {
   text-align: center;
-  font-size: 20px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
-  margin-top: 20px;
+  font-size: 12px;
+  margin-top: 1em;
 }
 
 @media (min-width: 1366px) {
@@ -220,7 +217,6 @@ body > footer > p {
 .post-list nav.page {
   grid-row: 6;
   grid-column: 1/-1;
-  font-family: "Raleway", sans-serif;
 }
 .post-list nav.page ul {
   list-style-type: none;
@@ -235,15 +231,11 @@ body > footer > p {
   background-color: #dddddd;
   display: block;
   padding: 3px 6px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
   font-size: 20px;
 }
 .post-list nav.page ul li a {
   display: block;
   padding: 3px 6px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
   font-size: 20px;
 }
 
