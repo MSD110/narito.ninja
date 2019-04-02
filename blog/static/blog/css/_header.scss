@@ -6,6 +6,7 @@ body > header > a {
     font-size: 60px;
     color: $main-color;
     font-family: 'Abril Fatface', cursive;
+    font-weight: bold;
 }
 
 @media (max-width: $sm) {

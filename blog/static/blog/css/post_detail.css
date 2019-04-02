@@ -124,6 +124,7 @@ body > header > a {
   font-size: 60px;
   color: #dc143c;
   font-family: "Abril Fatface", cursive;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
@@ -424,7 +425,8 @@ body aside h2 {
   grid-column: 1/-1;
   margin-bottom: 10px;
   font-family: "Abril Fatface", cursive;
-  font-weight: normal;
+  font-weight: bold;
+  color: #dc143c;
   align-self: end;
 }
 body aside#ads {

@@ -124,6 +124,7 @@ body > header > a {
   font-size: 60px;
   color: #dc143c;
   font-family: "Abril Fatface", cursive;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
