@@ -1,6 +1,5 @@
 body > header {
-    text-align: center;
-    padding: 20px;
+    line-height: 1;
 }
 
 body > header > a {
@@ -9,17 +8,7 @@ body > header > a {
     font-family: 'Abril Fatface', cursive;
 }
 
-@media (min-width: $pc) {
-    body > header {
-        padding: 40px 10px;
-    }
-}
-
-/* 767px以下、スマートフォンサイズ */
 @media (max-width: $sm) {
-    body > header {
-        padding: 20px;
-    }
     body > header > a {
         font-size: 30px;
     }

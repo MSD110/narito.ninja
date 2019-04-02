@@ -1,6 +1,5 @@
 /* フッター */
 body > footer {
-    padding: 40px;
     font-size: 12px;
 }
 
@@ -22,17 +21,4 @@ body > footer > p {
     text-align: center;
     font-size: 12px;
     margin-top: 1em;
-}
-
-@media (min-width: $pc) {
-    body > footer {
-        padding: 40px 10px;
-    }
-}
-
-/* 767px以下、スマートフォンサイズ */
-@media (max-width: $sm) {
-    body > footer {
-        padding: 10px;
-    }
 }

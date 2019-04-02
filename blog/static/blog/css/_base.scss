@@ -3,9 +3,10 @@ $pc: 1366px; /* PC用ブレイクポイント */
 $sm: 767px; /* スマホ用ブレイクポイント */
 
 $main-color: #dc143c;
+$complementary-color: #14DC36;
 $link-color: #000; /* リンクの色 */
-$link-hover-color: #00B233; /* リンクのホバー色 */
-$code-color: #ff0000; /* コードの色 */
+$link-hover-color: $complementary-color; /* リンクのホバー色 */
+$code-color: $main-color; /* コードの色 */
 
 
 /* 共通設定 */

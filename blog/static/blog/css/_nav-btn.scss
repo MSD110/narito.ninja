@@ -3,10 +3,9 @@
 }
 
 .page-btn, .page-btn-close {
-    padding: 40px;
     border: none;
     background-color: transparent;
-    font-size: 28px;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -24,8 +23,3 @@ body.open .page-btn-close {
     }
 }
 
-@media (max-width: $sm) {
-    .page-btn, .page-btn-close {
-        padding: 20px;
-    }
-}

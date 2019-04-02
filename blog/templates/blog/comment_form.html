@@ -3,8 +3,12 @@
 
 {% block side %}
     <div id="side">
-        <button class="button" type="button" id="change-display">プレビュー画面⇔編集画面</button>
-        <a class="button" href="{% url 'blog:post_detail' post.pk %}">記事詳細画面へ</a>
+        <div class="field">
+            <a class="button" href="{% url 'blog:post_detail' post.pk %}">記事詳細画面へ</a>
+        </div>
+        <div class="field" id="change-display">
+            <button type="button" id="change-display">プレビュー画面⇔編集画面</button>
+        </div>
     </div>
 {% endblock %}
 
@@ -23,7 +27,9 @@
         {% endfor %}
         {% csrf_token %}
 
-        <button type="submit" class="button">送信</button>
+        <div class="field">
+            <button type="submit">送信</button>
+        </div>
     </form>
 
     <div class="markdownx-preview markdown-body"></div>

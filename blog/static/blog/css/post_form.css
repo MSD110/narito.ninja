@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* 変数 */
-/* コンテンツの最大幅 */
 /* PC用ブレイクポイント */
 /* スマホ用ブレイクポイント */
 /* リンクの色 */
@@ -17,7 +16,7 @@ img {
 }
 
 code {
-  color: #ff0000;
+  color: #dc143c;
 }
 
 a {
@@ -26,7 +25,7 @@ a {
 }
 
 a:hover {
-  color: #00B233;
+  color: #14DC36;
 }
 
 pre, code {
@@ -118,27 +117,16 @@ body {
 }
 
 body > header {
-  text-align: center;
-  padding: 20px;
+  line-height: 1;
 }
 
 body > header > a {
-  font-size: 40px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
+  font-size: 60px;
+  color: #dc143c;
+  font-family: "Abril Fatface", cursive;
 }
 
-@media (min-width: 1366px) {
-  body > header {
-    padding: 40px 10px;
-  }
-}
-/* 767px以下、スマートフォンサイズ */
 @media (max-width: 767px) {
-  body > header {
-    padding: 20px;
-  }
-
   body > header > a {
     font-size: 30px;
   }
@@ -148,10 +136,9 @@ body > header > a {
 }
 
 .page-btn, .page-btn-close {
-  padding: 40px;
   border: none;
   background-color: transparent;
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -168,14 +155,8 @@ body.open .page-btn-close {
     display: none;
   }
 }
-@media (max-width: 767px) {
-  .page-btn, .page-btn-close {
-    padding: 20px;
-  }
-}
 /* フッター */
 body > footer {
-  padding: 40px;
   font-size: 12px;
 }
 
@@ -195,56 +176,8 @@ body > footer > ul a {
 
 body > footer > p {
   text-align: center;
-  font-size: 20px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
-  margin-top: 20px;
-}
-
-@media (min-width: 1366px) {
-  body > footer {
-    padding: 40px 10px;
-  }
-}
-/* 767px以下、スマートフォンサイズ */
-@media (max-width: 767px) {
-  body > footer {
-    padding: 10px;
-  }
-}
-.post-list {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr) auto;
-  grid-template-columns: 1fr 1fr;
-}
-.post-list nav.page {
-  grid-row: 6;
-  grid-column: 1/-1;
-  font-family: "Raleway", sans-serif;
-}
-.post-list nav.page ul {
-  list-style-type: none;
-  padding: 0;
-}
-.post-list nav.page ul li {
-  float: left;
-  margin-top: 5px;
-  margin-right: 40px;
-}
-.post-list nav.page ul li span {
-  background-color: #dddddd;
-  display: block;
-  padding: 3px 6px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
-  font-size: 20px;
-}
-.post-list nav.page ul li a {
-  display: block;
-  padding: 3px 6px;
-  font-weight: 200;
-  font-family: "Raleway", sans-serif;
-  font-size: 20px;
+  font-size: 12px;
+  margin-top: 1em;
 }
 
 .post h1, .post h2, .post h3 {
@@ -252,7 +185,7 @@ body > footer > p {
   font-size: 12px;
   font-weight: normal;
 }
-.post h1 > a, .post h2 > a, .post h3 > a {
+.post h1 a, .post h2 a, .post h3 a {
   line-height: 1;
   font-size: 12px;
   font-weight: normal;
@@ -278,23 +211,52 @@ body > footer > p {
   line-height: 1;
 }
 
-@media (max-width: 767px) {
+.post-list {
+  display: block;
+}
+.post-list nav.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+.post-list nav.page ul li {
+  float: left;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+.post-list nav.page ul li span {
+  background-color: #dddddd;
+  display: block;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+.post-list nav.page ul li a {
+  display: block;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+.post-list .post {
+  margin-bottom: 50px;
+}
+
+@media (min-width: 767px) {
   .post-list {
-    display: block;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
+  }
+  .post-list nav.page {
+    grid-row: 6;
+    grid-column: 1/-1;
   }
   .post-list nav.page ul li {
     margin-top: 5px;
-    margin-right: 20px;
+    margin-right: 40px;
   }
   .post-list nav.page ul li span {
-    font-size: 12px;
+    font-size: 20px;
   }
   .post-list nav.page ul li a {
-    font-size: 12px;
-  }
-
-  .post {
-    margin-bottom: 50px;
+    font-size: 20px;
   }
 }
 div.field {
@@ -309,25 +271,32 @@ div.field select, div.field textarea {
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
-  border-radius: 5px;
-  border-style: groove;
+  border-radius: 4px;
+  border: solid 1px #dbdbdb;
   font-size: 12px;
   background-color: #fff;
   font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
 }
-div.field button[type=submit], div.field button[type=button] {
+div.field button[type=submit], div.field button[type=button], div.field a.button {
   -webkit-appearance: none;
-  padding: 5px 40px;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 10px;
-  border-style: groove;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: solid 1px #dbdbdb;
   font-size: 12px;
   background-color: #fff;
   font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+  width: 100%;
+  /* a要素用の設定 */
+  box-sizing: border-box;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  /* button要素用の設定 */
+  cursor: pointer;
 }
-div.field button[type=submit]:hover, div.field button[type=button]:hover {
-  opacity: 0.5;
+div.field button[type=submit]:hover, div.field button[type=button]:hover, div.field a.button:hover {
+  background-color: #14DC36;
+  color: #fff;
 }
 div.field ul.dropdown {
   display: none;
@@ -375,7 +344,7 @@ div.field ul.dropdown li:hover {
   font-size: 14px;
 }
 .markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
-  color: #ff0000;
+  color: #dc143c;
 }
 .markdown-body blockquote {
   position: relative;
@@ -401,74 +370,25 @@ div.field ul.dropdown li:hover {
   color: #00B233;
 }
 
-body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+body::before {
+  content: "";
+  grid-row: top-bar;
+  grid-column: 1/-1;
+  background-color: #dc143c;
 }
-body header {
-  grid-column: 1;
-  grid-row: 1;
-}
-body .page-btn, body .page-btn-close {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
-  align-self: start;
-}
-body form#main {
-  grid-column: 1;
-  grid-row: 2;
-  padding: 40px;
-}
-body .markdownx-preview {
-  grid-column: 1;
-  grid-row: 2;
-  padding: 40px;
-  display: none;
-}
-body #side {
-  display: none;
-  grid-column: 1;
-  grid-row: 2;
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-}
-body #side button#change-display {
-  position: sticky;
-  top: 100px;
-}
-body footer {
-  grid-column: 1;
-  grid-row: 3;
-}
-body .button {
-  color: #ffffff;
-  border: solid 1px #ffffff;
-  padding: 10px 40px;
-  border-radius: 10px;
-  background-color: #A10000;
-  width: 300px;
-  box-sizing: border-box;
-  /* a要素用の設定 */
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  /* button要素用の設定 */
-  cursor: pointer;
-}
-body .button:hover {
-  background-color: #00B233;
-  text-decoration: none;
-  color: #fff;
+
+body::after {
+  content: "";
+  grid-row: bottom-bar;
+  grid-column: 1/-1;
+  background-color: #dc143c;
 }
 
 body.open #side {
   display: block;
 }
 
-body.preview form {
+body.preview form#main {
   display: none;
 }
 
@@ -476,24 +396,76 @@ body.preview .markdownx-preview {
   display: block;
 }
 
+body {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-rows: [top-bar] 10px [head] auto [main] 1fr [foot] auto [bottom-bar] 10px;
+  grid-row-gap: 40px;
+  row-gap: 40px;
+  min-height: 100vh;
+}
+body header {
+  grid-column: 2;
+  grid-row: head;
+  justify-self: center;
+  align-self: center;
+}
+body .page-btn, body .page-btn-close {
+  grid-column: 2;
+  grid-row: head;
+  justify-self: start;
+  align-self: center;
+}
+body #side {
+  display: none;
+  grid-column: 2;
+  grid-row: main;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+body #side #change-display {
+  position: sticky;
+  top: 100px;
+}
+body form#main {
+  grid-column: 2;
+  grid-row: main;
+}
+body .markdownx-preview {
+  display: none;
+  grid-column: 2;
+  grid-row: main;
+}
+body footer {
+  grid-column: 2;
+  grid-row: foot;
+}
+
 @media (min-width: 1366px) {
   body {
-    grid-template-columns: 366px 100px 900px;
+    grid-template-columns: 366px 100px 900px 1fr;
+  }
+  body header {
+    grid-column: 1;
+    grid-row: head;
   }
   body #side {
-    width: 300px;
-    margin: 0 auto;
     display: block;
+    grid-column: 1;
+    grid-row: main;
+    width: 300px;
+    justify-self: center;
   }
   body form#main {
     grid-column: 3;
-    grid-row: 1/-1;
-    padding: 40px 0 0 0;
+    grid-row: head/bottom-bar;
   }
   body .markdownx-preview {
     grid-column: 3;
-    grid-row: 1/-1;
-    padding: 40px 0 0 0;
+    grid-row: head/bottom-bar;
+  }
+  body footer {
+    grid-column: 1;
+    grid-row: foot;
   }
 }
 

@@ -1,50 +1,16 @@
-.post-list {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr) auto;
-  grid-template-columns: 1fr 1fr;
-
-  nav.page {
-    grid-row: 6;
-    grid-column: 1 / -1;
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        float: left;
-        margin-top: 5px;
-        margin-right: 40px;
-
-        span {
-          background-color: #dddddd;
-          display: block;
-          padding: 3px 6px;
-          font-size: 20px;
-        }
-
-        a {
-          display: block;
-          padding: 3px 6px;
-          font-size: 20px;
-        }
-
-      }
-    }
-  }
-}
 
 .post {
   h1, h2, h3 {
     line-height: 1;
     font-size: 12px;
     font-weight: normal;
-  }
 
-  h1 > a, h2 > a, h3 > a {
-    line-height: 1;
-    font-size: 12px;
-    font-weight: normal;
+    a {
+      line-height: 1;
+      font-size: 12px;
+      font-weight: normal;
+    }
+
   }
 
   time {
@@ -70,29 +36,69 @@
   }
 }
 
-@media (max-width: $sm) {
+
+.post-list {
+  display: block;
+
+  nav.page {
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        float: left;
+        margin-top: 5px;
+        margin-right: 20px;
+
+        span {
+          background-color: #dddddd;
+          display: block;
+          padding: 3px 6px;
+          font-size: 12px;
+        }
+
+        a {
+          display: block;
+          padding: 3px 6px;
+          font-size: 12px;
+        }
+
+      }
+    }
+  }
+
+  .post {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: $sm) {
   .post-list {
-    display: block;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
 
     nav.page {
+      grid-row: 6;
+      grid-column: 1 / -1;
+
       ul {
+
         li {
           margin-top: 5px;
-          margin-right: 20px;
+          margin-right: 40px;
 
           span {
-            font-size: 12px;
+            font-size: 20px;
           }
 
           a {
-            font-size: 12px;
+            font-size: 20px;
           }
 
         }
       }
     }
-  }
-  .post {
-    margin-bottom: 50px;
   }
 }
