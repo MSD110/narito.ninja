@@ -4,9 +4,9 @@ body > header {
 }
 
 body > header > a {
-    font-size: 40px;
-    font-weight: 200;
-    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
+    color: $main-color;
+    font-family: 'Abril Fatface', cursive;
 }
 
 @media (min-width: $pc) {
