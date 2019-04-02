@@ -10,7 +10,7 @@
 body {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 150px 1fr auto auto auto 150px;
+  grid-template-rows: auto 1fr auto auto auto auto;
 
   header {
     grid-column: 1;

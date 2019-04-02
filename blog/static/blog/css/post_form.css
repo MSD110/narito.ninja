@@ -394,7 +394,7 @@ div.field ul.dropdown li:hover {
 body {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 150px 1fr 150px;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 body header {
