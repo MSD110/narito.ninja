@@ -282,6 +282,16 @@ body > footer > p {
   .post-list {
     display: block;
   }
+  .post-list nav.page ul li {
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+  .post-list nav.page ul li span {
+    font-size: 12px;
+  }
+  .post-list nav.page ul li a {
+    font-size: 12px;
+  }
 
   .post {
     margin-bottom: 50px;

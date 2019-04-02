@@ -282,6 +282,16 @@ body > footer > p {
   .post-list {
     display: block;
   }
+  .post-list nav.page ul li {
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+  .post-list nav.page ul li span {
+    font-size: 12px;
+  }
+  .post-list nav.page ul li a {
+    font-size: 12px;
+  }
 
   .post {
     margin-bottom: 50px;
@@ -405,7 +415,7 @@ body .page-btn, body .page-btn-close {
   top: 0;
   z-index: 3;
 }
-body article#main {
+body article#main, body aside {
   padding: 40px;
 }
 body nav#toc {
@@ -416,9 +426,6 @@ body nav#toc {
   top: 0;
   left: 0;
   right: 0;
-}
-body aside {
-  padding: 40px;
 }
 body aside h2 {
   grid-column: 1/-1;
@@ -467,6 +474,9 @@ body.open > nav#toc {
     top: 50px;
     padding: 0 15px;
     font-size: 12px;
+  }
+  body article#main, body aside {
+    padding: 40px 40px 40px 100px;
   }
   body article#main {
     grid-column: 2;

@@ -23,7 +23,7 @@ body {
     z-index: 3;
   }
 
-  article#main {
+  article#main, aside {
     padding: 40px;
   }
 
@@ -38,8 +38,6 @@ body {
   }
 
   aside {
-    padding: 40px;
-
     h2 {
       grid-column: 1 / -1;
       margin-bottom: 20px;
@@ -103,6 +101,10 @@ body.open > nav#toc {
       padding: 0 15px;
       font-size: 12px;
     }
+
+  article#main, aside {
+    padding: 40px 40px 40px 100px;
+  }
 
     article#main {
       grid-column: 2;
