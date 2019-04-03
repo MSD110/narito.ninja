@@ -13,8 +13,9 @@ urlpatterns = [
     path('post/update/<int:pk>/', views.PostUpdateView.as_view(), name='post_update'),
     path('post/delete/<int:pk>/', views.PostDeleteView.as_view(), name='post_delete'),
 
-    path('ajax/tags/get/', views.ajax_get_tags, name='ajax_get_tags'),
-    path('ajax/posts/get/', views.ajax_get_posts, name='ajax_get_posts'),
+    path('api/tags/suggest/', views.api_tags_suggest, name='api_tags_suggest'),
+    path('api/posts/suggest/', views.api_posts_suggest, name='api_posts_suggest'),
+    path('api/posts/', views.APIPostList.as_view(), name='api_posts'),
 
     path('rss/', feeds.RssLatestPostsFeed(), name='rss'),
     path('atom/', feeds.AtomLatestPostsFeed(), name='atom'),

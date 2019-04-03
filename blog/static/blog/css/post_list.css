@@ -224,16 +224,14 @@ body > footer > p {
   margin-top: 5px;
   margin-right: 20px;
 }
-.post-list nav.page ul li span {
-  background-color: #dddddd;
-  display: block;
-  padding: 3px 6px;
-  font-size: 12px;
-}
 .post-list nav.page ul li a {
   display: block;
   padding: 3px 6px;
   font-size: 12px;
+}
+.post-list nav.page ul li a.disable {
+  background-color: #dddddd;
+  pointer-events: none;
 }
 .post-list .post {
   margin-bottom: 50px;

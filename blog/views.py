@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Count
@@ -10,6 +12,7 @@ from .forms import (
     TITLE_CONTAIN, TEXT_CONTAIN, TITLE_OR_TEXT_CONTAIN
 )
 from .models import Post, Tag, Comment, Reply
+from .templatetags.blog import by_the_time
 
 
 class PublicPostIndexView(generic.ListView):
@@ -61,6 +64,7 @@ class PublicPostIndexView(generic.ListView):
 
 
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
+    """記事を作成する。"""
     model = Post
     form_class = PostCreateForm
 
@@ -73,6 +77,7 @@ class PostCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class PostUpdateView(LoginRequiredMixin, generic.UpdateView):
+    """記事を更新する。"""
     model = Post
     form_class = PostCreateForm
 
@@ -85,6 +90,7 @@ class PostUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
+    """記事を削除する。"""
     model = Post
     success_url = reverse_lazy('blog:top')
 
@@ -121,6 +127,7 @@ class PostDetailView(generic.DetailView):
 
 
 class CommentCreate(generic.CreateView):
+    """記事へのコメント作成ビュー。"""
     model = Comment
     form_class = CommentCreateForm
 
@@ -141,6 +148,7 @@ class CommentCreate(generic.CreateView):
 
 
 class ReplyCreate(generic.CreateView):
+    """コメントへの返信作成ビュー。"""
     model = Reply
     form_class = ReplyCreateForm
     template_name = 'blog/comment_form.html'
@@ -163,7 +171,8 @@ class ReplyCreate(generic.CreateView):
         return context
 
 
-def ajax_get_tags(request):
+def api_tags_suggest(request):
+    """サジェスト候補のタグをJSONで返す。"""
     keyword = request.GET.get('keyword')
     if keyword:
         tag_list = [{'pk': tag.pk, 'name': tag.name, 'name_with_count': f'{tag.name}({tag.post_count})'} for tag in Tag.objects.filter(name__icontains=keyword).annotate(post_count=Count('post'))]
@@ -172,10 +181,35 @@ def ajax_get_tags(request):
     return JsonResponse({'tag_list': tag_list})
 
 
-def ajax_get_posts(request):
+def api_posts_suggest(request):
+    """サジェスト候補の記事をJSONで返す。"""
     keyword = request.GET.get('keyword')
     if keyword:
         post_list = [{'pk': post.pk, 'title': post.title} for post in Post.objects.filter(title__icontains=keyword)]
     else:
         post_list = []
     return JsonResponse({'post_list': post_list})
+
+
+class APIPostList(PublicPostIndexView):
+    """記事の一覧をJSONで返す。"""
+    paginate_by = 10
+    model = Post
+
+    def get(self, request, *args, **kwargs):
+        json_post_list = []
+        self.object_list = self.get_queryset()
+        context = self.get_context_data()
+        for post in context['post_list']:
+            json_post = {
+                'pk': post.pk,
+                'title': post.title,
+                'tags': [tag.name for tag in post.tags.all()],
+                'updated_at': post.updated_at.strftime('%Y-%m-%d'),
+                'updated_display': by_the_time(post.updated_at),
+            }
+            json_post_list.append(json_post)
+        return JsonResponse({
+            'post_list': json_post_list,
+            'max_page': context['page_obj'].paginator.num_pages
+        })

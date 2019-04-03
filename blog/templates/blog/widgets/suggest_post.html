@@ -1,4 +1,4 @@
-<input type="text" id="{{ widget.name }}-input" class="post-suggest" data-url="{% url 'blog:ajax_get_posts' %}"
+<input type="text" id="{{ widget.name }}-input" class="post-suggest" data-url="{% url 'blog:api_posts_suggest' %}"
        data-target="{{ widget.name }}" autocomplete="off">
 
 <ul id="{{ widget.name }}-list" class="dropdown"></ul>
