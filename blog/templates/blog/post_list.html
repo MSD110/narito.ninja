@@ -54,10 +54,16 @@
 
 {% block extra_js %}
     <script>
+        // 検索フォーム
         const form = document.getElementById('api-posts');
+
+        // ページネーション部分
         const pageLinks = document.querySelectorAll('nav.page a');
 
         const createPageLink = (param, max_page) => {
+            /**
+             * ページネーション部分を作成する。
+             */
             const ul = document.querySelector('nav.page > ul');
             ul.innerHTML = `<li><a href="{% url 'blog:top' %}${param}&page=1" class="disable" data-url="{% url 'blog:api_posts' %}${param}&page=1">1</a></span></li>`;
             for(let i = 2; i <= max_page; i++) {
@@ -67,6 +73,9 @@
         };
 
         const setPostList = postList => {
+            /**
+             * 記事の一覧部分を作成する。
+             */
             let postContainer = document.querySelector('section.post-list');
             for (const article of postContainer.querySelectorAll('article.post')) {
                 postContainer.removeChild(article);
@@ -83,12 +92,14 @@
                 html += `<time datetime="${post.updated_at}">updated at ${post.updated_display}</time>`;
                 html += '</article>';
             }
-            postContainer.innerHTML += html;
+            postContainer.innerHTML = html + postContainer.innerHTML;
             initLinkEvent();
         };
 
-        // 検索ボタンで呼ばれる
         form.addEventListener('submit', e => {
+            /**
+             *  検索ボタンを押した際に呼ばれる。
+             */
             // デフォルトのイベントをキャンセルし、ページ遷移しないように!
             e.preventDefault();
 
@@ -100,13 +111,19 @@
                 param += `&search_tags=${tag.value}`
             }
 
+            // 検索結果の記事の一覧を取得する
             fetch(`{% url 'blog:api_posts' %}${param}`)
                 .then(response => {
                     return response.json();
                 })
                 .then(response => {
+                    // ページネーション部分の作成
                     createPageLink(param, response.max_page);
+
+                    // 記事の一覧部分作成
                     setPostList(response.post_list);
+
+                    // ブラウザのURLバーを置き換え
                     history.replaceState('', '', `{% url 'blog:top' %}${param}`);
                 }).catch(error => {
                     console.log(error);
@@ -114,22 +131,31 @@
         });
 
         const clickLink = e => {
+            /**
+             * リンクをクリックされた際に呼ばれる。
+             */
             // デフォルトのイベントをキャンセルし、ページ遷移しないように!
             e.preventDefault();
 
+            // 次ページの記事一覧を取得する。
             fetch(e.target.dataset.url)
                 .then(response => {
                     return response.json();
                 })
                 .then(response => {
+                    // 現在のページリンクをアクティブに。
                     const currentLink = document.querySelector('nav.page a.disable');
                     currentLink.classList.remove('disable');
                     currentLink.classList.add('page-link');
 
+                    // 押されたページリンクを非アクティブに。
                     e.target.classList.remove('page-link');
                     e.target.classList.add('disable');
 
+                    // 記事一覧部分の作成
                     setPostList(response.post_list);
+
+                    // ブラウザのURLバーを置き換え
                     history.replaceState('', '', e.target.href);
                 }).catch(error => {
                     console.log(error);
@@ -137,12 +163,15 @@
         };
 
         const initLinkEvent = () => {
-            // 初期化。ページリンククリックでclickLinkを呼ぶように。
+            /**
+             * ページリンククリックでclickLinkを呼ぶように設定する。
+             */
             for (const link of document.querySelectorAll('nav.page a.page-link')) {
                 link.addEventListener('click', clickLink);
             }
         };
 
+        // 初回のイベント設定。
         initLinkEvent();
 
     </script>
