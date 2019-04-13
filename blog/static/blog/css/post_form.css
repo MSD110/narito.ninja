@@ -16,16 +16,15 @@ img {
 }
 
 code {
-  color: #dc143c;
+  color: #1a0dab;
 }
 
 a {
   text-decoration: none;
-  color: #000;
 }
 
 a:hover {
-  color: #14DC36;
+  text-decoration: underline;
 }
 
 pre, code {
@@ -38,7 +37,8 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+  font-family: arial, sans-serif;
+  /* font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif; */
 }
 
 /* お知らせ欄 */
@@ -116,22 +116,12 @@ body {
   width: 2px;
 }
 
-body > header {
-  line-height: 1;
-}
-
 body > header > a {
-  font-size: 60px;
-  color: #dc143c;
-  font-family: "Abril Fatface", cursive;
+  font-size: 30px;
   font-weight: bold;
+  color: #000;
 }
 
-@media (max-width: 767px) {
-  body > header > a {
-    font-size: 30px;
-  }
-}
 .page-btn-close {
   display: none;
 }
@@ -173,6 +163,7 @@ body > footer > ul {
 
 body > footer > ul a {
   font-size: 12px;
+  color: #000;
 }
 
 body > footer > p {
@@ -182,25 +173,26 @@ body > footer > p {
 }
 
 .post h1, .post h2, .post h3 {
-  line-height: 1;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: normal;
+  color: #1a0dab;
+  line-height: 1;
 }
 .post h1 a, .post h2 a, .post h3 a {
-  line-height: 1;
-  font-size: 12px;
+  font-size: 18px;
+  color: #1a0dab;
   font-weight: normal;
+  line-height: 1;
 }
 .post time {
   display: block;
-  font-size: 10px;
-  color: #888;
-  margin-top: 1em;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #006621;
   line-height: 1;
 }
 .post ul.tags {
-  margin-top: 1em;
-  font-size: 10px;
+  margin-top: 10px;
   list-style: none;
   padding: 0;
   display: grid;
@@ -208,7 +200,8 @@ body > footer > p {
   justify-content: start;
   grid-column-gap: 10px;
   column-gap: 10px;
-  color: #888;
+  font-size: 14px;
+  color: #006621;
   line-height: 1;
 }
 
@@ -222,15 +215,14 @@ body > footer > p {
 .post-list nav.page ul li {
   float: left;
   margin-top: 5px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 .post-list nav.page ul li a {
-  display: block;
-  padding: 3px 6px;
-  font-size: 12px;
+  color: #4285f4;
+  font-size: 20px;
 }
 .post-list nav.page ul li a.disable {
-  background-color: #dddddd;
+  color: #000;
   pointer-events: none;
 }
 .post-list .post {
@@ -242,20 +234,12 @@ body > footer > p {
     display: grid;
     grid-template-rows: repeat(5, 1fr) auto;
     grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    column-gap: 40px;
   }
   .post-list nav.page {
     grid-row: 6;
     grid-column: 1/-1;
-  }
-  .post-list nav.page ul li {
-    margin-top: 5px;
-    margin-right: 40px;
-  }
-  .post-list nav.page ul li span {
-    font-size: 20px;
-  }
-  .post-list nav.page ul li a {
-    font-size: 20px;
   }
 }
 div.field {
@@ -268,22 +252,20 @@ div.field span.helptext::before {
 div.field input[type=text], div.field input[type=email], div.field input[type=number],
 div.field select, div.field textarea {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
   border-radius: 4px;
   border: solid 1px #dbdbdb;
   font-size: 12px;
   background-color: #fff;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
 }
 div.field button[type=submit], div.field button[type=button], div.field a.button {
   -webkit-appearance: none;
-  padding: 0.5em 1em;
+  padding: 10px;
   border-radius: 4px;
   border: solid 1px #dbdbdb;
   font-size: 12px;
   background-color: #fff;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
   width: 100%;
   /* a要素用の設定 */
   box-sizing: border-box;
@@ -292,10 +274,6 @@ div.field button[type=submit], div.field button[type=button], div.field a.button
   text-align: center;
   /* button要素用の設定 */
   cursor: pointer;
-}
-div.field button[type=submit]:hover, div.field button[type=button]:hover, div.field a.button:hover {
-  background-color: #14DC36;
-  color: #fff;
 }
 div.field ul.dropdown {
   display: none;
@@ -343,7 +321,7 @@ div.field ul.dropdown li:hover {
   font-size: 14px;
 }
 .markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
-  color: #dc143c;
+  color: #1a0dab;
 }
 .markdown-body blockquote {
   position: relative;
@@ -373,14 +351,14 @@ body::before {
   content: "";
   grid-row: top-bar;
   grid-column: 1/-1;
-  background-color: #dc143c;
+  background-color: #1a0dab;
 }
 
 body::after {
   content: "";
   grid-row: bottom-bar;
   grid-column: 1/-1;
-  background-color: #dc143c;
+  background-color: #1a0dab;
 }
 
 body.open #side {

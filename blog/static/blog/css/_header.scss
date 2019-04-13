@@ -1,16 +1,6 @@
-body > header {
-    line-height: 1;
-}
-
 body > header > a {
-    font-size: 60px;
-    color: $main-color;
-    font-family: 'Abril Fatface', cursive;
+    font-size: 30px;
     font-weight: bold;
+    color: #000;
 }
 
-@media (max-width: $sm) {
-    body > header > a {
-        font-size: 30px;
-    }
-}

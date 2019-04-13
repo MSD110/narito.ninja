@@ -9,23 +9,21 @@ div.field {
   input[type="text"], input[type="email"], input[type="number"],
   select, textarea {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     box-sizing: border-box;
     border-radius: 4px;
     border: solid 1px #dbdbdb;
     font-size: 12px;
     background-color: #fff;
-    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
   }
 
   button[type="submit"], button[type="button"], a.button {
     -webkit-appearance: none;
-    padding: 0.5em 1em;
+    padding: 10px;
     border-radius: 4px;
     border: solid 1px #dbdbdb;
     font-size: 12px;
     background-color: #fff;
-    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
     width: 100%;
 
     /* a要素用の設定 */
@@ -37,11 +35,6 @@ div.field {
     /* button要素用の設定 */
     cursor: pointer;
 
-  }
-
-  button[type="submit"]:hover, button[type="button"]:hover, a.button:hover {
-    background-color: $complementary-color;
-    color: #fff;
   }
 
   ul.dropdown {

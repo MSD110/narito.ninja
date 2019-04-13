@@ -2,7 +2,8 @@
 $pc: 1366px; /* PC用ブレイクポイント */
 $sm: 767px; /* スマホ用ブレイクポイント */
 
-$main-color: #dc143c;
+$main-color: #1a0dab;
+$accent-color: #006621;
 $complementary-color: #14DC36;
 $link-color: #000; /* リンクの色 */
 $link-hover-color: $complementary-color; /* リンクのホバー色 */
@@ -25,11 +26,10 @@ code {
 
 a {
   text-decoration: none;
-  color: $link-color;
 }
 
 a:hover {
-  color: $link-hover-color;
+text-decoration: underline;
 }
 
 pre, code {
@@ -42,7 +42,8 @@ pre, code {
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
-  font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+  font-family: arial, sans-serif;
+  /* font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif; */
 }
 
 

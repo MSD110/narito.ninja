@@ -193,8 +193,6 @@ def api_posts_suggest(request):
 
 class APIPostList(PublicPostIndexView):
     """記事の一覧をJSONで返す。"""
-    paginate_by = 10
-    model = Post
 
     def get(self, request, *args, **kwargs):
         json_post_list = []
