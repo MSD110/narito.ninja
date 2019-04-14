@@ -69,7 +69,6 @@
             for(let i = 2; i <= max_page; i++) {
                 ul.innerHTML += `<li><a href="{% url 'blog:top' %}${param}&page=${i}" class="page-link" data-url="{% url 'blog:api_posts' %}${param}&page=${i}">${i}</a></li>`;
             }
-            initLinkEvent();
         };
 
         const setPostList = postList => {
@@ -94,6 +93,7 @@
             }
             postContainer.innerHTML = html + postContainer.innerHTML;
             initLinkEvent();
+            scrollTo(0, 0);
         };
 
         form.addEventListener('submit', e => {
