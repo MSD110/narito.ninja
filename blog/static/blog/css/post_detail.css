@@ -31,7 +31,7 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
-  font-family: arial, sans-serif;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
 }
 
 /* お知らせ欄 */
