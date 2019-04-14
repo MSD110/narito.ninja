@@ -3,18 +3,22 @@
 
   h2 {
     font-size: 30px;
-    font-weight: 200;
-    margin: 100px 0 0 -30px;
-    padding-left: 25px;
-    border-left: solid 1px #000;
+    font-weight: bold;
+    margin: 100px 0 0 0;
+    color: $main-color;
+
+    border-bottom: solid 5px $main-color;
+    padding-bottom: 5px;
   }
 
   h3 {
     font-size: 20px;
-    font-weight: 200;
+    font-weight: bold;
     margin: 50px 0 0 0;
-    padding-left: 20px;
-    border-left: solid 1px #000;
+    color: $main-color;
+
+    border-bottom: solid 1px $main-color;
+    padding-bottom: 3px;
   }
 
   h2 + *, h3 + * {
@@ -31,12 +35,13 @@
     li {
       margin-top: 10px;
 
-      p {
-        font-size: 14px;
+      p:first-child {
+        color: $main-color;
+        font-weight: bold;
       }
 
-      p:first-child {
-        color: $code-color;
+      p:not(:first-child) {
+        margin-top: 0;
       }
     }
   }
@@ -46,7 +51,7 @@
     margin: 2em 0;
     padding: 1em 1em 1em 2.6em;
     font-size: .9em;
-    border-left: 5px solid #CCC;
+    border-left: 5px solid $border-color;
     border-radius: 2px;
   }
 
@@ -61,11 +66,7 @@
   }
 
   a {
-    color: #0000FF;
-  }
-
-  a:hover {
-    color: #00B233;
+    color: $main-color;
   }
 
 }

@@ -3,12 +3,12 @@
   h1, h2, h3 {
     font-size: 18px;
     font-weight: normal;
-    color: #1a0dab;
+    color: $main-color;
     line-height: 1;
 
     a {
       font-size: 18px;
-      color: #1a0dab;
+      color: $main-color;
       font-weight: normal;
       line-height: 1;
     }
@@ -19,7 +19,7 @@
     display: block;
     margin-top: 10px;
     font-size: 14px;
-    color: #006621;
+    color: $accent-color-black;
     line-height: 1;
   }
 
@@ -33,7 +33,7 @@
     grid-column-gap: 10px;
     column-gap: 10px;
     font-size: 14px;
-    color: #006621;
+    color: $accent-color-black;
     line-height: 1;
   }
 }
@@ -53,7 +53,7 @@
         margin-right: 40px;
 
         a {
-          color: #4285f4;
+          color: $main-color;
           font-size: 20px;
         }
 
@@ -83,7 +83,6 @@
     nav.page {
       grid-row: 6;
       grid-column: 1 / -1;
-
     }
   }
 }

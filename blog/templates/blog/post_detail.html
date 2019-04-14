@@ -6,11 +6,11 @@
 {% block keywords %}{{ post.keywords }}{% endblock %}
 
 {% block side %}
-<nav id="toc"></nav>
+<nav id="toc" class="side"></nav>
 {% endblock %}
 
 {% block content %}
-    <article id="main" class="post">
+    <article class="post main">
         {% if user.is_authenticated %}
             <h1><a href="{% url 'blog:post_update' post.pk %}">{{ post.title }}</a></h1>
         {% else %}
@@ -106,7 +106,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script>
         // 記事内目次のコンテナ
-        const divToc = document.querySelector('article#main > div.markdown-body > div.toc');
+        const divToc = document.querySelector('article.main > div.markdown-body > div.toc');
 
         // 記事内目次
         const tocUl = divToc.querySelector(':scope > ul');
@@ -121,7 +121,7 @@
             window.addEventListener('scroll', e => {
                 // [[summary, 100]. [about-python, 200]]のような、id名, yの絶対座標な配列
                 const headings = [];
-                for (const element of document.querySelectorAll('article#main  > div.markdown-body > h2, article#main > div.markdown-body > h3')) {
+                for (const element of document.querySelectorAll('article.main  > div.markdown-body > h2, article.main > div.markdown-body > h3')) {
                     const rect = element.getBoundingClientRect();
                     headings.push([element.id, window.pageYOffset + rect.top]);
                 }
@@ -148,16 +148,16 @@
                 if (currentHeadingsId) {
                     for (const [id, a] of anchors) {
                         if (id === `#${currentHeadingsId}`) {
-                            a.style.color = '#FF0000';
+                            a.classList.add('current');
                         } else {
-                            a.style.color = '#000000';
+                            a.classList.remove('current');
                         }
                     }
                 }
             });
 
             // コピーしたら、記事内の目次は削除
-            document.querySelector('article#main > div.markdown-body').removeChild(divToc);
+            document.querySelector('article.main > div.markdown-body').removeChild(divToc);
         }
     </script>
 {% endblock %}

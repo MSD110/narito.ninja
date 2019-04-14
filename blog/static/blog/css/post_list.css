@@ -1,10 +1,4 @@
 @charset "UTF-8";
-/* 変数 */
-/* PC用ブレイクポイント */
-/* スマホ用ブレイクポイント */
-/* リンクの色 */
-/* リンクのホバー色 */
-/* コードの色 */
 /* 共通設定 */
 * {
   margin: 0;
@@ -15,8 +9,9 @@ img {
   height: auto;
 }
 
-code {
-  color: #1a0dab;
+strong {
+  background-color: #fff100;
+  font-weight: bold;
 }
 
 a {
@@ -32,19 +27,17 @@ pre, code {
   white-space: pre-wrap;
 }
 
-/* ブログページ全体の基本設定とグリッド設定 */
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
   font-family: arial, sans-serif;
-  /* font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif; */
 }
 
 /* お知らせ欄 */
 #notify {
   opacity: 0;
-  background-color: #14DC36;
+  background-color: #3F00B3;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
@@ -116,6 +109,76 @@ body {
   width: 2px;
 }
 
+.post h1, .post h2, .post h3 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #3F00B3;
+  line-height: 1;
+}
+.post h1 a, .post h2 a, .post h3 a {
+  font-size: 18px;
+  color: #3F00B3;
+  font-weight: normal;
+  line-height: 1;
+}
+.post time {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #807900;
+  line-height: 1;
+}
+.post ul.tags {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  font-size: 14px;
+  color: #807900;
+  line-height: 1;
+}
+
+.post-list {
+  display: block;
+}
+.post-list nav.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+.post-list nav.page ul li {
+  float: left;
+  margin-top: 5px;
+  margin-right: 40px;
+}
+.post-list nav.page ul li a {
+  color: #3F00B3;
+  font-size: 20px;
+}
+.post-list nav.page ul li a.disable {
+  color: #000;
+  pointer-events: none;
+}
+.post-list .post {
+  margin-bottom: 50px;
+}
+
+@media (min-width: 767px) {
+  .post-list {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    column-gap: 40px;
+  }
+  .post-list nav.page {
+    grid-row: 6;
+    grid-column: 1/-1;
+  }
+}
 body > header > a {
   font-size: 30px;
   font-weight: bold;
@@ -163,7 +226,7 @@ body > footer > ul {
 
 body > footer > ul a {
   font-size: 12px;
-  color: #000;
+  color: #3F00B3;
 }
 
 body > footer > p {
@@ -172,76 +235,6 @@ body > footer > p {
   margin-top: 1em;
 }
 
-.post h1, .post h2, .post h3 {
-  font-size: 18px;
-  font-weight: normal;
-  color: #1a0dab;
-  line-height: 1;
-}
-.post h1 a, .post h2 a, .post h3 a {
-  font-size: 18px;
-  color: #1a0dab;
-  font-weight: normal;
-  line-height: 1;
-}
-.post time {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #006621;
-  line-height: 1;
-}
-.post ul.tags {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: start;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  font-size: 14px;
-  color: #006621;
-  line-height: 1;
-}
-
-.post-list {
-  display: block;
-}
-.post-list nav.page ul {
-  list-style-type: none;
-  padding: 0;
-}
-.post-list nav.page ul li {
-  float: left;
-  margin-top: 5px;
-  margin-right: 40px;
-}
-.post-list nav.page ul li a {
-  color: #4285f4;
-  font-size: 20px;
-}
-.post-list nav.page ul li a.disable {
-  color: #000;
-  pointer-events: none;
-}
-.post-list .post {
-  margin-bottom: 50px;
-}
-
-@media (min-width: 767px) {
-  .post-list {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr) auto;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-  }
-  .post-list nav.page {
-    grid-row: 6;
-    grid-column: 1/-1;
-  }
-}
 div.field {
   margin-bottom: 20px;
   font-size: 12px;
@@ -255,7 +248,7 @@ div.field select, div.field textarea {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 4px;
-  border: solid 1px #dbdbdb;
+  border: solid 1px #ebebeb;
   font-size: 12px;
   background-color: #fff;
 }
@@ -263,7 +256,7 @@ div.field button[type=submit], div.field button[type=button], div.field a.button
   -webkit-appearance: none;
   padding: 10px;
   border-radius: 4px;
-  border: solid 1px #dbdbdb;
+  border: solid 1px #ebebeb;
   font-size: 12px;
   background-color: #fff;
   width: 100%;
@@ -288,7 +281,7 @@ div.field ul.dropdown li {
   cursor: pointer;
 }
 div.field ul.dropdown li:hover {
-  background-color: #dddddd;
+  background-color: #fff100;
 }
 
 body {
@@ -309,15 +302,20 @@ body .page-btn, body .page-btn-close {
   grid-column: 2;
   grid-row: head;
   justify-self: start;
-  align-self: center;
+  position: sticky;
+  top: 0;
 }
-body aside#search {
+body .side {
   display: none;
-  grid-column: 2;
-  grid-row: main;
-  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgba(235, 235, 235, 0.9);
+  width: 50%;
+  padding: 20px;
 }
-body section.post-list {
+body .main {
   grid-column: 2;
   grid-row: main;
 }
@@ -326,7 +324,7 @@ body footer {
   grid-row: foot;
 }
 
-body.open > aside#search {
+body.open > .side {
   display: block;
 }
 
@@ -338,12 +336,17 @@ body.open > aside#search {
     grid-column: 2;
     grid-row: head;
   }
-  body aside#search {
+  body .side {
     display: block;
     grid-column: 2;
     grid-row: main;
+    position: static;
+    transform: none;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
   }
-  body section.post-list {
+  body .main {
     grid-column: 4;
     grid-row: head/end;
   }

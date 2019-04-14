@@ -1,30 +1,14 @@
 @import "base";
+@import "article-list";
 @import "header";
 @import "nav-btn";
 @import "footer";
-@import "article-list";
 @import "form";
 @import "markdown";
+@import "base_layout";
 
-body::before {
-  content: '';
-  grid-row: top-bar;
-  grid-column: 1 / -1;
-  background-color: $main-color;
-}
 
-body::after {
-  content: '';
-  grid-row: bottom-bar;
-  grid-column: 1 / -1;
-  background-color: $main-color;
-}
-
-body.open #side {
-  display: block;
-}
-
-body.preview form#main {
+body.preview .main {
   display: none;
 }
 
@@ -33,42 +17,11 @@ body.preview .markdownx-preview {
 }
 
 body {
-  display: grid;
-  grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [top-bar] 10px [head] auto [main] 1fr [foot] auto [bottom-bar] 10px;
-  grid-row-gap: 40px;
-  row-gap: 40px;
-  min-height: 100vh;
-
-  header {
-    grid-column: 2;
-    grid-row: head;
-    justify-self: center;
-    align-self: center;
-  }
-
-  .page-btn, .page-btn-close {
-    grid-column: 2;
-    grid-row: head;
-    justify-self: start;
-    align-self: center;
-  }
-
-  #side {
-    display: none;
-    grid-column: 2;
-    grid-row: main;
-    background-color: rgba(255, 255, 255, 0.9);
-
+  .side {
     #change-display {
       position: sticky;
       top: 100px;
     }
-  }
-
-  form#main {
-    grid-column: 2;
-    grid-row: main;
   }
 
   .markdownx-preview {
@@ -77,44 +30,15 @@ body {
     grid-row: main;
   }
 
-  footer {
-    grid-column: 2;
-    grid-row: foot;
-  }
-
 }
 
 @media (min-width: $pc) {
   body {
-    grid-template-columns: 366px 100px 900px 1fr;
-
-    header {
-      grid-column: 1;
-      grid-row: head;
-    }
-
-    #side {
-      display: block;
-      grid-column: 1;
-      grid-row: main;
-      width: 300px;
-      justify-self: center;
-    }
-
-    form#main {
-      grid-column: 3;
-      grid-row: head / bottom-bar;
-    }
-
     .markdownx-preview {
-      grid-column: 3;
-      grid-row: head / bottom-bar;
+      grid-column: 4;
+      grid-row: head / end;
     }
 
-    footer {
-      grid-column: 1;
-      grid-row: foot;
-    }
   }
 
 }

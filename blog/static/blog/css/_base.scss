@@ -1,14 +1,14 @@
-/* 変数 */
-$pc: 1366px; /* PC用ブレイクポイント */
-$sm: 767px; /* スマホ用ブレイクポイント */
+// 変数
+$pc: 1366px;  // PC用ブレイクポイント
+$sm: 767px;  // スマホ用ブレイクポイント
 
-$main-color: #1a0dab;
-$accent-color: #006621;
-$complementary-color: #14DC36;
-$link-color: #000; /* リンクの色 */
-$link-hover-color: $complementary-color; /* リンクのホバー色 */
-$code-color: $main-color; /* コードの色 */
+$base-color: #ffffff;  // 白
+$main-color: #3F00B3;  // 重厚な青紫
+$accent-color: #fff100;  // 鮮やかな黄
+$accent-color-black: darken($accent-color, 25%);  // 濃い黄色
 
+$border-color: #ebebeb;  // 薄い灰色
+$link-color: #0000FF;  // 純青
 
 /* 共通設定 */
 * {
@@ -20,8 +20,9 @@ img {
   height: auto;
 }
 
-code {
-  color: $code-color;
+strong {
+  background-color: $accent-color;
+  font-weight: bold;
 }
 
 a {
@@ -29,7 +30,7 @@ a {
 }
 
 a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 pre, code {
@@ -38,19 +39,17 @@ pre, code {
 }
 
 
-/* ブログページ全体の基本設定とグリッド設定 */
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
   font-family: arial, sans-serif;
-  /* font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif; */
 }
 
 
 /* お知らせ欄 */
 #notify {
   opacity: 0;
-  background-color: $complementary-color;
+  background-color: $main-color;
   padding: 20px;
   width: 200px;
   border-radius: 10px;

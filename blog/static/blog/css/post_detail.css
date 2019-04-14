@@ -1,10 +1,4 @@
 @charset "UTF-8";
-/* 変数 */
-/* PC用ブレイクポイント */
-/* スマホ用ブレイクポイント */
-/* リンクの色 */
-/* リンクのホバー色 */
-/* コードの色 */
 /* 共通設定 */
 * {
   margin: 0;
@@ -15,8 +9,9 @@ img {
   height: auto;
 }
 
-code {
-  color: #1a0dab;
+strong {
+  background-color: #fff100;
+  font-weight: bold;
 }
 
 a {
@@ -32,19 +27,17 @@ pre, code {
   white-space: pre-wrap;
 }
 
-/* ブログページ全体の基本設定とグリッド設定 */
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
   font-family: arial, sans-serif;
-  /* font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif; */
 }
 
 /* お知らせ欄 */
 #notify {
   opacity: 0;
-  background-color: #14DC36;
+  background-color: #3F00B3;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
@@ -116,6 +109,76 @@ body {
   width: 2px;
 }
 
+.post h1, .post h2, .post h3 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #3F00B3;
+  line-height: 1;
+}
+.post h1 a, .post h2 a, .post h3 a {
+  font-size: 18px;
+  color: #3F00B3;
+  font-weight: normal;
+  line-height: 1;
+}
+.post time {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #807900;
+  line-height: 1;
+}
+.post ul.tags {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  font-size: 14px;
+  color: #807900;
+  line-height: 1;
+}
+
+.post-list {
+  display: block;
+}
+.post-list nav.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+.post-list nav.page ul li {
+  float: left;
+  margin-top: 5px;
+  margin-right: 40px;
+}
+.post-list nav.page ul li a {
+  color: #3F00B3;
+  font-size: 20px;
+}
+.post-list nav.page ul li a.disable {
+  color: #000;
+  pointer-events: none;
+}
+.post-list .post {
+  margin-bottom: 50px;
+}
+
+@media (min-width: 767px) {
+  .post-list {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    column-gap: 40px;
+  }
+  .post-list nav.page {
+    grid-row: 6;
+    grid-column: 1/-1;
+  }
+}
 body > header > a {
   font-size: 30px;
   font-weight: bold;
@@ -163,139 +226,13 @@ body > footer > ul {
 
 body > footer > ul a {
   font-size: 12px;
-  color: #000;
+  color: #3F00B3;
 }
 
 body > footer > p {
   text-align: center;
   font-size: 12px;
   margin-top: 1em;
-}
-
-.post h1, .post h2, .post h3 {
-  font-size: 18px;
-  font-weight: normal;
-  color: #1a0dab;
-  line-height: 1;
-}
-.post h1 a, .post h2 a, .post h3 a {
-  font-size: 18px;
-  color: #1a0dab;
-  font-weight: normal;
-  line-height: 1;
-}
-.post time {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #006621;
-  line-height: 1;
-}
-.post ul.tags {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: start;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  font-size: 14px;
-  color: #006621;
-  line-height: 1;
-}
-
-.post-list {
-  display: block;
-}
-.post-list nav.page ul {
-  list-style-type: none;
-  padding: 0;
-}
-.post-list nav.page ul li {
-  float: left;
-  margin-top: 5px;
-  margin-right: 40px;
-}
-.post-list nav.page ul li a {
-  color: #4285f4;
-  font-size: 20px;
-}
-.post-list nav.page ul li a.disable {
-  color: #000;
-  pointer-events: none;
-}
-.post-list .post {
-  margin-bottom: 50px;
-}
-
-@media (min-width: 767px) {
-  .post-list {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr) auto;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-  }
-  .post-list nav.page {
-    grid-row: 6;
-    grid-column: 1/-1;
-  }
-}
-/* 記事やコメント欄、プレビューエリアの汎用的な設定 */
-.markdown-body h2 {
-  font-size: 30px;
-  font-weight: 200;
-  margin: 100px 0 0 -30px;
-  padding-left: 25px;
-  border-left: solid 1px #000;
-}
-.markdown-body h3 {
-  font-size: 20px;
-  font-weight: 200;
-  margin: 50px 0 0 0;
-  padding-left: 20px;
-  border-left: solid 1px #000;
-}
-.markdown-body h2 + *, .markdown-body h3 + * {
-  margin-top: 5px;
-}
-.markdown-body p {
-  font-size: 16px;
-  margin-top: 20px;
-  line-height: 2;
-}
-.markdown-body ul li, .markdown-body ol li {
-  margin-top: 10px;
-}
-.markdown-body ul li p, .markdown-body ol li p {
-  font-size: 14px;
-}
-.markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
-  color: #1a0dab;
-}
-.markdown-body blockquote {
-  position: relative;
-  margin: 2em 0;
-  padding: 1em 1em 1em 2.6em;
-  font-size: 0.9em;
-  border-left: 5px solid #CCC;
-  border-radius: 2px;
-}
-.markdown-body blockquote::after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  content: "”";
-  font-family: sans-serif;
-  font-size: 6em;
-  opacity: 0.1;
-}
-.markdown-body a {
-  color: #0000FF;
-}
-.markdown-body a:hover {
-  color: #00B233;
 }
 
 div.field {
@@ -311,7 +248,7 @@ div.field select, div.field textarea {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 4px;
-  border: solid 1px #dbdbdb;
+  border: solid 1px #ebebeb;
   font-size: 12px;
   background-color: #fff;
 }
@@ -319,7 +256,7 @@ div.field button[type=submit], div.field button[type=button], div.field a.button
   -webkit-appearance: none;
   padding: 10px;
   border-radius: 4px;
-  border: solid 1px #dbdbdb;
+  border: solid 1px #ebebeb;
   font-size: 12px;
   background-color: #fff;
   width: 100%;
@@ -344,29 +281,72 @@ div.field ul.dropdown li {
   cursor: pointer;
 }
 div.field ul.dropdown li:hover {
-  background-color: #dddddd;
+  background-color: #fff100;
 }
 
-body::before {
-  content: "";
-  grid-row: top-bar;
-  grid-column: 1/-1;
-  background-color: #1a0dab;
+/* 記事やコメント欄、プレビューエリアの汎用的な設定 */
+.markdown-body h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 100px 0 0 0;
+  color: #3F00B3;
+  border-bottom: solid 5px #3F00B3;
+  padding-bottom: 5px;
 }
-
-body::after {
-  content: "";
-  grid-row: bottom-bar;
-  grid-column: 1/-1;
-  background-color: #1a0dab;
+.markdown-body h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 50px 0 0 0;
+  color: #3F00B3;
+  border-bottom: solid 1px #3F00B3;
+  padding-bottom: 3px;
+}
+.markdown-body h2 + *, .markdown-body h3 + * {
+  margin-top: 5px;
+}
+.markdown-body p {
+  font-size: 16px;
+  margin-top: 20px;
+  line-height: 2;
+}
+.markdown-body ul li, .markdown-body ol li {
+  margin-top: 10px;
+}
+.markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
+  color: #3F00B3;
+  font-weight: bold;
+}
+.markdown-body ul li p:not(:first-child), .markdown-body ol li p:not(:first-child) {
+  margin-top: 0;
+}
+.markdown-body blockquote {
+  position: relative;
+  margin: 2em 0;
+  padding: 1em 1em 1em 2.6em;
+  font-size: 0.9em;
+  border-left: 5px solid #ebebeb;
+  border-radius: 2px;
+}
+.markdown-body blockquote::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "”";
+  font-family: sans-serif;
+  font-size: 6em;
+  opacity: 0.1;
+}
+.markdown-body a {
+  color: #3F00B3;
 }
 
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [top-bar] 10px [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto [bottom-bar] 10px;
-  grid-row-gap: 40px;
+  grid-template-rows: [start] 0 [head] auto [main] 1fr [foot] auto [end] 0;
+  grid-row-gap: 10px;
   row-gap: 40px;
+  min-height: 100vh;
 }
 body header {
   grid-column: 2;
@@ -378,31 +358,86 @@ body .page-btn, body .page-btn-close {
   grid-column: 2;
   grid-row: head;
   justify-self: start;
-  align-self: center;
   position: sticky;
   top: 0;
 }
-body nav#toc {
+body .side {
   display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgba(235, 235, 235, 0.9);
+  width: 50%;
+  padding: 20px;
+}
+body .main {
   grid-column: 2;
-  grid-row: head;
-  position: sticky;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-body nav#toc ul {
-  list-style-type: none;
-}
-body article#main {
   grid-row: main;
+}
+body footer {
   grid-column: 2;
+  grid-row: foot;
+}
+
+body.open > .side {
+  display: block;
+}
+
+@media (min-width: 1366px) {
+  body {
+    grid-template-columns: 40px 346px 80px 900px 1fr;
+  }
+  body header {
+    grid-column: 2;
+    grid-row: head;
+  }
+  body .side {
+    display: block;
+    grid-column: 2;
+    grid-row: main;
+    position: static;
+    transform: none;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+  }
+  body .main {
+    grid-column: 4;
+    grid-row: head/end;
+  }
+  body footer {
+    grid-column: 2;
+    grid-row: foot;
+  }
+
+  body::after {
+    content: "";
+    grid-row: 1/-1;
+    grid-column: 3;
+    border-left: 1px solid #ebebeb;
+    justify-self: center;
+  }
+}
+body {
+  grid-template-rows: [start] 0 [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto [end] 0;
+}
+body .side {
+  background-color: transparent;
+}
+body .side > ul {
+  background-color: rgba(235, 235, 235, 0.9);
+  padding: 20px;
+}
+body .side > ul a {
+  color: #000;
+}
+body .side > ul a.current {
+  background-color: #fff100;
 }
 body aside h2 {
   grid-column: 1/-1;
-  margin-bottom: 10px;
-  font-family: "Abril Fatface", cursive;
-  font-weight: bold;
-  color: #1a0dab;
+  margin-bottom: 20px;
   align-self: end;
 }
 body aside#ads {
@@ -423,59 +458,28 @@ body aside#comment p {
 body aside#comment .box {
   margin-top: 30px;
 }
-body aside#comment a {
-  color: #0000FF;
-}
-body aside#comment a:hover {
-  color: #00B233;
-}
-body footer {
-  grid-column: 2;
-  grid-row: foot;
-}
-
-body.open > nav#toc {
-  display: block;
-}
 
 @media (min-width: 1366px) {
-  body {
-    grid-template-columns: 366px 100px 900px auto;
-  }
-  body header {
-    grid-column: 1;
-    grid-row: head;
-  }
-  body nav#toc {
-    display: block;
-    grid-row: main;
-    grid-column: 1;
-    position: static;
-  }
-  body nav#toc > ul {
+  body .side ul {
     position: sticky;
     top: 50px;
     font-size: 12px;
   }
-  body article#main {
-    grid-column: 3;
+  body .main {
+    grid-column: 4;
     grid-row: head/ads;
   }
   body aside#relation-posts {
-    grid-column: 3;
+    grid-column: 4;
     grid-row: relation-posts;
   }
   body aside#ads {
-    grid-column: 3;
+    grid-column: 4;
     grid-row: ads;
   }
   body aside#comment {
-    grid-column: 3;
+    grid-column: 4;
     grid-row: comment;
-  }
-  body footer {
-    grid-column: 1;
-    grid-row: foot;
   }
 }
 

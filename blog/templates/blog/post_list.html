@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{% static 'blog/css/post_list.css' %}">{% endblock %}
 
 {% block side %}
-    <aside id="search">
-        <form action="{% url 'blog:top' %}" method="get" role="search" id="api-posts">
+    <aside id="search" class="side">
+        <form action="{% url 'blog:top' %}" method="get" role="search" id="api-posts" class="inner">
             {% for field in search_form %}
                 <div class="field">
                     {{ field.label_tag }}
@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block content %}
-    <section class="post-list">
+    <section class="post-list main">
         {% for post in post_list %}
             <article class="post">
                 <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>

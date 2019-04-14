@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block side %}
-    <div id="side">
+    <div class="side">
         <div class="field">
             <a class="button" href="{% url 'blog:post_detail' post.pk %}">記事詳細画面へ</a>
         </div>
@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="" method="POST" id="main">
+    <form action="" method="POST" class="main">
         {{ form.non_field_errors }}
         {% for field in form %}
             <div class="field">

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block side %}
-    <div id="side">
+    <div class="side">
         {% if post %}
             <div class="field">
                 <button type="button" id="delete">削除</button>
@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="" method="POST" id="main">
+    <form action="" method="POST" class="main">
         {{ form.non_field_errors }}
         {% for field in form %}
             <div class="field">
