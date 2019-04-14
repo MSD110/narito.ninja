@@ -8,8 +8,6 @@
     <meta name="keywords" content="{% block keywords %}Python,Django,プログラミング,ブログ{% endblock %}">
     <meta name="description" content="{% block description %}{% endblock %}">
     <title>{% block title %}Narito Blog{% endblock %}</title>
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -29,13 +27,7 @@
 
 {% block side %}{% endblock %}
 
-<button type="button" class="page-btn">
-    <span class="fas fa-bars" title="メニューを開く"></span>
-</button>
-
-<button type="button" class="page-btn-close">
-    <span class="fas fa-times" title="メニューを閉じる"></span>
-</button>
+<button id="page-btn"><span id="page-btn-icon"></span></button>
 
 <footer>
     <ul>
@@ -60,11 +52,9 @@
 
 <script>
     // ナビゲーションの開閉
-    for (const element of document.querySelectorAll('.page-btn, .page-btn-close')) {
-        element.addEventListener('click', e => {
-            document.body.classList.toggle('open');
-        });
-    }
+    document.getElementById('page-btn').addEventListener('click', e => {
+        document.body.classList.toggle('open');
+    });
 
 </script>
 {{ search_form.media }}

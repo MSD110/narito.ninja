@@ -1,25 +1,69 @@
-.page-btn-close {
-    display: none;
+#page-btn {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $border-color;
 }
 
-.page-btn, .page-btn-close {
-    border: none;
-    background-color: transparent;
-    font-size: 30px;
-    cursor: pointer;
+#page-btn-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  margin: -1px 0 0 -7px;
+  background: $main-color;
+  transition: .2s;
 }
 
-body.open .page-btn {
-    display: none;
+#page-btn-icon:before, #page-btn-icon:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  background: $main-color;
+  transition: .3s;
 }
 
-body.open .page-btn-close {
-    display: block;
+#page-btn-icon:before {
+  margin-top: -6px;
 }
+
+#page-btn-icon:after {
+  margin-top: 4px;
+}
+
+body.open {
+  #page-btn-icon {
+    background: transparent;
+  }
+
+  #page-btn-icon:before, #page-btn-icon:after {
+    margin-top: 0;
+  }
+
+  #page-btn-icon:before {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  #page-btn-icon:after {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+}
+
 
 @media (min-width: $pc) {
-    .page-btn {
-        display: none;
-    }
+  #page-btn {
+    display: none;
+  }
 }
-

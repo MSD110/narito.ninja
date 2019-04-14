@@ -197,27 +197,66 @@ body > header > a {
   color: #000;
 }
 
-.page-btn-close {
-  display: none;
-}
-
-.page-btn, .page-btn-close {
+#page-btn {
   border: none;
-  background-color: transparent;
-  font-size: 30px;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ebebeb;
 }
 
-body.open .page-btn {
-  display: none;
-}
-
-body.open .page-btn-close {
+#page-btn-icon {
   display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  margin: -1px 0 0 -7px;
+  background: #3F00B3;
+  transition: 0.2s;
+}
+
+#page-btn-icon:before, #page-btn-icon:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  background: #3F00B3;
+  transition: 0.3s;
+}
+
+#page-btn-icon:before {
+  margin-top: -6px;
+}
+
+#page-btn-icon:after {
+  margin-top: 4px;
+}
+
+body.open #page-btn-icon {
+  background: transparent;
+}
+body.open #page-btn-icon:before, body.open #page-btn-icon:after {
+  margin-top: 0;
+}
+body.open #page-btn-icon:before {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+body.open #page-btn-icon:after {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 
 @media (min-width: 1366px) {
-  .page-btn {
+  #page-btn {
     display: none;
   }
 }
@@ -366,7 +405,7 @@ body header {
   justify-self: center;
   align-self: center;
 }
-body .page-btn, body .page-btn-close {
+body #page-btn {
   grid-column: 2;
   grid-row: head;
   justify-self: start;

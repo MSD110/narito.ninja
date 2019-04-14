@@ -13,7 +13,7 @@ body {
     align-self: center;
   }
 
-  .page-btn, .page-btn-close {
+  #page-btn {
     grid-column: 2;
     grid-row: head;
     justify-self: start;
