@@ -44,7 +44,7 @@
                     {% if page_obj.number == num %}
                         <li><a href="?{%  url_replace request 'page' num %}" class="disable" data-url="{% url 'blog:api_posts' %}?{%  url_replace request 'page' num %}">{{ num }}</a></li>
                     {% else %}
-                        <li><a href="?{%  url_replace request 'page' num %}" class="page-link" data-url="{% url 'blog:api_posts' %}?{%  url_replace request 'page' num %}">{{ num }}</a></li>
+                        <li><a href="?{%  url_replace request 'page' num %}"  data-url="{% url 'blog:api_posts' %}?{%  url_replace request 'page' num %}">{{ num }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -65,9 +65,29 @@
              * ページネーション部分を作成する。
              */
             const ul = document.querySelector('nav.page > ul');
-            ul.innerHTML = `<li><a href="{% url 'blog:top' %}${param}&page=1" class="disable" data-url="{% url 'blog:api_posts' %}${param}&page=1">1</a></span></li>`;
+            ul.innerHTML = '';
+
+            // 「1」の部分を作成
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.textContent = '1';
+            a.href = `{% url 'blog:top' %}${param}&page=1`;
+            a.classList.add('disable');
+            a.dataset.url = `{% url 'blog:api_posts' %}${param}&page=1`;
+            a.addEventListener('click', clickLink);
+            li.appendChild(a);
+            ul.appendChild(li);
+
+            // 2以降を作成
             for(let i = 2; i <= max_page; i++) {
-                ul.innerHTML += `<li><a href="{% url 'blog:top' %}${param}&page=${i}" class="page-link" data-url="{% url 'blog:api_posts' %}${param}&page=${i}">${i}</a></li>`;
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = `${i}`;
+                a.href = `{% url 'blog:top' %}${param}&page=${i}`;
+                a.dataset.url = `{% url 'blog:api_posts' %}${param}&page=${i}`;
+                a.addEventListener('click', clickLink);
+                li.appendChild(a);
+                ul.appendChild(li);
             }
         };
 
@@ -75,25 +95,39 @@
             /**
              * 記事の一覧部分を作成する。
              */
-            let postContainer = document.querySelector('section.post-list');
+            const postContainer = document.querySelector('section.post-list');
+            const nav = document.querySelector('nav.page');
             for (const article of postContainer.querySelectorAll('article.post')) {
                 postContainer.removeChild(article);
             }
-            let html = '';
+
             for (const post of postList) {
-                html += '<article class="post">';
-                html += `<h2><a href="/blog/detail/${post.pk}/">${ post.title }</a></h2>`;
-                html += '<ul class="tags">';
+                const article = document.createElement('article');
+                article.classList.add('post', 'fade-in');
+
+                const h2 = document.createElement('h2');
+                const a = document.createElement('a');
+                a.href = `/blog/detail/${post.pk}/`;
+                a.textContent = `${ post.title }`;
+                h2.appendChild(a);
+
+                const ul = document.createElement('ul');
+                ul.classList.add('tags');
                 for (const tag of post.tags) {
-                    html += `<li>${tag}</li>`;
+                    const li = document.createElement('li');
+                    li.textContent = `${tag}`;
+                    ul.appendChild(li);
                 }
-                html += '</ul>';
-                html += `<time datetime="${post.updated_at}">updated at ${post.updated_display}</time>`;
-                html += '</article>';
+
+                const time = document.createElement('time');
+                time.dateTime = `${post.updated_at}`;
+                time.textContent = `updated at ${post.updated_display}`;
+
+                article.appendChild(h2);
+                article.appendChild(ul);
+                article.appendChild(time);
+                postContainer.insertBefore(article, nav);
             }
-            postContainer.innerHTML = html + postContainer.innerHTML;
-            initLinkEvent();
-            scrollTo(0, 0);
         };
 
         form.addEventListener('submit', e => {
@@ -117,6 +151,9 @@
                     return response.json();
                 })
                 .then(response => {
+                    // 一番上までスクロールさせる
+                    scrollTo(0, 0);
+
                     // ページネーション部分の作成
                     createPageLink(param, response.max_page);
 
@@ -125,6 +162,7 @@
 
                     // ブラウザのURLバーを置き換え
                     history.replaceState('', '', `{% url 'blog:top' %}${param}`);
+
                 }).catch(error => {
                     console.log(error);
             });
@@ -143,13 +181,14 @@
                     return response.json();
                 })
                 .then(response => {
+                    // 一番上までスクロールさせる
+                    scrollTo(0, 0);
+
                     // 現在のページリンクをアクティブに。
                     const currentLink = document.querySelector('nav.page a.disable');
                     currentLink.classList.remove('disable');
-                    currentLink.classList.add('page-link');
 
                     // 押されたページリンクを非アクティブに。
-                    e.target.classList.remove('page-link');
                     e.target.classList.add('disable');
 
                     // 記事一覧部分の作成
@@ -157,6 +196,7 @@
 
                     // ブラウザのURLバーを置き換え
                     history.replaceState('', '', e.target.href);
+
                 }).catch(error => {
                     console.log(error);
             });
@@ -166,7 +206,7 @@
             /**
              * ページリンククリックでclickLinkを呼ぶように設定する。
              */
-            for (const link of document.querySelectorAll('nav.page a.page-link')) {
+            for (const link of document.querySelectorAll('nav.page a')) {
                 link.addEventListener('click', clickLink);
             }
         };

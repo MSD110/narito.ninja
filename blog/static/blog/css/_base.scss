@@ -1,14 +1,14 @@
 // 変数
-$pc: 1366px;  // PC用ブレイクポイント
-$sm: 767px;  // スマホ用ブレイクポイント
+$pc: 1366px; // PC用ブレイクポイント
+$sm: 767px; // スマホ用ブレイクポイント
 
-$base-color: #ffffff;  // 白
-$main-color: #3F00B3;  // 重厚な青紫
-$accent-color: #fff100;  // 鮮やかな黄
-$accent-color-black: darken($accent-color, 25%);  // 濃い黄色
+$base-color: #ffffff; // 白
+$main-color: #3F00B3; // 重厚な青紫
+$accent-color: #fff100; // 鮮やかな黄
+$accent-color-black: darken($accent-color, 25%); // 濃い黄色
 
-$border-color: #ebebeb;  // 薄い灰色
-$link-color: #0000FF;  // 純青
+$border-color: #ebebeb; // 薄い灰色
+$link-color: #0000FF; // 純青
 
 /* 共通設定 */
 * {
@@ -57,10 +57,14 @@ body {
   bottom: 10px;
   right: 10px;
   color: #ffffff;
-  -webkit-animation: fadein 7s linear;
+  -webkit-animation: fade-in-out 7s linear;
 }
 
-@-webkit-keyframes fadein {
+.fade-in {
+   -webkit-animation: fade-in 1s linear;
+}
+
+@-webkit-keyframes fade-in-out {
   0% {
     opacity: 0;
   }
@@ -71,6 +75,17 @@ body {
 
   100% {
     opacity: 0;
+  }
+}
+
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
