@@ -4,9 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = ">=2.1.5"
+django = "==2.1"
 pillow = "*"
 django-markdownx = "*"
 
 [requires]
 python_version = "3.7"
+
+[dev-packages]
+fabric3 = "*"
+pymysql = "*"
+django-debug-toolbar = "*"
