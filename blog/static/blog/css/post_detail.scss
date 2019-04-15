@@ -6,19 +6,16 @@
 @import "form";
 @import "markdown";
 @import "base_layout";
+@import "sns";
 
 
 body {
-  grid-template-rows: [start] 0 [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto [end] 0;
+  grid-template-rows: [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto;
 
 
   .side {
-    background-color: transparent;
-
     > ul {
-      background-color: rgba($border-color, 0.9);
-      padding: 20px;
-
+      padding: 0;
       a {
         color: #000;
       }
@@ -68,7 +65,7 @@ body {
   body {
 
     .side {
-      ul {
+      > ul {
         position: sticky;
         top: 50px;
         font-size: 12px;
@@ -76,22 +73,22 @@ body {
     }
 
     .main {
-      grid-column: 4;
-      grid-row: head / ads;
+      grid-column: 3;
+      grid-row: main;
     }
 
     aside#relation-posts {
-      grid-column: 4;
+      grid-column: 3;
       grid-row: relation-posts;
     }
 
     aside#ads {
-      grid-column: 4;
+      grid-column: 3;
       grid-row: ads;
     }
 
     aside#comment {
-      grid-column: 4;
+      grid-column: 3;
       grid-row: comment;
     }
 

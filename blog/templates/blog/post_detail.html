@@ -5,6 +5,20 @@
 {% block description %}{{ post.description }}{% endblock %}
 {% block keywords %}{{ post.keywords }}{% endblock %}
 
+{% block sns_link %}
+<ul id="sns">
+    <li>
+        <a href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}&text={{ post.title }} - Narito Blog" target="_blank" rel="nofollow" title="Twitterでシェア"><i class="fab fa-twitter-square"></i></a>
+    </li>
+    <li>
+       <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank" rel="nofollow" title="Facebookでシェア"><i class="fab fa-facebook-square"></i></a>
+    </li>
+    <li>
+        <a href="http://b.hatena.ne.jp/entry/{{ request.scheme }}://{{ request.get_host }}{% url 'blog:post_detail' post.pk %}" target="_blank" rel="nofollow" title="はてブでシェア"><i class="fa fa-hatena"></i></a>
+    </li>
+</ul>
+{% endblock %}
+
 {% block side %}
 <nav id="toc" class="side"></nav>
 {% endblock %}
@@ -66,7 +80,7 @@
             {% for comment in post.comment_set.all %}
                 <div class="box markdown-body">
                     {{ comment.name }}
-                    <time datetime="{{ comment.created_at | date:'Y-m-d' }}"><i class="far fa-clock" aria-hidden="true"></i> {% by_the_time comment.created_at %}</time>
+                    <time datetime="{{ comment.created_at | date:'Y-m-d' }}">{% by_the_time comment.created_at %}</time>
 
                     {{ comment.text | markdown_to_html | safe }}
 
@@ -79,7 +93,7 @@
                 {% for reply in comment.reply_set.all %}
                     <div class="box markdown-body">
                         {{ reply.name }}
-                        <time datetime="{{ reply.created_at | date:'Y-m-d' }}"><i class="far fa-clock" aria-hidden="true"></i> {% by_the_time reply.created_at %}</time>
+                        <time datetime="{{ reply.created_at | date:'Y-m-d' }}">{% by_the_time reply.created_at %}</time>
                         <div class="markdown-body">
                             {{ reply.text | markdown_to_html | safe }}
                         </div>

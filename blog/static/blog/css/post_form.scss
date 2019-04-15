@@ -6,6 +6,7 @@
 @import "form";
 @import "markdown";
 @import "base_layout";
+@import "sns";
 
 
 body.preview .main {
@@ -35,8 +36,8 @@ body {
 @media (min-width: $pc) {
   body {
     .markdownx-preview {
-      grid-column: 4;
-      grid-row: head / end;
+      grid-column: 3;
+      grid-row: main;
     }
 
   }

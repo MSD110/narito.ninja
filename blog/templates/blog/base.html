@@ -8,6 +8,7 @@
     <meta name="keywords" content="{% block keywords %}Python,Django,プログラミング,ブログ{% endblock %}">
     <meta name="description" content="{% block description %}{% endblock %}">
     <title>{% block title %}Narito Blog{% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -23,32 +24,44 @@
     <a href="{% url 'blog:top' %}">Narito Blog</a>
 </header>
 
+{% block sns_link %}
+<ul id="sns">
+    <li>
+        <a href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}&text=Narito Blog" target="_blank" rel="nofollow" title="Twitterでシェア"><i class="fab fa-twitter-square"></i></a>
+    </li>
+    <li>
+       <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}" target="_blank" rel="nofollow" title="Facebookでシェア"><i class="fab fa-facebook-square"></i></a>
+    </li>
+    <li>
+        <a href="http://b.hatena.ne.jp/entry/{{ request.scheme }}://{{ request.get_host }}{% url 'blog:top' %}" target="_blank" rel="nofollow" title="はてブでシェア"><i class="fa fa-hatena"></i></a>
+    </li>
+</ul>
+{% endblock %}
+
 {% block content %}{% endblock %}
 
 {% block side %}{% endblock %}
 
 <button id="page-btn"><span id="page-btn-icon"></span></button>
 
-<footer>
-    <ul>
-        <li>
-            <a href="/">Profile</a>
-        </li>
-        <li>
-            <a href="https://torina.top" target="_blank">Old Blog</a>
-        </li>
-        <li>
-            <a href="https://twitter.com/toritoritorina/" target="_blank" rel="nofollow">Twitter</a>
-        </li>
-        <li>
-            <a href="https://github.com/naritotakizawa/" target="_blank" rel="nofollow">Github</a>
-        </li>
-        <li>
-            <a href="mailto:toritoritorina@gmail.com">Email</a>
-        </li>
-    </ul>
-    <p>© Narito Takizawa.</p>
-</footer>
+<ul id="out-link">
+    <li>
+        <a href="/">Profile</a>
+    </li>
+    <li>
+        <a href="https://torina.top" target="_blank">Old Blog</a>
+    </li>
+    <li>
+        <a href="https://twitter.com/toritoritorina/" target="_blank" rel="nofollow">Twitter</a>
+    </li>
+    <li>
+        <a href="https://github.com/naritotakizawa/" target="_blank" rel="nofollow">Github</a>
+    </li>
+    <li>
+        <a href="mailto:toritoritorina@gmail.com">Email</a>
+    </li>
+</ul>
+<footer>© Narito Takizawa.</footer>
 
 <script>
     // ナビゲーションの開閉

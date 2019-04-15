@@ -1,22 +1,30 @@
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [start] 0 [head] auto [main] 1fr [foot] auto [end] 0;
-  grid-row-gap: 10px;
-  row-gap: 40px;
+  grid-template-rows: [head] 30px [main] 1fr [foot] 50px;
+  row-gap: 20px;
+  grid-row-gap: 20px;
   min-height: 100vh;
 
   header {
     grid-column: 2;
     grid-row: head;
-    justify-self: center;
+    justify-self: start;
     align-self: center;
   }
 
-  #page-btn {
+  ul#sns {
     grid-column: 2;
     grid-row: head;
+    align-self: center;
+    justify-self: end
+  }
+
+  #page-btn {
+    grid-column: 1;
+    grid-row: head;
     justify-self: start;
+    align-self: center;
     position: sticky;
     top: 0;
   }
@@ -27,9 +35,9 @@ body {
     top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
-    background-color: rgba($border-color, 0.9);
     width: 50%;
     padding: 20px;
+    background-color: rgba(lighten($main-color, 64%), 0.9);
   }
 
   .main {
@@ -40,6 +48,14 @@ body {
   footer {
     grid-column: 2;
     grid-row: foot;
+    align-self: center;
+  }
+
+  ul#out-link {
+    grid-column: 2;
+    grid-row: foot;
+    align-self: center;
+    justify-self: end;
   }
 
 }
@@ -48,15 +64,41 @@ body.open > .side {
   display: block;
 }
 
+body::before {
+  content: "";
+  grid-row: head;
+  grid-column: 1 / -1;
+  background-color: $main-color;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  grid-row: foot;
+  grid-column: 1 / -1;
+  background-color: $main-color;
+  z-index: -1;
+}
+
 
 @media (min-width: $pc) {
   body {
-    grid-template-columns: 40px 346px 80px 900px 1fr;
-
+    grid-template-columns: 0 306px 1000px 1fr 0;
+    column-gap: 20px;
+    grid-column-gap: 20px;
 
     header {
       grid-column: 2;
       grid-row: head;
+      align-self: center;
+      justify-self: start
+    }
+
+    ul#sns {
+      grid-column: 3 / -2;
+      grid-row: head;
+      align-self: center;
+      justify-self: end
     }
 
     .side {
@@ -65,29 +107,38 @@ body.open > .side {
       grid-row: main;
       position: static;
       transform: none;
-      width: 100%;
-      background-color: $base-color;
-      padding: 0;
+      width: auto;
     }
 
     .main {
-      grid-column: 4;
-      grid-row: head / end;
+      grid-column: 3;
+      grid-row: main;
     }
 
     footer {
-      grid-column: 2;
+      align-self: center;
+    }
+
+    ul#out-link {
+      grid-column: 3 / -2;
       grid-row: foot;
+      align-self: center;
+      justify-self: end;
     }
 
   }
 
-  body::after {
-    content: "";
-    grid-row: 1/-1;
-    grid-column: 3;
-    border-left: 1px solid $border-color;
-    justify-self: center;
-  }
+}
 
+@media(max-width: $sm) {
+  body {
+    footer {
+      align-self: end;
+    }
+
+    ul#out-link {
+      align-self: start;
+      justify-self: start;
+    }
+  }
 }

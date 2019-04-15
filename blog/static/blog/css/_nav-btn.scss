@@ -3,10 +3,9 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: $border-color;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
 }
 
 #page-btn-icon {
@@ -14,10 +13,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 14px;
-  height: 2px;
+  width: 20px;
+  height: 4px;
   margin: -1px 0 0 -7px;
-  background: $main-color;
+  background: #000;
   transition: .2s;
 }
 
@@ -27,18 +26,18 @@
   position: absolute;
   top: 50%;
   left: 0;
-  width: 14px;
-  height: 2px;
-  background: $main-color;
+  width: 20px;
+  height: 4px;
+  background: #000;
   transition: .3s;
 }
 
 #page-btn-icon:before {
-  margin-top: -6px;
+  margin-top: -10px;
 }
 
 #page-btn-icon:after {
-  margin-top: 4px;
+  margin-top:6px;
 }
 
 body.open {
