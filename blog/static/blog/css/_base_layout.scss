@@ -104,7 +104,7 @@ body::after {
     .side {
       display: block;
       grid-column: 2;
-      grid-row: main;
+      grid-row: main / -2;
       position: static;
       transform: none;
       width: auto;

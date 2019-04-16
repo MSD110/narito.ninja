@@ -7,20 +7,18 @@
     <link rel="stylesheet" href="{% static 'blog/css/post_list.css' %}">{% endblock %}
 
 {% block side %}
-    <aside id="search" class="side">
-        <form action="{% url 'blog:top' %}" method="get" role="search" id="api-posts" class="inner">
-            {% for field in search_form %}
-                <div class="field">
-                    {{ field.label_tag }}
-                    {{ field }}
-                </div>
-            {% endfor %}
-
+    <form action="{% url 'blog:top' %}" method="get" role="search" id="api-posts" class="side">
+        {% for field in search_form %}
             <div class="field">
-                <button type="submit">送信</button>
+                {{ field.label_tag }}
+                {{ field }}
             </div>
-        </form>
-    </aside>
+        {% endfor %}
+
+        <div class="field">
+            <button type="submit">送信</button>
+        </div>
+    </form>
 {% endblock %}
 
 {% block content %}
@@ -37,28 +35,27 @@
                     at {% by_the_time post.updated_at %}</time>
             </article>
         {% endfor %}
-        <nav class="page">
-            <ul>
-                <!-- 数字の部分 -->
-                {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                        <li><a href="?{%  url_replace request 'page' num %}" class="disable" data-url="{% url 'blog:api_posts' %}?{%  url_replace request 'page' num %}">{{ num }}</a></li>
-                    {% else %}
-                        <li><a href="?{%  url_replace request 'page' num %}"  data-url="{% url 'blog:api_posts' %}?{%  url_replace request 'page' num %}">{{ num }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </nav>
     </section>
+    <nav class="page">
+        <ul>
+            <!-- 数字の部分 -->
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li><a href="?{% url_replace request 'page' num %}" class="disable"
+                           data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' num %}">{{ num }}</a></li>
+                {% else %}
+                    <li><a href="?{% url_replace request 'page' num %}"
+                           data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' num %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
 {% endblock %}
 
 {% block extra_js %}
     <script>
         // 検索フォーム
         const form = document.getElementById('api-posts');
-
-        // ページネーション部分
-        const pageLinks = document.querySelectorAll('nav.page a');
 
         const createPageLink = (param, max_page) => {
             /**
@@ -79,7 +76,7 @@
             ul.appendChild(li);
 
             // 2以降を作成
-            for(let i = 2; i <= max_page; i++) {
+            for (let i = 2; i <= max_page; i++) {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.textContent = `${i}`;
@@ -96,10 +93,7 @@
              * 記事の一覧部分を作成する。
              */
             const postContainer = document.querySelector('section.post-list');
-            const nav = document.querySelector('nav.page');
-            for (const article of postContainer.querySelectorAll('article.post')) {
-                postContainer.removeChild(article);
-            }
+            postContainer.innerHTML = '';
 
             for (const post of postList) {
                 const article = document.createElement('article');
@@ -108,7 +102,7 @@
                 const h2 = document.createElement('h2');
                 const a = document.createElement('a');
                 a.href = `/blog/detail/${post.pk}/`;
-                a.textContent = `${ post.title }`;
+                a.textContent = `${post.title}`;
                 h2.appendChild(a);
 
                 const ul = document.createElement('ul');
@@ -126,7 +120,7 @@
                 article.appendChild(h2);
                 article.appendChild(ul);
                 article.appendChild(time);
-                postContainer.insertBefore(article, nav);
+                postContainer.appendChild(article);
             }
         };
 
@@ -164,7 +158,7 @@
                     history.replaceState('', '', `{% url 'blog:top' %}${param}`);
 
                 }).catch(error => {
-                    console.log(error);
+                console.log(error);
             });
         });
 
@@ -174,7 +168,6 @@
              */
             // デフォルトのイベントをキャンセルし、ページ遷移しないように!
             e.preventDefault();
-
             // 次ページの記事一覧を取得する。
             fetch(e.target.dataset.url)
                 .then(response => {
@@ -196,9 +189,8 @@
 
                     // ブラウザのURLバーを置き換え
                     history.replaceState('', '', e.target.href);
-
                 }).catch(error => {
-                    console.log(error);
+                console.log(error);
             });
         };
 

@@ -10,7 +10,7 @@
 
 
 body {
-  grid-template-rows: [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto;
+  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 50px;
 
 
   .side {

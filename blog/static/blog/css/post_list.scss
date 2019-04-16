@@ -6,3 +6,21 @@
 @import "form";
 @import "base_layout";
 @import "sns";
+@import "page";
+
+body {
+  grid-template-rows: [head] 30px [main] 1fr [page] auto [foot] 50px;
+    nav.page {
+      grid-column: 2;
+      grid-row: page;
+    }
+
+}
+
+@media (min-width: $pc) {
+  body {
+    nav.page {
+      grid-column: 3;
+    }
+  }
+}

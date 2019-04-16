@@ -1,0 +1,23 @@
+nav.page {
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      float: left;
+      margin-top: 5px;
+      margin-right: 40px;
+
+      a {
+        color: $main-color;
+        font-size: 20px;
+      }
+
+      a.disable {
+        color: #000;
+        pointer-events: none;
+      }
+
+    }
+  }
+}

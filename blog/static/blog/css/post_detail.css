@@ -157,23 +157,6 @@ body {
 .post-list {
   display: block;
 }
-.post-list nav.page ul {
-  list-style-type: none;
-  padding: 0;
-}
-.post-list nav.page ul li {
-  float: left;
-  margin-top: 5px;
-  margin-right: 40px;
-}
-.post-list nav.page ul li a {
-  color: #3F00B3;
-  font-size: 20px;
-}
-.post-list nav.page ul li a.disable {
-  color: #000;
-  pointer-events: none;
-}
 .post-list .post {
   margin-bottom: 50px;
 }
@@ -181,14 +164,10 @@ body {
 @media (min-width: 767px) {
   .post-list {
     display: grid;
-    grid-template-rows: repeat(5, 1fr) auto;
+    grid-template-rows: repeat(5, 1fr);
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
     column-gap: 40px;
-  }
-  .post-list nav.page {
-    grid-row: 6;
-    grid-column: 1/-1;
   }
 }
 body > header > a {
@@ -478,7 +457,7 @@ body::after {
   body .side {
     display: block;
     grid-column: 2;
-    grid-row: main;
+    grid-row: main/-2;
     position: static;
     transform: none;
     width: auto;
@@ -527,7 +506,7 @@ ul#sns a {
 }
 
 body {
-  grid-template-rows: [head] auto [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] auto;
+  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 50px;
 }
 body .side > ul {
   padding: 0;
