@@ -2,19 +2,10 @@
 body > footer {
   font-size: 12px;
   color: $base-color;
-}
-
-ul#out-link {
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-gap: 20px;
-  column-gap: 20px;
-  list-style-type: none;
-  padding: 0;
 
   a {
-    font-size: 12px;
     color: $base-color;
   }
 }
+
 

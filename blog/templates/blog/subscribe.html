@@ -1,0 +1,56 @@
+{% extends 'blog/base.html' %}
+{% load blog %}
+{% load static %}
+{% block description %}Rss, Atom, Line, メール等でNaritoブログの更新をお知らせします。{% endblock %}
+{% block title %}ブログを購読する - {{ block.super }}{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/subscribe.css' %}">{% endblock %}
+
+{% block content %}
+    <main class="main subscribe">
+        <h1>ブログの購読</h1>
+        <p>お好きな方法で、ブログの更新を受け取ることができます。</p>
+
+        <table>
+            <tr>
+                <th>RSS</th>
+                <td>
+                    <a href="{% url 'blog:rss' %}">{{ request.scheme }}://{{ request.get_host }}{% url 'blog:rss' %}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Atom</th>
+                <td>
+                    <a href="{% url 'blog:atom' %}">{{ request.scheme }}://{{ request.get_host }}{% url 'blog:atom' %}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Lineで受け取る</th>
+                <td>
+                    {% if line_fiends_count < 50 %}
+                        <img src="{% static 'blog/lineqr.png' %}">
+                    {% else %}
+                        <p>LINE通知は定員に達しました。</p>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>メールで受け取る</th>
+                <form action="" method="POST">
+                    <td>
+                        <div class="field">
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="field">
+                            <button type="submit">メールアドレスの登録</button>
+                        </div>
+                        {% csrf_token %}
+                    </td>
+                </form>
+            </tr>
+
+        </table>
+
+    </main>
+{% endblock %}

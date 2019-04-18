@@ -1,0 +1,21 @@
+table {
+  border-collapse: collapse;
+
+  th, td {
+    border: solid 1px $border-color;
+    padding: 20px;
+  }
+
+  th {
+    text-align: left;
+    background-color: $main-color;
+    color: $base-color;
+    width: 200px;
+  }
+
+  td {
+    background-color: lighten($main-color, 64%);
+    width: 800px;
+  }
+
+}

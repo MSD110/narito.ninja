@@ -1,18 +1,25 @@
-import datetime
-
+import json
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage
+from django.core.signing import BadSignature, SignatureExpired, loads, dumps
 from django.db.models import Q, Count
-from django.http import Http404, JsonResponse
-from django.shortcuts import get_object_or_404, resolve_url, redirect
+from django.http import Http404, JsonResponse, HttpResponseBadRequest, HttpResponse
+from django.shortcuts import get_object_or_404, resolve_url, redirect, render
+from django.template.loader import get_template
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 from .forms import (
     PostSearchForm, CommentCreateForm, ReplyCreateForm, PostCreateForm,
-    TITLE_CONTAIN, TEXT_CONTAIN, TITLE_OR_TEXT_CONTAIN
+    TITLE_CONTAIN, TEXT_CONTAIN, TITLE_OR_TEXT_CONTAIN, EmailForm
 )
-from .models import Post, Tag, Comment, Reply
+from .models import Post, Tag, Comment, Reply, EmailPush, LinePush
 from .templatetags.blog import by_the_time
+
+from linebot.models import TextSendMessage
 
 
 class PublicPostIndexView(generic.ListView):
@@ -211,3 +218,110 @@ class APIPostList(PublicPostIndexView):
             'post_list': json_post_list,
             'max_page': context['page_obj'].paginator.num_pages
         })
+
+
+def subscribe(request):
+    """ブログの購読ページ"""
+    form = EmailForm(request.POST or None)
+    # メール購読の処理
+    if request.method == 'POST' and form.is_valid():
+        push = form.save()
+        email_context = {
+            'token': dumps(push.pk),
+            'request': request,
+        }
+        subject_template = get_template('blog/mail/confirm_push_subject.txt')
+        subject = subject_template.render(email_context)
+
+        message_template = get_template('blog/mail/confirm_push_message.txt')
+        message = message_template.render(email_context)
+
+        from_email = settings.EMAIL_HOST_USER
+        to = [push.email]
+        bcc = [settings.EMAIL_HOST_USER]
+        email = EmailMessage(subject, message, from_email, to, bcc)
+        email.send()
+
+        return redirect('blog:subscribe_thanks')
+
+    context = {
+        'form': form,
+        'line_fiends_count': LinePush.objects.all().count(),
+    }
+    return render(request, 'blog/subscribe.html', context)
+
+
+def subscribe_thanks(request):
+    """メール購読ありがとう、確認メール送ったよページ"""
+    return render(request, 'blog/subscribe_thanks.html')
+
+
+def subscribe_register(request, token):
+    """メール購読の確認処理"""
+    try:
+        user_pk = loads(token, max_age=60*60*24)  # 1日以内
+
+    # 期限切れ
+    except SignatureExpired:
+        return HttpResponseBadRequest()
+
+    # tokenが間違っている
+    except BadSignature:
+        return HttpResponseBadRequest()
+
+    # tokenは問題なし
+    else:
+        try:
+            push = EmailPush.objects.get(pk=user_pk)
+        except EmailPush.DoesNotExist:
+            return HttpResponseBadRequest()
+        else:
+            if not push.is_active:
+                # まだ仮登録で、他に問題なければ本登録とする
+                push.is_active = True
+                push.save()
+                return redirect('blog:subscribe_done')
+
+    return HttpResponseBadRequest()
+
+
+def subscribe_done(request):
+    """メール購読完了"""
+    return render(request, 'blog/subscribe_done.html')
+
+
+@csrf_exempt
+def line_callback(request):
+    """ラインの友達追加時に呼び出され、ラインのIDを登録する。"""
+    if request.method == 'POST':
+        request_json = json.loads(request.body.decode('utf-8'))
+        line_user_id = request_json['events'][0]['source']['userId']
+        LinePush.objects.create(user_id=line_user_id)
+    return HttpResponse()
+
+
+@login_required
+def send_latest_notify(request, pk):
+    """最新記事の通知を送信する"""
+    post = get_object_or_404(Post, pk=pk)
+    email_context = {
+        'post': post,
+        'request': request,
+    }
+    subject_template = get_template('blog/mail/send_latest_notify_subject.txt')
+    subject = subject_template.render(email_context)
+
+    message_template = get_template('blog/mail/send_latest_notify_message.txt')
+    message = message_template.render(email_context)
+    from_email = settings.EMAIL_HOST_USER
+    bcc = [settings.EMAIL_HOST_USER]
+    for mail_push in EmailPush.objects.filter(is_active=True):
+        bcc.append(mail_push.email)
+    email = EmailMessage(subject, message, from_email, [], bcc)
+    email.send()
+
+    for line_push in LinePush.objects.all():
+        settings.LINE_BOT_API.push_message(line_push.user_id, messages=TextSendMessage(text=message))
+
+    messages.info(request, '通知を送信しました。')
+    return redirect('blog:post_update', pk=pk)

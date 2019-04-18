@@ -20,9 +20,16 @@
     </div>
 {% endif %}
 
-<header>
-    <a href="{% url 'blog:top' %}">Narito Blog</a>
-</header>
+<nav id="site-nav">
+    <ul>
+        <li><a href="{% url 'blog:top' %}">ホーム</a></li>
+        <li><a href="{% url 'blog:subscribe' %}">購読</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'blog:private_post_list' %}">非公開</a></li>
+            <li><a href="{% url 'blog:post_add' %}">追加</a></li>
+        {% endif %}
+    </ul>
+</nav>
 
 {% block sns_link %}
 <ul id="sns">
@@ -44,24 +51,7 @@
 
 <button id="page-btn"><span id="page-btn-icon"></span></button>
 
-<ul id="out-link">
-    <li>
-        <a href="/">Profile</a>
-    </li>
-    <li>
-        <a href="https://torina.top" target="_blank">Old Blog</a>
-    </li>
-    <li>
-        <a href="https://twitter.com/toritoritorina/" target="_blank" rel="nofollow">Twitter</a>
-    </li>
-    <li>
-        <a href="https://github.com/naritotakizawa/" target="_blank" rel="nofollow">Github</a>
-    </li>
-    <li>
-        <a href="mailto:toritoritorina@gmail.com">Email</a>
-    </li>
-</ul>
-<footer>© Narito Takizawa.</footer>
+<footer><a href="/" title="Profile">© Narito Takizawa.</a> &lt;toritoritorina@gmail.com&gt;</footer>
 
 <script>
     // ナビゲーションの開閉

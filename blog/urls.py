@@ -12,6 +12,12 @@ urlpatterns = [
     path('post/add/', views.PostCreateView.as_view(), name='post_add'),
     path('post/update/<int:pk>/', views.PostUpdateView.as_view(), name='post_update'),
     path('post/delete/<int:pk>/', views.PostDeleteView.as_view(), name='post_delete'),
+    path('send/latest/notify/<int:pk>/', views.send_latest_notify, name='send_latest_notify'),
+
+    path('subscribe/', views.subscribe, name='subscribe'),
+    path('subscribe/thanks/', views.subscribe_thanks, name='subscribe_thanks'),
+    path('subscribe/register/<str:token>/', views.subscribe_register, name='subscribe_register'),
+    path('subscribe/done/', views.subscribe_done, name='subscribe_done'),
 
     path('api/tags/suggest/', views.api_tags_suggest, name='api_tags_suggest'),
     path('api/posts/suggest/', views.api_posts_suggest, name='api_posts_suggest'),

@@ -1,7 +1,7 @@
 @import "base";
 @import "article-list";
-@import "header";
 @import "nav-btn";
+@import "site-nav";
 @import "footer";
 @import "form";
 @import "markdown";
@@ -10,7 +10,7 @@
 
 
 body {
-  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 50px;
+  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 30px;
 
 
   .side {

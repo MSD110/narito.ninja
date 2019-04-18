@@ -12,6 +12,12 @@
                 {% csrf_token %}
             </form>
             <div class="field">
+                <form action="{% url 'blog:send_latest_notify' post.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" id="delete">通知を送る</button>
+                </form>
+            </div>
+            <div class="field">
                 <a class="button" href="{% url 'blog:post_detail' post.pk %}">記事詳細画面へ</a>
             </div>
         {% endif %}

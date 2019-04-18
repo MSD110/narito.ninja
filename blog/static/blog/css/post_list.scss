@@ -1,6 +1,6 @@
 @import "base";
 @import "article-list";
-@import "header";
+@import "site-nav";
 @import "nav-btn";
 @import "footer";
 @import "form";
@@ -9,7 +9,7 @@
 @import "page";
 
 body {
-  grid-template-rows: [head] 30px [main] 1fr [page] auto [foot] 50px;
+  grid-template-rows: [head] 30px [main] 1fr [page] auto [foot] 30px;
     nav.page {
       grid-column: 2;
       grid-row: page;

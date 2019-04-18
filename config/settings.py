@@ -148,4 +148,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = 'your_app_pasword'  # 2段階認証のアプリパスワードが確実
 # EMAIL_USE_TLS = True
 
+# LINE通知を行う場合は、次のようにしてください。
+# import linebot
+# LINE_BOT_API = linebot.LineBotApi('ラインのアクセストークン')
+# また、urls.pyにてコールバック用ビュー(blog.views.line_callback)も読み込ませるようにしてください。
+
+
 LOGIN_URL = 'admin:index'

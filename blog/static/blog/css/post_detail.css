@@ -170,12 +170,6 @@ body {
     column-gap: 40px;
   }
 }
-body > header > a {
-  font-size: 20px;
-  font-weight: normal;
-  color: #ffffff;
-}
-
 #page-btn {
   border: none;
   cursor: pointer;
@@ -238,13 +232,7 @@ body.open #page-btn-icon:after {
     display: none;
   }
 }
-/* フッター */
-body > footer {
-  font-size: 12px;
-  color: #ffffff;
-}
-
-ul#out-link {
+nav#site-nav ul {
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 20px;
@@ -252,8 +240,17 @@ ul#out-link {
   list-style-type: none;
   padding: 0;
 }
-ul#out-link a {
+nav#site-nav ul a {
   font-size: 12px;
+  color: #ffffff;
+}
+
+/* フッター */
+body > footer {
+  font-size: 12px;
+  color: #ffffff;
+}
+body > footer a {
   color: #ffffff;
 }
 
@@ -365,16 +362,16 @@ div.field ul.dropdown li:hover {
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [head] 30px [main] 1fr [foot] 50px;
+  grid-template-rows: [head] 30px [main] 1fr [foot] 30px;
   row-gap: 20px;
   grid-row-gap: 20px;
   min-height: 100vh;
 }
-body header {
+body nav#site-nav {
   grid-column: 2;
   grid-row: head;
-  justify-self: start;
   align-self: center;
+  justify-self: start;
 }
 body ul#sns {
   grid-column: 2;
@@ -442,7 +439,7 @@ body::after {
     column-gap: 20px;
     grid-column-gap: 20px;
   }
-  body header {
+  body nav#site-nav {
     grid-column: 2;
     grid-row: head;
     align-self: center;
@@ -476,15 +473,6 @@ body::after {
     justify-self: end;
   }
 }
-@media (max-width: 767px) {
-  body footer {
-    align-self: end;
-  }
-  body ul#out-link {
-    align-self: start;
-    justify-self: start;
-  }
-}
 /* SNSアイコン */
 .fa-hatena:before {
   content: "B!";
@@ -506,7 +494,7 @@ ul#sns a {
 }
 
 body {
-  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 50px;
+  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 30px;
 }
 body .side > ul {
   padding: 0;

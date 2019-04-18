@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load blog %}
+{% load static %}
+{% block description %}Rss, Atom, Line, メール等でNaritoブログの更新をお知らせします。{% endblock %}
+{% block title %}ブログを購読する - {{ block.super }}{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/subscribe.css' %}">{% endblock %}
+
+{% block content %}
+    <main class="main subscribe">
+        <h1>ブログのメール購読を完了しました</h1>
+        <p>更新を楽しみにしていてください。</p>
+    </main>
+{% endblock %}

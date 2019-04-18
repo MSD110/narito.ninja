@@ -1,16 +1,16 @@
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [head] 30px [main] 1fr [foot] 50px;
+  grid-template-rows: [head] 30px [main] 1fr [foot] 30px;
   row-gap: 20px;
   grid-row-gap: 20px;
   min-height: 100vh;
 
-  header {
+  nav#site-nav {
     grid-column: 2;
     grid-row: head;
-    justify-self: start;
     align-self: center;
+    justify-self: start
   }
 
   ul#sns {
@@ -87,7 +87,7 @@ body::after {
     column-gap: 20px;
     grid-column-gap: 20px;
 
-    header {
+    nav#site-nav {
       grid-column: 2;
       grid-row: head;
       align-self: center;
@@ -131,14 +131,5 @@ body::after {
 }
 
 @media(max-width: $sm) {
-  body {
-    footer {
-      align-self: end;
-    }
 
-    ul#out-link {
-      align-self: start;
-      justify-self: start;
-    }
-  }
 }

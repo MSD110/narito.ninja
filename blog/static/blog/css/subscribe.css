@@ -121,55 +121,6 @@ body {
   width: 2px;
 }
 
-.post h1, .post h2, .post h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #3F00B3;
-  line-height: 1;
-}
-.post h1 a, .post h2 a, .post h3 a {
-  font-size: 18px;
-  color: #3F00B3;
-  font-weight: bold;
-  line-height: 1;
-}
-.post time {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #807900;
-  line-height: 1;
-}
-.post ul.tags {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: start;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  font-size: 14px;
-  color: #807900;
-  line-height: 1;
-}
-
-.post-list {
-  display: block;
-}
-.post-list .post {
-  margin-bottom: 50px;
-}
-
-@media (min-width: 767px) {
-  .post-list {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-  }
-}
 nav#site-nav ul {
   display: grid;
   grid-auto-flow: column;
@@ -301,62 +252,6 @@ div.field ul.dropdown li {
 }
 div.field ul.dropdown li:hover {
   background-color: #fff100;
-}
-
-/* 記事やコメント欄、プレビューエリアの汎用的な設定 */
-.markdown-body h2 {
-  font-size: 30px;
-  font-weight: bold;
-  margin: 100px 0 0 0;
-  color: #3F00B3;
-  border-bottom: solid 5px #3F00B3;
-  padding-bottom: 5px;
-}
-.markdown-body h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 50px 0 0 0;
-  color: #3F00B3;
-  border-bottom: solid 1px #3F00B3;
-  padding-bottom: 3px;
-}
-.markdown-body h2 + *, .markdown-body h3 + * {
-  margin-top: 5px;
-}
-.markdown-body p {
-  font-size: 16px;
-  margin-top: 20px;
-  line-height: 2;
-}
-.markdown-body ul li, .markdown-body ol li {
-  margin-top: 10px;
-}
-.markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
-  color: #3F00B3;
-  font-weight: bold;
-}
-.markdown-body ul li p:not(:first-child), .markdown-body ol li p:not(:first-child) {
-  margin-top: 0;
-}
-.markdown-body blockquote {
-  position: relative;
-  margin: 2em 0;
-  padding: 1em 1em 1em 2.6em;
-  font-size: 0.9em;
-  border-left: 5px solid #ebebeb;
-  border-radius: 2px;
-}
-.markdown-body blockquote::after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  content: "”";
-  font-family: sans-serif;
-  font-size: 6em;
-  opacity: 0.1;
-}
-.markdown-body a {
-  color: #3F00B3;
 }
 
 body {
@@ -493,29 +388,26 @@ ul#sns a {
   color: #ffffff;
 }
 
-body.preview .main {
-  display: none;
+table {
+  border-collapse: collapse;
+}
+table th, table td {
+  border: solid 1px #ebebeb;
+  padding: 20px;
+}
+table th {
+  text-align: left;
+  background-color: #3F00B3;
+  color: #ffffff;
+  width: 200px;
+}
+table td {
+  background-color: #fcfaff;
+  width: 800px;
 }
 
-body.preview .markdownx-preview {
-  display: block;
+main.subscribe div.field button {
+  width: 200px;
 }
 
-body .side #change-display {
-  position: sticky;
-  top: 100px;
-}
-body .markdownx-preview {
-  display: none;
-  grid-column: 2;
-  grid-row: main;
-}
-
-@media (min-width: 1366px) {
-  body .markdownx-preview {
-    grid-column: 3;
-    grid-row: main;
-  }
-}
-
-/*# sourceMappingURL=post_form.css.map */
+/*# sourceMappingURL=subscribe.css.map */

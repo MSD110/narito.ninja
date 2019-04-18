@@ -48,3 +48,20 @@ class Reply(models.Model):
 
     def __str__(self):
         return self.text[:20]
+
+
+class LinePush(models.Model):
+    """Lineでのプッシュ先を表す"""
+    user_id = models.CharField('ユーザーID', max_length=100, unique=True)
+
+    def __str__(self):
+        return self.user_id
+
+
+class EmailPush(models.Model):
+    """メールでのプッシュ先を表す"""
+    email = models.EmailField('メールアドレス', unique=True)
+    is_active = models.BooleanField('有効フラグ', default=False)
+
+    def __str__(self):
+        return self.email
