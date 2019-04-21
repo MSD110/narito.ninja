@@ -68,19 +68,14 @@ class ReplyCreateForm(forms.ModelForm):
         fields = ('name', 'text')
 
 
-class EmailForm(forms.Form):
+class EmailForm(forms.ModelForm):
     """Eメール通知の登録用フォーム"""
-    email = forms.EmailField(label='メールアドレス', max_length=255)
 
-    def clean(self):
-        super().clean()
-        email = self.cleaned_data.get('email')
-        if email:
-            push, is_created = EmailPush.objects.get_or_create(email=email)
-            # 既にデータが存在し、その通知がアクティブならエラー
-            if not is_created and push.is_active:
-                self.add_error('email', 'そのメールアドレスは登録済みです。')
-            self.instance = push
+    class Meta:
+        model = EmailPush
+        fields = ('email',)
 
-    def save(self):
-        return self.instance
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        EmailPush.objects.filter(email=email, is_active=False).delete()
+        return email
