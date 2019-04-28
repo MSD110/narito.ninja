@@ -184,8 +184,8 @@ nav#site-nav ul a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 4px;
+  width: 15px;
+  height: 2px;
   margin: -1px 0 0 -7px;
   background: #333;
   transition: 0.2s;
@@ -197,14 +197,14 @@ nav#site-nav ul a {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 20px;
-  height: 4px;
+  width: 15px;
+  height: 2px;
   background: #333;
   transition: 0.3s;
 }
 
 #page-btn-icon:before {
-  margin-top: -10px;
+  margin-top: -8px;
 }
 
 #page-btn-icon:after {
@@ -338,7 +338,7 @@ div.field ul.dropdown li:hover {
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [head] 30px [main] 1fr [foot] 30px;
+  grid-template-rows: [head] 40px [main] 1fr [foot] 40px;
   row-gap: 20px;
   grid-row-gap: 20px;
   min-height: 100vh;
@@ -370,8 +370,10 @@ body .side {
   left: 50%;
   transform: translate(-50%, 0);
   width: 50%;
-  padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
+}
+body hr#side-bar {
+  border: none;
 }
 body .main {
   grid-column: 2;
@@ -411,42 +413,43 @@ body::after {
 
 @media (min-width: 1366px) {
   body {
-    grid-template-columns: 0 306px 1000px 1fr 0;
-    column-gap: 20px;
-    grid-column-gap: 20px;
+    grid-template-columns: [start] 0 [start-side] 40px [side] 246px [side-main] 40px [main] 1000px [other] 1fr [other-end] 40px [end] 0;
   }
   body nav#site-nav {
-    grid-column: 2;
+    grid-column: side/end;
     grid-row: head;
     align-self: center;
-    justify-self: start;
   }
   body ul#sns {
-    grid-column: 3/-2;
+    grid-column: other;
     grid-row: head;
     align-self: center;
     justify-self: end;
   }
   body .side {
     display: block;
-    grid-column: 2;
-    grid-row: main/-2;
+    grid-column: side;
+    grid-row: main;
     position: static;
     transform: none;
     width: auto;
   }
+  body hr#side-bar {
+    grid-row: main/-2;
+    grid-column: side-main;
+    border: none;
+    border-right: solid 1px #ebebeb;
+    margin-right: 20px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+  }
   body .main {
-    grid-column: 3;
+    grid-column: main;
     grid-row: main;
   }
   body footer {
+    grid-column: side/end;
     align-self: center;
-  }
-  body ul#out-link {
-    grid-column: 3/-2;
-    grid-row: foot;
-    align-self: center;
-    justify-self: end;
   }
 }
 /* SNSアイコン */
@@ -465,8 +468,8 @@ ul#sns {
   padding: 0;
 }
 ul#sns a {
-  font-size: 12px;
-  color: #fff;
+  font-size: 16px;
+  color: #333;
 }
 
 body.preview .main {
@@ -489,7 +492,7 @@ body .markdownx-preview {
 
 @media (min-width: 1366px) {
   body .markdownx-preview {
-    grid-column: 3;
+    grid-column: main;
     grid-row: main;
   }
 }

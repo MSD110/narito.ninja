@@ -36,7 +36,7 @@ body {
 @media (min-width: $pc) {
   body {
     .markdownx-preview {
-      grid-column: 3;
+      grid-column: main;
       grid-row: main;
     }
 

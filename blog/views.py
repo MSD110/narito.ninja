@@ -17,7 +17,6 @@ from .forms import (
     TITLE_CONTAIN, TEXT_CONTAIN, TITLE_OR_TEXT_CONTAIN, EmailForm
 )
 from .models import Post, Tag, Comment, Reply, EmailPush, LinePush
-from .templatetags.blog import by_the_time
 
 from linebot.models import TextSendMessage
 

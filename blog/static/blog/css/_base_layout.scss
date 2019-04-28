@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [head] 30px [main] 1fr [foot] 30px;
+  grid-template-rows: [head] 40px [main] 1fr [foot] 40px;
   row-gap: 20px;
   grid-row-gap: 20px;
   min-height: 100vh;
@@ -36,11 +36,15 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
     width: 50%;
-    padding: 20px;
     background-color: rgba($base-color, 0.9);
   }
 
+  hr#side-bar {
+    border: none;
+  }
+
   .main {
+
     grid-column: 2;
     grid-row: main;
   }
@@ -83,19 +87,16 @@ body::after {
 
 @media (min-width: $pc) {
   body {
-    grid-template-columns: 0 306px 1000px 1fr 0;
-    column-gap: 20px;
-    grid-column-gap: 20px;
+    grid-template-columns: [start] 0 [start-side] 40px [side] 246px [side-main] 40px [main] 1000px [other] 1fr [other-end] 40px [end] 0;
 
     nav#site-nav {
-      grid-column: 2;
+      grid-column: side / end;
       grid-row: head;
       align-self: center;
-      justify-self: start
     }
 
     ul#sns {
-      grid-column: 3 / -2;
+      grid-column: other;
       grid-row: head;
       align-self: center;
       justify-self: end
@@ -103,27 +104,31 @@ body::after {
 
     .side {
       display: block;
-      grid-column: 2;
-      grid-row: main / -2;
+      grid-column: side;
+      grid-row: main;
       position: static;
       transform: none;
       width: auto;
     }
 
+    hr#side-bar {
+      grid-row: main / -2;
+      grid-column: side-main;
+      border: none;
+      border-right: solid 1px $border-color;
+      margin-right: 20px;
+      margin-top: -20px;
+      margin-bottom: -20px;
+    }
+
     .main {
-      grid-column: 3;
+      grid-column: main;
       grid-row: main;
     }
 
     footer {
+      grid-column: side / end;
       align-self: center;
-    }
-
-    ul#out-link {
-      grid-column: 3 / -2;
-      grid-row: foot;
-      align-self: center;
-      justify-self: end;
     }
 
   }

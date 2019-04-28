@@ -10,7 +10,7 @@
 
 
 body {
-  grid-template-rows: [head] 30px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 30px;
+  grid-template-rows: [head] 40px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 40px;
 
 
   .side {
@@ -73,22 +73,22 @@ body {
     }
 
     .main {
-      grid-column: 3;
+      grid-column: main;
       grid-row: main;
     }
 
     aside#relation-posts {
-      grid-column: 3;
+      grid-column: main;
       grid-row: relation-posts;
     }
 
     aside#ads {
-      grid-column: 3;
+      grid-column: main;
       grid-row: ads;
     }
 
     aside#comment {
-      grid-column: 3;
+      grid-column: main;
       grid-row: comment;
     }
 

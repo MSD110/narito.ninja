@@ -9,7 +9,7 @@
 @import "page";
 
 body {
-  grid-template-rows: [head] 30px [main] 1fr [page] auto [foot] 30px;
+  grid-template-rows: [head] 40px [main] 1fr [page] auto  [foot] 40px;
     nav.page {
       grid-column: 2;
       grid-row: page;
@@ -20,7 +20,7 @@ body {
 @media (min-width: $pc) {
   body {
     nav.page {
-      grid-column: 3;
+      grid-column: main;
     }
   }
 }

@@ -13,8 +13,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 4px;
+  width: 15px;
+  height: 2px;
   margin: -1px 0 0 -7px;
   background: $main-color;
   transition: .2s;
@@ -26,14 +26,14 @@
   position: absolute;
   top: 50%;
   left: 0;
-  width: 20px;
-  height: 4px;
+  width: 15px;
+  height: 2px;
   background: $main-color;
   transition: .3s;
 }
 
 #page-btn-icon:before {
-  margin-top: -10px;
+  margin-top: -8px;
 }
 
 #page-btn-icon:after {
