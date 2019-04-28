@@ -4,7 +4,7 @@
   h2 {
     font-size: 30px;
     font-weight: bold;
-    margin: 100px 0 0 0;
+    margin-top: 100px;
     color: $main-color;
 
     border-bottom: solid 5px $main-color;
@@ -14,15 +14,11 @@
   h3 {
     font-size: 20px;
     font-weight: bold;
-    margin: 50px 0 0 0;
+    margin-top: 50px;
     color: $main-color;
 
     border-bottom: solid 1px $main-color;
     padding-bottom: 3px;
-  }
-
-  h2 + *, h3 + * {
-    margin-top: 5px;
   }
 
   p {
@@ -33,10 +29,7 @@
 
   ul, ol {
     li {
-      margin-top: 10px;
-
       p:first-child {
-        color: $main-color;
         font-weight: bold;
       }
 
@@ -63,10 +56,6 @@
     font-family: sans-serif;
     font-size: 6em;
     opacity: .1;
-  }
-
-  a {
-    color: $main-color;
   }
 
 }

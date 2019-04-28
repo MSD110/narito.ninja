@@ -15,6 +15,7 @@ strong {
 }
 
 a {
+  color: #0000FF;
   text-decoration: none;
 }
 
@@ -32,12 +33,13 @@ body {
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
   font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+  color: #333;
 }
 
 /* お知らせ欄 */
 #notify {
   opacity: 0;
-  background-color: #3F00B3;
+  background-color: #333;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
@@ -108,7 +110,7 @@ body {
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   -webkit-transform-origin: center center;
   transform-origin: center center;
-  background-color: #000000;
+  background-color: #333;
 }
 
 .close::before {
@@ -121,53 +123,37 @@ body {
   width: 2px;
 }
 
+.post {
+  margin-bottom: 50px;
+}
 .post h1, .post h2, .post h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #3F00B3;
-  line-height: 1;
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+  border-bottom: solid 1px #ebebeb;
+  padding-bottom: 10px;
 }
 .post h1 a, .post h2 a, .post h3 a {
-  font-size: 18px;
-  color: #3F00B3;
-  font-weight: bold;
-  line-height: 1;
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
 }
-.post time {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #807900;
-  line-height: 1;
+.post header {
+  font-size: 12px;
+  color: #333;
 }
-.post ul.tags {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: start;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  font-size: 14px;
-  color: #807900;
-  line-height: 1;
-}
-
-.post-list {
-  display: block;
-}
-.post-list .post {
-  margin-bottom: 50px;
+.post header span {
+  margin-right: 5px;
 }
 
 @media (min-width: 767px) {
   .post-list {
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-    column-gap: 40px;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 1fr;
+  }
+  .post-list .post {
+    margin-bottom: 0;
   }
 }
 #page-btn {
@@ -188,7 +174,7 @@ body {
   width: 20px;
   height: 4px;
   margin: -1px 0 0 -7px;
-  background: #000;
+  background: #333;
   transition: 0.2s;
 }
 
@@ -200,7 +186,7 @@ body {
   left: 0;
   width: 20px;
   height: 4px;
-  background: #000;
+  background: #333;
   transition: 0.3s;
 }
 
@@ -242,16 +228,16 @@ nav#site-nav ul {
 }
 nav#site-nav ul a {
   font-size: 12px;
-  color: #ffffff;
+  color: #333;
 }
 
 /* フッター */
 body > footer {
   font-size: 12px;
-  color: #ffffff;
+  color: #333;
 }
 body > footer a {
-  color: #ffffff;
+  color: #333;
 }
 
 div.field {
@@ -293,7 +279,7 @@ div.field ul.dropdown {
   padding: 5px;
   position: absolute;
   z-index: 1;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 div.field ul.dropdown li {
   margin: 3px;
@@ -307,32 +293,25 @@ div.field ul.dropdown li:hover {
 .markdown-body h2 {
   font-size: 30px;
   font-weight: bold;
-  margin: 100px 0 0 0;
-  color: #3F00B3;
-  border-bottom: solid 5px #3F00B3;
+  margin-top: 100px;
+  color: #333;
+  border-bottom: solid 5px #333;
   padding-bottom: 5px;
 }
 .markdown-body h3 {
   font-size: 20px;
   font-weight: bold;
-  margin: 50px 0 0 0;
-  color: #3F00B3;
-  border-bottom: solid 1px #3F00B3;
+  margin-top: 50px;
+  color: #333;
+  border-bottom: solid 1px #333;
   padding-bottom: 3px;
-}
-.markdown-body h2 + *, .markdown-body h3 + * {
-  margin-top: 5px;
 }
 .markdown-body p {
   font-size: 16px;
   margin-top: 20px;
   line-height: 2;
 }
-.markdown-body ul li, .markdown-body ol li {
-  margin-top: 10px;
-}
 .markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
-  color: #3F00B3;
   font-weight: bold;
 }
 .markdown-body ul li p:not(:first-child), .markdown-body ol li p:not(:first-child) {
@@ -354,9 +333,6 @@ div.field ul.dropdown li:hover {
   font-family: sans-serif;
   font-size: 6em;
   opacity: 0.1;
-}
-.markdown-body a {
-  color: #3F00B3;
 }
 
 body {
@@ -395,7 +371,7 @@ body .side {
   transform: translate(-50%, 0);
   width: 50%;
   padding: 20px;
-  background-color: rgba(252, 250, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 body .main {
   grid-column: 2;
@@ -421,15 +397,15 @@ body::before {
   content: "";
   grid-row: head;
   grid-column: 1/-1;
-  background-color: #3F00B3;
   z-index: -1;
+  border-bottom: solid 1px #ebebeb;
 }
 
 body::after {
   content: "";
   grid-row: foot;
   grid-column: 1/-1;
-  background-color: #3F00B3;
+  border-top: solid 1px #ebebeb;
   z-index: -1;
 }
 
@@ -490,7 +466,7 @@ ul#sns {
 }
 ul#sns a {
   font-size: 12px;
-  color: #ffffff;
+  color: #fff;
 }
 
 body {
@@ -500,7 +476,7 @@ body .side > ul {
   padding: 0;
 }
 body .side > ul a {
-  color: #000;
+  color: #333;
 }
 body .side > ul a.current {
   background-color: #fff100;

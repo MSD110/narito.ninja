@@ -25,19 +25,14 @@
 
 {% block content %}
     <article class="post main">
+        <header>
+            <time datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.created_at | date:'Y-m-d' }}</time> / {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
+        </header>
         {% if user.is_authenticated %}
             <h1><a href="{% url 'blog:post_update' post.pk %}">{{ post.title }}</a></h1>
         {% else %}
             <h1>{{ post.title }}</h1>
         {% endif %}
-
-        <ul class="tags">
-            {% for tag in post.tags.all %}
-                <li>{{ tag }}</li>
-            {% endfor %}
-        </ul>
-
-        <time datetime="{{ post.updated_at | date:'Y-m-d' }}">updated at {% by_the_time post.updated_at %}</time>
 
         <div class="markdown-body">
             {{ post.text | markdown_to_html | safe }}
@@ -58,18 +53,15 @@
         </script>
     </aside>
 
-    <aside id="relation-posts" class="post-list">
+    <aside id="relation-posts">
         <h2>Relation Posts</h2>
         {% for post in post.relation_posts.all %}
-        <article class="post">
-            <h3><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h3>
-            <ul class="tags">
-                {% for tag in post.tags.all %}
-                    <li>{{ tag }}</li>
-                {% endfor %}
-            </ul>
-            <time datetime="{{ post.updated_at | date:'Y-m-d' }}">updated at {% by_the_time post.updated_at %}</time>
-        </article>
+            <article class="post">
+                <header>
+                    <time datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.created_at | date:'Y-m-d' }}</time> / {% for tag in post.tags.all %}<span>{{ tag }}</span>{% endfor %}
+                </header>
+                <h3><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h3>
+            </article>
         {% endfor %}
     </aside>
 

@@ -24,7 +24,7 @@ from linebot.models import TextSendMessage
 
 class PublicPostIndexView(generic.ListView):
     """公開記事の一覧を表示する。"""
-    paginate_by = 10
+    paginate_by = 8
     model = Post
 
     def get_queryset(self):
@@ -210,8 +210,8 @@ class APIPostList(PublicPostIndexView):
                 'pk': post.pk,
                 'title': post.title,
                 'tags': [tag.name for tag in post.tags.all()],
+                'created_at': post.created_at.strftime('%Y-%m-%d'),
                 'updated_at': post.updated_at.strftime('%Y-%m-%d'),
-                'updated_display': by_the_time(post.updated_at),
             }
             json_post_list.append(json_post)
         return JsonResponse({

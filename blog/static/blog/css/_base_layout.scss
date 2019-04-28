@@ -37,7 +37,7 @@ body {
     transform: translate(-50%, 0);
     width: 50%;
     padding: 20px;
-    background-color: rgba(lighten($main-color, 64%), 0.9);
+    background-color: rgba($base-color, 0.9);
   }
 
   .main {
@@ -68,15 +68,15 @@ body::before {
   content: "";
   grid-row: head;
   grid-column: 1 / -1;
-  background-color: $main-color;
   z-index: -1;
+  border-bottom: solid 1px $border-color;
 }
 
 body::after {
   content: "";
   grid-row: foot;
   grid-column: 1 / -1;
-  background-color: $main-color;
+  border-top: solid 1px $border-color;
   z-index: -1;
 }
 

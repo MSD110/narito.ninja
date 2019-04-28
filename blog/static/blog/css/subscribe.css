@@ -15,6 +15,7 @@ strong {
 }
 
 a {
+  color: #0000FF;
   text-decoration: none;
 }
 
@@ -32,12 +33,13 @@ body {
   -webkit-text-size-adjust: 100%;
   /* テキストの自動拡大を無効 */
   font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+  color: #333;
 }
 
 /* お知らせ欄 */
 #notify {
   opacity: 0;
-  background-color: #3F00B3;
+  background-color: #333;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
@@ -108,7 +110,7 @@ body {
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   -webkit-transform-origin: center center;
   transform-origin: center center;
-  background-color: #000000;
+  background-color: #333;
 }
 
 .close::before {
@@ -131,7 +133,7 @@ nav#site-nav ul {
 }
 nav#site-nav ul a {
   font-size: 12px;
-  color: #ffffff;
+  color: #333;
 }
 
 #page-btn {
@@ -152,7 +154,7 @@ nav#site-nav ul a {
   width: 20px;
   height: 4px;
   margin: -1px 0 0 -7px;
-  background: #000;
+  background: #333;
   transition: 0.2s;
 }
 
@@ -164,7 +166,7 @@ nav#site-nav ul a {
   left: 0;
   width: 20px;
   height: 4px;
-  background: #000;
+  background: #333;
   transition: 0.3s;
 }
 
@@ -199,10 +201,10 @@ body.open #page-btn-icon:after {
 /* フッター */
 body > footer {
   font-size: 12px;
-  color: #ffffff;
+  color: #333;
 }
 body > footer a {
-  color: #ffffff;
+  color: #333;
 }
 
 div.field {
@@ -244,7 +246,7 @@ div.field ul.dropdown {
   padding: 5px;
   position: absolute;
   z-index: 1;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 div.field ul.dropdown li {
   margin: 3px;
@@ -290,7 +292,7 @@ body .side {
   transform: translate(-50%, 0);
   width: 50%;
   padding: 20px;
-  background-color: rgba(252, 250, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 body .main {
   grid-column: 2;
@@ -316,15 +318,15 @@ body::before {
   content: "";
   grid-row: head;
   grid-column: 1/-1;
-  background-color: #3F00B3;
   z-index: -1;
+  border-bottom: solid 1px #ebebeb;
 }
 
 body::after {
   content: "";
   grid-row: foot;
   grid-column: 1/-1;
-  background-color: #3F00B3;
+  border-top: solid 1px #ebebeb;
   z-index: -1;
 }
 
@@ -385,7 +387,7 @@ ul#sns {
 }
 ul#sns a {
   font-size: 12px;
-  color: #ffffff;
+  color: #fff;
 }
 
 table {
@@ -397,12 +399,12 @@ table th, table td {
 }
 table th {
   text-align: left;
-  background-color: #3F00B3;
-  color: #ffffff;
+  background-color: #333;
+  color: #fff;
   width: 200px;
 }
 table td {
-  background-color: #fcfaff;
+  background-color: #d6d6d6;
   width: 800px;
 }
 
