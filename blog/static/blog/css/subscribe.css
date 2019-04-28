@@ -259,9 +259,7 @@ div.field ul.dropdown li:hover {
 body {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: [head] 40px [main] 1fr [foot] 40px;
-  row-gap: 20px;
-  grid-row-gap: 20px;
+  grid-template-rows: [head] 30px 20px [main] 1fr 20px [foot] 30px;
   min-height: 100vh;
 }
 body nav#site-nav {
@@ -342,7 +340,7 @@ body::after {
     align-self: center;
   }
   body ul#sns {
-    grid-column: other;
+    grid-column: main/other;
     grid-row: head;
     align-self: center;
     justify-self: end;
@@ -356,13 +354,11 @@ body::after {
     width: auto;
   }
   body hr#side-bar {
-    grid-row: main/-2;
+    grid-row: 2/-2;
     grid-column: side-main;
     border: none;
     border-right: solid 1px #ebebeb;
     margin-right: 20px;
-    margin-top: -20px;
-    margin-bottom: -20px;
   }
   body .main {
     grid-column: main;

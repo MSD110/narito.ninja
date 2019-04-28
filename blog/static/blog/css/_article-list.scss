@@ -2,15 +2,15 @@
   margin-bottom: 50px;
 
   h1, h2, h3 {
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold;
     color: $main-color;
     border-bottom: solid 1px $border-color;
     padding-bottom: 10px;
 
     a {
-      font-size: 16px;
-      font-weight: normal;
+      font-size: 14px;
+      font-weight: bold;
       color: $main-color;
     }
 
@@ -34,7 +34,7 @@
 @media (min-width: $sm) {
   .post-list {
     display: grid;
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     grid-template-columns: 1fr;
 
     .post {

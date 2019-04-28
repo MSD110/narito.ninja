@@ -10,7 +10,7 @@
 
 
 body {
-  grid-template-rows: [head] 40px [main] 1fr [ads] auto [relation-posts] auto [comment] auto [foot] 40px;
+  grid-template-rows: [head] 30px 20px [main] 1fr 50px [ads] auto 100px [relation-posts] auto 100px [comment] auto 100px  [foot] 30px;
 
 
   .side {
@@ -29,7 +29,6 @@ body {
   aside {
     h2 {
       grid-column: 1/-1;
-      margin-bottom: 20px;
       align-self: end;
     }
   }

@@ -9,7 +9,7 @@
 @import "page";
 
 body {
-  grid-template-rows: [head] 40px [main] 1fr [page] auto  [foot] 40px;
+  grid-template-rows: [head] 30px 20px [main] 1fr [page] auto [foot] 30px;
     nav.page {
       grid-column: 2;
       grid-row: page;
