@@ -36,18 +36,18 @@
         {% endfor %}
     </section>
     <nav class="page">
-        <ul>
-            <!-- 数字の部分 -->
-            {% for num in page_obj.paginator.page_range %}
-                {% if page_obj.number == num %}
-                    <li><a href="?{% url_replace request 'page' num %}" class="disable"
-                           data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' num %}">{{ num }}</a></li>
-                {% else %}
-                    <li><a href="?{% url_replace request 'page' num %}"
-                           data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' num %}">{{ num }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+        <!-- 前へ の部分 -->
+        {% if page_obj.has_previous %}
+            <a class="prev" href="?{% url_replace request 'page' page_obj.previous_page_number %}" data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' page_obj.previous_page_number %}" title="前へ"></a>
+        {% endif %}
+
+        <!-- 1/3 の部分 -->
+        <span>{{ page_obj.number }}/{{ page_obj.paginator.num_pages }}</span>
+
+        <!-- 次へ の部分 -->
+        {% if page_obj.has_next %}
+            <a class="next" href="?{% url_replace request 'page' page_obj.next_page_number %}" data-url="{% url 'blog:api_posts' %}?{% url_replace request 'page' page_obj.next_page_number %}" title="次へ"></a>
+        {% endif %}
     </nav>
 {% endblock %}
 

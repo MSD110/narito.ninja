@@ -9,18 +9,23 @@
 @import "page";
 
 body {
-  grid-template-rows: [head] 30px 20px [main] 1fr [page] auto [foot] 30px;
-    nav.page {
-      grid-column: 2;
-      grid-row: page;
-    }
+  grid-template-columns: 40px 1fr 40px 100px 40px;
 
+  nav.page {
+    grid-row: main;
+    grid-column: 4;
+    justify-self: center;
+    align-self: center;
+  }
 }
 
 @media (min-width: $pc) {
   body {
+    grid-template-columns: [start] 0 [start-side] 40px [side] 246px [side-main] 40px [main] 860px [main-page] 40px [page] 100px [other] 1fr [other-end] 40px [end] 0;
+
     nav.page {
-      grid-column: main;
+      grid-row: main;
+      grid-column: page;
     }
   }
 }

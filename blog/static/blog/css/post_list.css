@@ -302,7 +302,7 @@ body nav#site-nav {
   justify-self: start;
 }
 body ul#sns {
-  grid-column: 2;
+  grid-column: 2/-2;
   grid-row: head;
   align-self: center;
   justify-self: end;
@@ -422,35 +422,44 @@ ul#sns a {
   color: #333;
 }
 
-nav.page ul {
-  list-style-type: none;
-  padding: 0;
+nav.page {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 20px;
+  row-gap: 20px;
 }
-nav.page ul li {
-  float: left;
-  margin-top: 5px;
-  margin-right: 40px;
+nav.page a.prev {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid black;
 }
-nav.page ul li a {
-  color: #333;
-  font-size: 14px;
-}
-nav.page ul li a.disable {
-  color: #aaa;
-  pointer-events: none;
+nav.page a.next {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid black;
 }
 
 body {
-  grid-template-rows: [head] 30px 20px [main] 1fr [page] auto [foot] 30px;
+  grid-template-columns: 40px 1fr 40px 100px 40px;
 }
 body nav.page {
-  grid-column: 2;
-  grid-row: page;
+  grid-row: main;
+  grid-column: 4;
+  justify-self: center;
+  align-self: center;
 }
 
 @media (min-width: 1366px) {
+  body {
+    grid-template-columns: [start] 0 [start-side] 40px [side] 246px [side-main] 40px [main] 860px [main-page] 40px [page] 100px [other] 1fr [other-end] 40px [end] 0;
+  }
   body nav.page {
-    grid-column: main;
+    grid-row: main;
+    grid-column: page;
   }
 }
 
