@@ -4,30 +4,6 @@
   margin: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-strong {
-  background-color: #fff100;
-  font-weight: bold;
-}
-
-a {
-  color: #0000FF;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-pre, code {
-  line-height: 1.5;
-  white-space: pre-wrap;
-}
-
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -290,6 +266,25 @@ div.field ul.dropdown li:hover {
 }
 
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+}
+.markdown-body strong {
+  background-color: #fff100;
+  font-weight: bold;
+}
+.markdown-body a {
+  color: #0000FF;
+  text-decoration: none;
+}
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+.markdown-body pre, .markdown-body code {
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
 .markdown-body h2 {
   font-size: 30px;
   font-weight: bold;

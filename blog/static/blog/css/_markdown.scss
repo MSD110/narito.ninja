@@ -1,5 +1,28 @@
 /* 記事やコメント欄、プレビューエリアの汎用的な設定 */
 .markdown-body {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  strong {
+    background-color: $accent-color;
+    font-weight: bold;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  pre, code {
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
 
   h2 {
     font-size: 30px;

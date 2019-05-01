@@ -14,8 +14,6 @@ body {
   nav.page {
     grid-row: main;
     grid-column: 4;
-    justify-self: center;
-    align-self: center;
   }
 }
 
@@ -26,6 +24,18 @@ body {
     nav.page {
       grid-row: main;
       grid-column: page;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  body {
+    grid-template-columns: 40px 1fr 40px;
+    grid-template-rows: [head] 30px 20px [main] 1fr [page] auto 20px [foot] 30px;
+
+    nav.page {
+      grid-row: page;
+      grid-column: 2;
     }
   }
 }

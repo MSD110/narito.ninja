@@ -4,30 +4,6 @@
   margin: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-strong {
-  background-color: #fff100;
-  font-weight: bold;
-}
-
-a {
-  color: #0000FF;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-pre, code {
-  line-height: 1.5;
-  white-space: pre-wrap;
-}
-
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -424,9 +400,8 @@ ul#sns a {
 
 nav.page {
   display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 20px;
-  row-gap: 20px;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 nav.page a.prev {
   width: 0;
@@ -434,6 +409,16 @@ nav.page a.prev {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 20px solid black;
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: start;
+}
+nav.page span {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
 }
 nav.page a.next {
   width: 0;
@@ -441,16 +426,48 @@ nav.page a.next {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid black;
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: end;
 }
 
+@media (max-width: 767px) {
+  body nav.page {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  body nav.page a.prev {
+    border-top: 10px solid transparent;
+    border-right: 10px solid black;
+    border-bottom: 10px solid transparent;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+  body nav.page span {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+  body nav.page a.next {
+    border-left: 10px solid black;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+}
 body {
   grid-template-columns: 40px 1fr 40px 100px 40px;
 }
 body nav.page {
   grid-row: main;
   grid-column: 4;
-  justify-self: center;
-  align-self: center;
 }
 
 @media (min-width: 1366px) {
@@ -460,6 +477,16 @@ body nav.page {
   body nav.page {
     grid-row: main;
     grid-column: page;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    grid-template-columns: 40px 1fr 40px;
+    grid-template-rows: [head] 30px 20px [main] 1fr [page] auto 20px [foot] 30px;
+  }
+  body nav.page {
+    grid-row: page;
+    grid-column: 2;
   }
 }
 

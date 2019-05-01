@@ -14,31 +14,6 @@ $link-color: #0000FF;  // 純粋な青
   margin: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-strong {
-  background-color: $accent-color;
-  font-weight: bold;
-}
-
-a {
-  color: $link-color;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-pre, code {
-  line-height: 1.5;
-  white-space: pre-wrap;
-}
-
-
 body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; /* テキストの自動拡大を無効 */
